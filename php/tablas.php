@@ -1,12 +1,14 @@
 <?php
 require_once 'conecta.php';
 
+$conexion = obtenerConexion();
+
 $query = "SHOW DATABASES LIKE 'BrainWave'";
-$res = mysqli_query(getConexion(), $query);
+$res = mysqli_query($conexion, $query);
 
 if (mysqli_num_rows($res) <= 0) {
     $sqlCreateDB = "CREATE DATABASE BrainWave";
-    $res2 = mysqli_query(getConexion(), $sqlCreateDB);
+    $res2 = mysqli_query($conexion, $sqlCreateDB);
 
     if ($res2) {
         // Definiciones de tablas
@@ -70,14 +72,14 @@ if (mysqli_num_rows($res) <= 0) {
             )";
 
         // Ejecutar las consultas de creación de tablas
-        mysqli_query(getConexion(), $perfiles_personas);
-        mysqli_query(getConexion(), $login);
-        mysqli_query(getConexion(), $pacientes_login);
-        mysqli_query(getConexion(), $datos_psicologos);
-        mysqli_query(getConexion(), $psicologos_pacientes);
-        mysqli_query(getConexion(), $administradores);
-        mysqli_query(getConexion(), $eventos_talleres);
-        mysqli_query(getConexion(), $eventos_pacientes);
+        mysqli_query($conexion, $perfiles_personas);
+        mysqli_query($conexion, $login);
+        mysqli_query($conexion, $pacientes_login);
+        mysqli_query($conexion, $datos_psicologos);
+        mysqli_query($conexion, $psicologos_pacientes);
+        mysqli_query($conexion, $administradores);
+        mysqli_query($conexion, $eventos_talleres);
+        mysqli_query($conexion, $eventos_pacientes);
 
         if($perfiles_personas && $login && $pacientes_login && $datos_psicologos && $psicologos_pacientes && $administradores && $eventos_talleres && $eventos_pacientes){
 
@@ -137,20 +139,20 @@ if (mysqli_num_rows($res) <= 0) {
             (4, 4),
             (5, 5);";
 
-            mysqli_query(getConexion(), $insert_perfiles_personas);
-            mysqli_query(getConexion(), $insert_login);
-            mysqli_query(getConexion(), $insert_pacientes_login);
-            mysqli_query(getConexion(), $insert_datos_psicologos);
-            mysqli_query(getConexion(), $insert_psicologos_pacientes);
-            mysqli_query(getConexion(), $insert_administradores);
-            mysqli_query(getConexion(), $insert_eventos_talleres);
-            mysqli_query(getConexion(), $insert_eventos_pacientes);
+            mysqli_query($conexion, $insert_perfiles_personas);
+            mysqli_query($conexion, $insert_login);
+            mysqli_query($conexion, $insert_pacientes_login);
+            mysqli_query($conexion, $insert_datos_psicologos);
+            mysqli_query($conexion, $insert_psicologos_pacientes);
+            mysqli_query($conexion, $insert_administradores);
+            mysqli_query($conexion, $insert_eventos_talleres);
+            mysqli_query($conexion, $insert_eventos_pacientes);
         }
 
         // Cerrar la conexión
-        getConexion()->close();
+        cerrarConexion($conexion);
     } else {
-        echo "Error al crear la base de datos: " . mysqli_error(getConexion());
+        echo "Error al crear la base de datos: " . mysqli_error($conexion);
     }
 }
 ?>
