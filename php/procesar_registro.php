@@ -60,6 +60,16 @@ if (isset($datosJSON)) {
 
             if ($flag3) {
                 echo json_encode(['success' => true, 'mensaje' => 'Se ha creado tu perfil correctamente!']);
+                
+                session_start();
+                $_SESSION['usuario'] = $username;
+                $_SESSION["nombre"] = $nombre;
+                $_SESSION["email"] = $email;
+                $_SESSION["tipo"] = "registro";
+
+                header("Location: home.php");
+                exit();
+
             } else {
                 echo json_encode(['error' => true, 'mensaje' => 'No se han podido insertar los datos en login_usuarios!']);
             }
