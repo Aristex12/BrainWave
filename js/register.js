@@ -98,7 +98,7 @@ function verificarFortaleza() {
   if (!passwordRegex.test(password)) {
     div_password.className = "clase_modificada";
     password_error_message.textContent =
-      "La contraseña es debil! <br> La contraseña debe tener al menos una letra en mayúscula, un número y ser de 7 caracteres como mínimo.";
+      "La contraseña es debil! La contraseña debe tener al menos una letra en mayúscula, un número y ser de 7 caracteres como mínimo.";
     flag = true;
   } else {
     div_password.className = "clase_modificada_correcto";
@@ -110,8 +110,6 @@ function verificarFortaleza() {
 }
 
 function enviarFormulario() {
-  // Validar formulario (puedes agregar validaciones según tus necesidades)
-  alert("vina vina");
 
   var datosUsuario = {
     username: document.getElementById("username").value.trim(),
@@ -130,22 +128,20 @@ function enviarFormulario() {
     data: { datos: datosJSON },
     success: function (respuesta) {
       console.log(respuesta);
-
-      // Manejar la respuesta del servidor
-      if (respuesta.error) {
-        // Hubo un error
-        document.getElementById("error_general").className = "clase_modificada";
-        document.querySelector(".text_general").textContent = respuesta.mensaje; // Limpiar mensaje de éxito
-      } else {
+      if (respuesta.success) {
         // Éxito
         document.getElementById("error_general").className =
-          "clase_modificada_correcto";
+            "clase_modificada_correcto";
+        document.querySelector(".text_general").textContent = respuesta.mensaje; // Limpiar mensaje de éxito
+    } else {
+        // Hubo un error
+        document.getElementById("error_general").className = "clase_modificada";
         document.querySelector(".text_general").textContent = respuesta.mensaje; // Limpiar mensaje de error
-      }
+    }
     },
     error: function (error) {
       console.error("Error en la solicitud AJAX: ", error);
-    }
+    },
   });
 }
 
@@ -153,16 +149,16 @@ document.addEventListener("DOMContentLoaded", function () {
   document
     .getElementById("register_form")
     .addEventListener("submit", function (event) {
-        event.preventDefault();
-        // Verificar fortaleza y validez
-        var esFuerte = verificarFortaleza();
-        var esValido = registro();
+      event.preventDefault();
+      // Verificar fortaleza y validez
+      var esFuerte = verificarFortaleza();
+      var esValido = registro();
 
-        if (esFuerte || esValido) {
-            // Detiene el envío del formulario si no cumple con las condiciones
-            return;
-        }
-        // Si cumple con las condiciones, llamar a enviarFormulario
-        enviarFormulario();
+      if (esFuerte || esValido) {
+        // Detiene el envío del formulario si no cumple con las condiciones
+        return;
+      }
+      // Si cumple con las condiciones, llamar a enviarFormulario
+      enviarFormulario();
     });
 });

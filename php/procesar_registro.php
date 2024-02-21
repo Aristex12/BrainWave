@@ -6,8 +6,6 @@ $conexion = obtenerConexion();
 
 $datosJSON = $_POST["datos"];
 
-echo var_dump($datosJSON);
-
 if (isset($datosJSON)) {
 
     $datos = json_decode($datosJSON, true);
@@ -60,12 +58,11 @@ if (isset($datosJSON)) {
 
             $flag3 = $stmtInsert3->execute();
 
-            if($flag3){
-                echo json_encode(['error' => false, 'mensaje' => 'Se ha creado tu perfil correctamente!']);
+            if ($flag3) {
+                echo json_encode(['success' => true, 'mensaje' => 'Se ha creado tu perfil correctamente!']);
             } else {
                 echo json_encode(['error' => true, 'mensaje' => 'No se han podido insertar los datos en login_usuarios!']);
             }
-
         } else {
             echo json_encode(['error' => true, 'mensaje' => 'No se ha podido crear el usuario!']);
         }
@@ -76,5 +73,6 @@ if (isset($datosJSON)) {
     }
 } else {
 
-    echo json_encode(['error' => true, 'mensaje' => 'No se han enviado los datos correctamente!']);
+    echo json_encode(['error' => true, 'mensaje' => 'No se han enviado los datos correctamente']);
+
 }
