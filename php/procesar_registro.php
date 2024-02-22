@@ -28,6 +28,7 @@ if (isset($datosJSON)) {
     if ($stmt->fetch()) {
         // El usuario ya existe, puedes manejar esto como desees
         echo json_encode(['error' => true, 'mensaje' => 'El usuario ya existe.']);
+        exit();
     } else {
         // El usuario no existe, proceder a insertar en perfiles_usuarios
         $stmt->close();
@@ -59,7 +60,6 @@ if (isset($datosJSON)) {
             $flag3 = $stmtInsert3->execute();
 
             if ($flag3) {
-                echo json_encode(['success' => true, 'mensaje' => 'Se ha creado tu perfil correctamente!']);
                 
                 session_start();
                 $_SESSION['usuario'] = $username;
@@ -67,14 +67,16 @@ if (isset($datosJSON)) {
                 $_SESSION["email"] = $email;
                 $_SESSION["tipo"] = "registro";
 
-                header("Location: home.php");
+                echo json_encode(['success' => true, 'mensaje' => 'Se ha creado tu perfil correctamente!', 'redirect' => 'home.php']);
                 exit();
 
             } else {
                 echo json_encode(['error' => true, 'mensaje' => 'No se han podido insertar los datos en login_usuarios!']);
+                exit();
             }
         } else {
             echo json_encode(['error' => true, 'mensaje' => 'No se ha podido crear el usuario!']);
+            exit();
         }
 
         $stmtInsert->close();
@@ -84,5 +86,6 @@ if (isset($datosJSON)) {
 } else {
 
     echo json_encode(['error' => true, 'mensaje' => 'No se han enviado los datos correctamente']);
-
+    exit();
+    
 }

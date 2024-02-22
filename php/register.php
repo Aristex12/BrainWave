@@ -55,7 +55,8 @@ require_once "tablas.php";
                     <p class="text_password"></p>
                 </div>
 
-                <button type="submit" id="submit">Registrarse</button>
+                <button type="submit" id="submit">Registrarse</button> <br>
+                ¿Ya tienes cuenta? <a href="login.php">Pulsa aqui</a>
             </form>
         </div>
     </div>

@@ -17,6 +17,27 @@
         <p>Esta es una página de inicio super básica.</p>
         <button>Botón Morado</button>
     </section>
+
+    <?php
+
+
+        session_start();
+
+        $tipo = $_SESSION["tipo"];
+
+        if($tipo == "registro"){
+
+            echo "<div class='container'>";
+            echo "<div class='inner_container'>";
+            echo "<p>Te has registrado correctamente!</p>";
+            echo "</div>";
+            echo "</div>";
+
+        }
+
+
+    ?>
+
 </body>
 
 </html>

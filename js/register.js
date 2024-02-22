@@ -130,9 +130,9 @@ function enviarFormulario() {
       console.log(respuesta);
       if (respuesta.success) {
         // Éxito
-        document.getElementById("error_general").className =
-            "clase_modificada_correcto";
-        document.querySelector(".text_general").textContent = respuesta.mensaje; // Limpiar mensaje de éxito
+        if (respuesta.redirect) {
+          window.location.href = respuesta.redirect; // Redirige a la página indicada en el JSON
+      } // Limpiar mensaje de éxito
     } else {
         // Hubo un error
         document.getElementById("error_general").className = "clase_modificada";

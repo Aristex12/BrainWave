@@ -21,7 +21,7 @@ require_once "tablas.php";
     <div class="container">
         <div class="inner_container">
             <h2>Login</h2>
-            <form action="#" method="post" id="register_form">
+            <form action="#" method="post" id="login_form">
                 <div class="error_general" id="error_general">
                     <p class="text_general"></p>
                 </div>
@@ -32,12 +32,13 @@ require_once "tablas.php";
                 </div>
 
                 <label for="password">Password:</label>
-                <input type="password" id="password" name="password" oninput="verificarFortaleza()">
+                <input type="password" id="password" name="password">
                 <div class="error_password" id="error_password">
                     <p class="text_password"></p>
                 </div>
 
-                <button type="submit" id="submit">Entra</button>
+                <button type="submit" id="submit">Entra</button> <br>
+                ¿No tienes cuenta? <a href="register.php">Pulsa aqui</a>
             </form>
         </div>
     </div>
