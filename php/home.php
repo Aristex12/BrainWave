@@ -15,7 +15,7 @@
 
     <section>
         <p>Esta es una página de inicio super básica.</p>
-        <button>Botón Morado</button>
+        <a href="login.php"><button>Login</button></a> <a href="register.php"><button>Registro</button></a> <a href="contacto.php"><button>Contacto</button></a>
     </section>
 
     <?php
@@ -24,7 +24,7 @@
         session_start();
 
         $tipo = $_SESSION["tipo"];
-        $username = $_SESSION["username"];
+        $username = $_SESSION["usuario"];
 
         if($tipo == "registro"){
 
