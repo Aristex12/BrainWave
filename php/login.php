@@ -27,15 +27,9 @@ require_once "tablas.php";
                 </div>
                 <label for="username">Username:</label>
                 <input type="text" id="username" name="username">
-                <div class="error_username" id="error_username">
-                    <p class="text_username"></p>
-                </div>
 
                 <label for="password">Password:</label>
                 <input type="password" id="password" name="password">
-                <div class="error_password" id="error_password">
-                    <p class="text_password"></p>
-                </div>
 
                 <button type="submit" id="submit">Entra</button> <br>
                 ¿No tienes cuenta? <a href="register.php">Pulsa aqui</a>

@@ -24,12 +24,21 @@
         session_start();
 
         $tipo = $_SESSION["tipo"];
+        $username = $_SESSION["username"];
 
         if($tipo == "registro"){
 
             echo "<div class='container'>";
             echo "<div class='inner_container'>";
             echo "<p>Te has registrado correctamente!</p>";
+            echo "</div>";
+            echo "</div>";
+
+        } else {
+
+            echo "<div class='container'>";
+            echo "<div class='inner_container'>";
+            echo "<p>Bienvenida de vuelta $username!</p>";
             echo "</div>";
             echo "</div>";
 

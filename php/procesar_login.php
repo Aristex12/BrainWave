@@ -11,7 +11,7 @@ if (isset($datosJSON)) {
     $datos = json_decode($datosJSON, true);
 
     $username = $datos["username"];
-    $password = $datos["password"];
+    $password = $datos["passwd"];
 
     // Obtener el hash almacenado para el usuario
     $stmt = $conexion->prepare("SELECT password FROM login WHERE username = ?");
@@ -25,12 +25,11 @@ if (isset($datosJSON)) {
         $_SESSION['usuario'] = $username;
         $_SESSION["tipo"] = "login";
 
-        // Redirigir a la página de inicio después del login
-        header("Location: home.php");
+        echo json_encode(['success' => true, 'mensaje' => 'Se ha accedido al perfil correctamente', 'redirect' => 'home.php']);
         exit();
     } else {
         // Contraseña incorrecta
-        echo json_encode(['error' => true, 'mensaje' => 'Credenciales incorrectas.']);
+        echo json_encode(['error' => true, 'mensaje' => 'Usuario no existe']);
         exit();
     }
 

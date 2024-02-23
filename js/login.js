@@ -7,9 +7,6 @@ function login() {
   var div_general = document.getElementById("error_general");
   var general_error_message = document.querySelector(".text_general");
 
-  var div_username = document.getElementById("error_username");
-  var username_error_message = document.querySelector(".text_username");
-
   // Verifica que el nombre y apellido solo contengan letras y tengan al menos 2 caracteres
 
   if (username == "" || password == "") {
@@ -24,25 +21,24 @@ function login() {
   // Permitir nombres de usuario alfanuméricos de al menos 3 caracteres
   var usernameRegex = /^[a-zA-Z0-9]{3,}$/;
   if (!usernameRegex.test(username)) {
-    div_username.className = "clase_modificada";
-    username_error_message.textContent =
-      "El nombre de usuario debe tener al menos 3 caracteres alfanuméricos.";
+    div_general.className = "clase_modificada";
+    general_error_message.textContent =
+      "Username o contraseña esta mal";
     flag = true;
   } else {
-    div_username.className = "clase_original";
-    username_error_message.textContent = "";
+    div_general.className = "clase_original";
+    general_error_message.textContent = "";
   }
 
-  var div_password = document.getElementById("error_password");
-  var password_error_message = document.querySelector(".text_password");
-  var password = document.getElementById("password").value;
-  var passwordRegex = '/^[a-zA-Z]{7,}$/';
-
+  var passwordRegex = /^[a-zA-Z0-9]{7,}$/;
   if (!passwordRegex.test(password)) {
-    div_password.className = "clase_modificada";
-    password_error_message.textContent =
-      "La contraseña no sigue nuestros estándares";
+    div_general.className = "clase_modificada";
+    general_error_message.textContent =
+      "Username o contraseña esta mal";
     flag = true;
+  } else {
+    div_general.className = "clase_original";
+    general_error_message.textContent = "";
   }
 
   return flag; // Devuelve el estado de validez del formulario
@@ -51,7 +47,7 @@ function login() {
 function enviarFormulario() {
   var datosUsuario = {
     username: document.getElementById("username").value.trim(),
-    passwd: document.getElementById("password").value.trim(),
+    passwd: document.getElementById("password").value.trim()
   };
 
   var datosJSON = JSON.stringify(datosUsuario);
@@ -63,10 +59,15 @@ function enviarFormulario() {
     data: { datos: datosJSON },
     success: function (respuesta) {
       console.log(respuesta);
-      if (respuesta.error) {
-        document.getElementById("error_general").className = "clase_modificada";
-        document.querySelector(".text_general").textContent = respuesta.mensaje; 
+      if (respuesta.success) {
+        if (respuesta.redirect) {
+          window.location.href = respuesta.redirect; // Redirige a la página indicada en el JSON
       }
+    } else {
+        // Hubo un error
+        document.getElementById("error_general").className = "clase_modificada";
+        document.querySelector(".text_general").textContent = respuesta.mensaje; // Limpiar mensaje de error
+    }
     },
     error: function (error) {
       console.error("Error en la solicitud AJAX: ", error);
@@ -76,12 +77,11 @@ function enviarFormulario() {
 
 document.addEventListener("DOMContentLoaded", function () {
   document
-    .getElementById("register_form")
+    .getElementById("login_form")
     .addEventListener("submit", function (event) {
       event.preventDefault();
       // Verificar fortaleza y validez
-      var esFuerte = verificarFortaleza();
-      var esValido = registro();
+      var esValido = login();
 
       if (esValido) {
         // Detiene el envío del formulario si no cumple con las condiciones
