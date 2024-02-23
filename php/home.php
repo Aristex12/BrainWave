@@ -49,7 +49,7 @@
                 </div>
 
                 <div class="perfil">
-                    <a href="login.php"><i class="fas fa-user-circle fa-2x" style="color:white"></i></a>
+                    <a href="login.php"><i class="fas fa-user-circle fa-2x" id="color_perfil" style="color:white"></i></a>
                 </div>
 
             </div>
@@ -69,7 +69,7 @@
     session_start();
 
     if (isset($_SESSION["usuario"])) {
-        
+
         $tipo = $_SESSION["tipo"];
         $username = $_SESSION["usuario"];
 
@@ -84,7 +84,7 @@
 
             echo "<div class='container'>";
             echo "<div class='inner_container'>";
-            echo "<p>Bienvenida de vuelta $username!</p>";
+            echo "<p>Bienvenido de vuelta $username!</p>";
             echo "</div>";
             echo "</div>";
         }

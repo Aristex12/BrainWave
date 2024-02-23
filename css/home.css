@@ -116,10 +116,6 @@ button:hover {
     color: #7e42fb;
 }
 
-.perfil i:hover{
-    color: #7e42fb;
-}
-
 .lista li{
     margin-right: 10px;
     font-family: 'Satoshi-Medium', sans-serif;
@@ -128,6 +124,14 @@ button:hover {
 .perfil{
     display: flex;
     justify-content: right;
+}
+
+#color_perfil{
+    transition: all 300ms ease-in-out;
+}
+
+#color_perfil:hover{
+    color: #7e42fb;
 }
 
 .div_contacto{
