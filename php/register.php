@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/register.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" crossorigin="anonymous">
     <script src="../js/register.js"></script>
     <title>BrainWave | Registro</title>
 </head>
@@ -25,32 +26,35 @@ require_once "tablas.php";
                 <div class="error_general" id="error_general">
                     <p class="text_general"></p>
                 </div>
-                <label for="username">Username:</label>
+                <label for="username">Username:</label> <br>
                 <input type="text" id="username" name="username">
                 <div class="error_username" id="error_username">
                     <p class="text_username"></p>
-                </div>
+                </div> <br>
 
-                <label for="firstName">First Name:</label>
+                <label for="firstName">First Name:</label> <br>
                 <input type="text" id="firstName" name="firstName">
                 <div class="error_firstname" id="error_firstname">
                     <p class="text_firstname"></p>
-                </div>
+                </div> <br>
 
-                <label for="lastName">Last Name:</label>
+                <label for="lastName">Last Name:</label> <br>
                 <input type="text" id="lastName" name="lastName">
                 <div class="error_lastname" id="error_lastname">
                     <p class="text_lastname"></p>
-                </div>
+                </div> <br>
 
-                <label for="email">Email:</label>
+                <label for="email">Email:</label> <br>
                 <input type="email" id="email" name="email">
                 <div class="error_email" id="error_email">
                     <p class="text_email"></p>
-                </div>
+                </div> <br>
 
-                <label for="password">Password:</label>
+                <label for="password">Password:</label> <br>
                 <input type="password" id="password" name="password" oninput="verificarFortaleza()">
+                <span id="togglePassword" onclick="togglePassword()">
+                    <i class="fas fa-eye" id="eyeIcon"></i>
+                </span>
                 <div class="error_password" id="error_password">
                     <p class="text_password"></p>
                 </div>

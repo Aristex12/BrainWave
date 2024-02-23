@@ -12,7 +12,8 @@ function login() {
   if (username == "" || password == "") {
     div_general.className = "clase_modificada";
     general_error_message.textContent = "Todos los campos son obligatorios.";
-    return;
+    flag = true;
+    return flag;
   } else {
     div_general.className = "clase_original";
     general_error_message.textContent = "";
@@ -24,6 +25,7 @@ function login() {
     div_general.className = "clase_modificada";
     general_error_message.textContent =
       "Username o contraseña esta mal";
+      alert("VINA");
     flag = true;
   } else {
     div_general.className = "clase_original";
@@ -42,6 +44,21 @@ function login() {
   }
 
   return flag; // Devuelve el estado de validez del formulario
+}
+
+function togglePassword() {
+  var passwordInput = document.getElementById("password");
+  var eyeIcon = document.getElementById('eyeIcon');
+
+  if (passwordInput.type === 'password') {
+      passwordInput.type = 'text';
+      eyeIcon.classList.remove('fa-eye');
+      eyeIcon.classList.add('fa-eye-slash');
+  } else {
+      passwordInput.type = 'password';
+      eyeIcon.classList.remove('fa-eye-slash');
+      eyeIcon.classList.add('fa-eye');
+  }
 }
 
 function enviarFormulario() {

@@ -10,6 +10,13 @@
     <title>Home</title>
 </head>
 
+<?php
+
+    require_once "conecta.php";
+    require_once "tablas.php";
+
+?>
+
 <body>
     <nav>
         <div class="nav_container">
@@ -42,7 +49,7 @@
                 </div>
 
                 <div class="perfil">
-                    <a href=""><i class="fas fa-user-circle fa-2x" style="color:white"></i></a>
+                    <a href="login.php"><i class="fas fa-user-circle fa-2x" style="color:white"></i></a>
                 </div>
 
             </div>
@@ -51,36 +58,36 @@
     </nav>
 
     <header>
-        <h1>Bienvenido a Mi Página</h1>
+        <div class="titulo">
+            <h1>Bienvenido a la Home</h1>
+        </div>
     </header>
-
-    <section>
-        <p>Esta es una página de inicio super básica.</p>
-        <a href="login.php"><button>Login</button></a> <a href="register.php"><button>Registro</button></a> <a href="contacto.php"><button>Contacto</button></a>
-    </section>
 
     <?php
 
 
     session_start();
 
-    $tipo = $_SESSION["tipo"];
-    $username = $_SESSION["usuario"];
+    if (isset($_SESSION["usuario"])) {
+        
+        $tipo = $_SESSION["tipo"];
+        $username = $_SESSION["usuario"];
 
-    if ($tipo == "registro") {
+        if ($tipo == "registro") {
 
-        echo "<div class='container'>";
-        echo "<div class='inner_container'>";
-        echo "<p>Te has registrado correctamente!</p>";
-        echo "</div>";
-        echo "</div>";
-    } else {
+            echo "<div class='container'>";
+            echo "<div class='inner_container'>";
+            echo "<p>Te has registrado correctamente!</p>";
+            echo "</div>";
+            echo "</div>";
+        } else {
 
-        echo "<div class='container'>";
-        echo "<div class='inner_container'>";
-        echo "<p>Bienvenida de vuelta $username!</p>";
-        echo "</div>";
-        echo "</div>";
+            echo "<div class='container'>";
+            echo "<div class='inner_container'>";
+            echo "<p>Bienvenida de vuelta $username!</p>";
+            echo "</div>";
+            echo "</div>";
+        }
     }
 
 

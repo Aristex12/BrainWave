@@ -4,7 +4,7 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    font-family: 'Satoshi-Medium', sans-serif;
+    font-family: 'Satoshi-Regular', sans-serif;
 }
 
 body {
@@ -19,6 +19,11 @@ header {
     background-color: #7e42fb;
     padding: 10px;
     text-align: center;
+    width: 100%;
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 section {
@@ -84,24 +89,62 @@ button:hover {
     border-radius: 50px;
 }
 
+.lista{
+    display: flex;
+    align-items: center;
+    justify-content: right;
+}
+
 .lista ul{
     list-style: none;
     padding: 0;
     margin: 0;
     display: flex;
     justify-content: right;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .lista a{
     text-decoration: none;
     color: white;
+    transition: all 300ms ease-in-out;
+}
+
+.lista a:hover{
+    color: #7e42fb;
+}
+
+.perfil i:hover{
+    color: #7e42fb;
 }
 
 .lista li{
     margin-right: 10px;
+    font-family: 'Satoshi-Medium', sans-serif;
 }
 
 .perfil{
     display: flex;
     justify-content: right;
+}
+
+.div_contacto{
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    background-color: white;
+    border-radius: 10px;
+    padding: 7px;
+}
+
+.div_contacto a{
+    color: black;
+    margin: 0;
+}
+
+.div_contacto li{
+    margin: 0;
+    font-family: 'Satoshi-Bold';
 }
