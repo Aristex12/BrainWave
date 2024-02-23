@@ -1,3 +1,12 @@
+@import url('satoshi.css');
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Satoshi-Medium', sans-serif;
+}
+
 body {
     background-color: #0d0d0d;
     color: #ffffff;
@@ -46,4 +55,53 @@ button:hover {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.nav_container{
+    width: 100%;
+    height: max-content;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+}
+
+.nav_inner{
+    width: 90%;
+    display: grid;
+    grid-template-columns: 10% 80% 10%;
+    grid-template-rows: 1fr;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo img{
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+}
+
+.lista ul{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: right;
+}
+
+.lista a{
+    text-decoration: none;
+    color: white;
+}
+
+.lista li{
+    margin-right: 10px;
+}
+
+.perfil{
+    display: flex;
+    justify-content: right;
 }

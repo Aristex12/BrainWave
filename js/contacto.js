@@ -26,7 +26,7 @@ function validarContacto() {
         div_general.className = "clase_modificada";
         general_error_message.textContent = "Todos los campos son obligatorios.";
         flag = true;
-        return;
+        return flag;
     } else {
         div_general.className = "clase_original";
         general_error_message.textContent = "";
@@ -81,6 +81,7 @@ function validarContacto() {
 }
 
 function enviarFormulario() {
+
     var datosContacto = {
         nombre: document.getElementById("nombre").value.trim(),
         email: document.getElementById("email").value.trim(),

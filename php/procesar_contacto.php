@@ -37,7 +37,7 @@ if (isset($datosJSON)) {
         $stmtInsert->bind_param("ssss", $nombre, $email, $telefono, $mensaje);
 
         if ($stmtInsert->execute()) {
-            echo json_encode(['success' => true, 'mensaje' => 'Se ha registrado el contacto correctamente.']);
+            echo json_encode(['success' => true, 'mensaje' => 'Se han enviado tus datos de contacto!']);
             exit();
         } else {
             echo json_encode(['error' => true, 'mensaje' => 'No se ha podido insertar el contacto.']);
