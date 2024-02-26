@@ -24,6 +24,8 @@ if (isset($datosJSON)) {
         session_start();
         $_SESSION['usuario'] = $username;
         $_SESSION["tipo"] = "login";
+        $_SESSION["mensaje_bienvenida_mostrado"] = false;
+        session_write_close();
 
         echo json_encode(['success' => true, 'mensaje' => 'Se ha accedido al perfil correctamente', 'redirect' => 'home.php']);
         exit();

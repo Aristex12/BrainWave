@@ -30,8 +30,21 @@ if (isset($datosJSON)) {
         echo json_encode(['error' => true, 'mensaje' => 'El usuario ya existe.']);
         exit();
     } else {
+
         // El usuario no existe, proceder a insertar en perfiles_usuarios
         $stmt->close();
+
+        $sql2 = "SELECT * FROM login WHERE username = ?";
+        $stmt2 = $conexion->prepare($sql2);
+        $stmt2->bind_param("s", $username);
+        $stmt2->execute();
+
+        if($stmt2->fetch()){
+            echo json_encode(['error' => true, 'mensaje' => 'El usuario ya existe.']);
+            exit();
+        }
+
+        $stmt2->close();
 
         // Insertar en perfiles_usuarios
         $sqlInsert = "INSERT INTO usuarios (nombre, apellidos, email) VALUES (?, ?, ?)";
@@ -66,6 +79,8 @@ if (isset($datosJSON)) {
                 $_SESSION["nombre"] = $nombre;
                 $_SESSION["email"] = $email;
                 $_SESSION["tipo"] = "registro";
+                $_SESSION["mensaje_bienvenida_mostrado"] = false;
+                session_write_close();
 
                 echo json_encode(['success' => true, 'mensaje' => 'Se ha creado tu perfil correctamente!', 'redirect' => 'home.php']);
                 exit();
