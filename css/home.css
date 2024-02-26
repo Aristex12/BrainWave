@@ -20,77 +20,7 @@
     font-family: 'Satoshi-Regular', sans-serif;
 }
 
-.banner {
-    background-color: black;
-    padding: 10px;
-    width: 100%;
-    height: 90vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.titulo{
-    width: 100%;
-    height: max-content;
-    display: flex;
-    align-items: center;
-    justify-content: left;
-    flex-wrap: wrap;
-    padding: 80px;
-    color: white;
-}
-
-.titulo h1{
-    width: 100%;
-    font-size: 5vw;
-    text-transform: uppercase;
-}
-
-.letra_brainwave{
-    color: var(--morado);
-}
-
-.letra_limites{
-    font-family: var(--bold);
-}
-
-.titulo p{
-    font-size: 2vw;
-    text-transform: uppercase;
-    width: 100%;
-    margin-bottom: 20px;
-}
-
-.boton_registro {
-    background-color: #7e42fb;
-    color: white;
-    padding: 15px 25px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    font-family: 'Satoshi-Bold', sans-serif;
-}
-
-.boton_tarjeta{
-    background-color: white;
-    color: black;
-    padding: 20px 45px;
-    border: none;
-    border-radius: 30px;
-    cursor: pointer;
-    font-size: 20px;
-    font-family: var(--medium);
-}
-
-button:hover {
-    background-color: #6b35c5;
-}
-
-button{
-    transition: all 300ms ease-in-out;
-}
+/* Estilos del nav */
 
 .container{
     width: 100%;
@@ -205,6 +135,80 @@ button{
     color: black;
     margin: 0;
     font-family: var(--bold);
+}
+
+/* Todos los estilos de la página */
+
+.banner {
+    background-color: black;
+    padding: 10px;
+    width: 100%;
+    height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.titulo{
+    width: 100%;
+    height: max-content;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    flex-wrap: wrap;
+    padding: 80px;
+    color: white;
+}
+
+.titulo h1{
+    width: 100%;
+    font-size: 5vw;
+    text-transform: uppercase;
+}
+
+.letra_brainwave{
+    color: var(--morado);
+}
+
+.letra_limites{
+    font-family: var(--bold);
+}
+
+.titulo p{
+    font-size: 2vw;
+    text-transform: uppercase;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.boton_registro {
+    background-color: #7e42fb;
+    color: white;
+    padding: 15px 25px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-family: 'Satoshi-Bold', sans-serif;
+}
+
+.boton_tarjeta{
+    background-color: white;
+    color: black;
+    padding: 20px 45px;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 20px;
+    font-family: var(--medium);
+}
+
+button:hover {
+    background-color: #6b35c5;
+}
+
+button{
+    transition: all 300ms ease-in-out;
 }
 
 .section_1{

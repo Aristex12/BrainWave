@@ -4,17 +4,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/contacto.css">
+    <link rel="stylesheet" href="../../css/contacto.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" crossorigin="anonymous">
-    <script src="../js/contacto.js"></script>
+    <script src="../../js/contacto.js"></script>
     <title>BrainWave | Contacto</title>
 </head>
 
 <?php
 
-require_once "conecta.php";
-require_once "tablas.php";
+require_once "../bases_de_datos/conecta.php";
+require_once "../bases_de_datos/tablas.php";
 
 ?>
 
@@ -28,7 +28,7 @@ require_once "tablas.php";
 
                 <div class="logo">
                     <a href="home.php">
-                        <img src="../img/logo.png" alt="">
+                        <img src="../../img/logo.png" alt="">
                     </a>
                 </div>
                 <div class="lista">

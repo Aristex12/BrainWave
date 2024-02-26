@@ -4,15 +4,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/home.css">
+    <link rel="stylesheet" href="../../css/home.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" crossorigin="anonymous">
     <title>Home</title>
 </head>
 
 <?php
 
-require_once "conecta.php";
-require_once "tablas.php";
+require_once "../bases_de_datos/conecta.php";
+require_once "../bases_de_datos/tablas.php";
 
 session_start();
 
@@ -26,7 +26,7 @@ session_start();
 
                 <div class="logo">
                     <a href="home.php">
-                        <img src="../img/logo.png" alt="">
+                        <img src="../../img/logo.png" alt="">
                     </a>
                 </div>
                 <div class="lista">

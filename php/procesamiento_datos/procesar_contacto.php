@@ -1,6 +1,6 @@
 <?php
 
-require_once "conecta.php";
+require_once "../bases_de_datos/conecta.php";
 
 $conexion = obtenerConexion();
 

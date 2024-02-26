@@ -123,7 +123,7 @@ function enviarFormulario() {
 
   $.ajax({
     type: "POST",
-    url: "../php/procesar_registro.php",
+    url: "../php/procesamiento_datos/procesar_registro.php",
     dataType: "json",
     data: { datos: datosJSON },
     success: function (respuesta) {
@@ -151,12 +151,12 @@ function togglePassword() {
 
   if (passwordInput.type === 'password') {
       passwordInput.type = 'text';
-      eyeIcon.classList.remove('fa-eye');
-      eyeIcon.classList.add('fa-eye-slash');
-  } else {
-      passwordInput.type = 'password';
       eyeIcon.classList.remove('fa-eye-slash');
       eyeIcon.classList.add('fa-eye');
+  } else {
+      passwordInput.type = 'password';
+      eyeIcon.classList.remove('fa-eye');
+      eyeIcon.classList.add('fa-eye-slash');
   }
 }
 
