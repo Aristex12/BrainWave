@@ -213,7 +213,7 @@ button{
 
 .section_1{
     width: 100%;
-    height: 700px;
+    height: 1000px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -237,11 +237,12 @@ button{
     display: flex;
     align-items: center;
     justify-content: right;
+    padding: 40px;
 }
 
 .inner_image_section1{
     width: 70%;
-    height: 55%;
+    height: 50%;
     background-image: url(../img/shape1.svg);
     background-position: center;
     background-repeat: no-repeat;
@@ -258,7 +259,7 @@ button{
 
 .inner_text_section1{
     width: 100%;
-    height: 80%;
+    height: 60%;
     border-radius: 25px 0px 0px 25px;
     background-color: var(--tarjeta);
     display: flex;
@@ -269,13 +270,174 @@ button{
     color: white;
 }
 
-.inner_text_section1 h3{
+h3{
     width: 100%;
     font-size: 40px;
     text-transform: uppercase;
     font-family: var(--regular);
 }
 
-.inner_text_section1 p{
+p{
     font-size: 20px;
+}
+
+.section_2{
+    width: 100%;
+    height: 1000px;
+    display: flex;
+    align-items: center;
+    background-image: url(../img/background2.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    flex-wrap: wrap;
+}
+
+.titulo_section2{
+    display: flex;
+    padding: 40px;
+    width: 100%;
+    height: max-content;
+    align-items: center;
+    flex-wrap: wrap;
+    color: white;
+}
+
+.titulo_section2 h3{
+    margin-top: 20px;
+}
+
+.servicios{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 1fr;
+    width: 90%;
+    height: 75%;
+    margin: auto;
+    margin-top: 40px;
+    place-items: center;
+}
+
+.tarjeta_servicio{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 70%;
+    height: 60%;
+    flex-wrap: wrap;
+    background-color: var(--tarjeta);
+    border-radius: 25px;
+    color: white;
+    padding: 25px;
+}
+
+.titulo_section3{
+    display: flex;
+    padding: 40px;
+    width: 100%;
+    height: max-content;
+    align-items: center;
+    flex-wrap: wrap;
+    color: white;
+}
+
+.titulo_section3 h3{
+    margin-top: 20px;
+}
+
+.section_3{
+    display: flex;
+    width: 100%;
+    height: 900px;
+    align-items: center;
+    background-image: url(../img/background4.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    flex-wrap: wrap;
+}
+
+.image_section3{
+    width: 100%;
+    height: 500px;
+    background-image: url(../img/patrocinadores.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.section_4{
+    width: 100%;
+    height: 1000px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url(../img/background5.svg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.titulo_section4{
+    display: flex;
+    padding: 40px;
+    width: 100%;
+    height: max-content;
+    align-items: center;
+    flex-wrap: wrap;
+    color: white;
+}
+
+.titulo_section4 h3{
+    margin-top: 20px;
+}
+
+.inner_section4{
+    width: 95%;
+    height: 95%;
+    display: grid;
+    grid-template-columns: 30% 70%;
+    grid-template-rows: 1fr;
+    place-items: center;
+}
+
+.card_container{
+    width: 95%;
+    height: 95%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    place-items: center;
+}
+
+.card{
+    width: 60%;
+    height: 70%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--tarjeta);
+    flex-wrap: wrap;
+    border-radius: 25px;
+    color: white;
+    padding: 40px;
+    position: relative;
+}
+
+#circulo{
+    position: absolute;
+    top: 10%; /* Coloca el punto en el centro vertical del cuadrado */
+    left: 92%; /* Coloca el punto a 70% desde el borde izquierdo del cuadrado */
+    transform: translate(-50%, -50%);
+}
+
+.card h2{
+    width: 100%;
+    text-align: left;
+    font-size: 30px;
+    font-family: var(--regular);
+}
+
+.card hr{
+    width: 100%;
 }

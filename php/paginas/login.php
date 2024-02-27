@@ -104,7 +104,7 @@ require_once "../bases_de_datos/tablas.php";
                     <h2>Contacto</h2>
                     <p><span class="fuerte">Telefono: </span><a href="tel://+34 632707689">+34 632 707 689</a></p>
                     <p><span class="fuerte">Email: </span><a href="mailto:aristex@hotmail.com">aristex@hotmail.com</a></p>
-                    <p><span class="fuerte">Direccion: </span><a href="https://maps.app.goo.gl/JZpVZw3dKvSbVxxa9"></a>dirección:  C. Tajo, s/n, 28670 Villaviciosa de Odón, Madrid</p>
+                    <p><span class="fuerte">Direccion: </span><a href="https://maps.app.goo.gl/JZpVZw3dKvSbVxxa9"></a>C. Tajo, s/n, 28670 Villaviciosa de Odón, Madrid</p>
                 </div>
                 <div class="links">
                     <h2>Links</h2>

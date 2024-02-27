@@ -133,20 +133,98 @@ session_start();
 
         <div class="section_2">
             <div class="titulo_section2">
-
+                <i class="fas fa-circle fa-xs" style="margin-right: 10px;"></i>
+                <p>¿QUE PUEDES HACER?</p> <br>
+                <h3>Todo lo que te ofrecemos</h3>
             </div>
             <div class="servicios">
                 <div class="tarjeta_servicio">
-
+                    <img src="../../img/shape2.svg" alt="">
+                    <h3>Psicólogos</h3>
+                    <p>Destacamos por ofrecer productos/servicios de calidad inigualable. Desde el inicio hasta el final.</p>
                 </div>
                 <div class="tarjeta_servicio">
-
+                    <img src="../../img/shape3.svg" alt="">
+                    <h3>Workshops</h3>
+                    <p>Destacamos por ofrecer productos/servicios de calidad inigualable. Desde el inicio hasta el final.</p>
                 </div>
                 <div class="tarjeta_servicio">
-
+                    <img src="../../img/shape4.svg" alt="">
+                    <h3>Artículos</h3>
+                    <p>Destacamos por ofrecer productos/servicios de calidad inigualable. Desde el inicio hasta el final.</p>
                 </div>
                 <div class="tarjeta_servicio">
+                    <img src="../../img/shape5.svg" alt="">
+                    <h3>Libros</h3>
+                    <p>Destacamos por ofrecer productos/servicios de calidad inigualable. Desde el inicio hasta el final.</p>
+                </div>
+            </div>
+        </div>
 
+        <div class="section_3">
+            <div class="titulo_section3">
+                <i class="fas fa-circle fa-xs" style="margin-right: 10px;"></i>
+                <p>PATROCINADORES</p> <br>
+                <h3>Nuestros amigos</h3>
+            </div>
+            <div class="image_section3">
+
+            </div>
+        </div>
+
+        <div class="section_4">
+            <div class="inner_section4">
+                <div class="titulo_section4">
+                    <i class="fas fa-circle fa-xs" style="margin-right: 10px;" id="circulo"></i>
+                    <p>DESTACAR</p> <br>
+                    <h3>Nuestra Prioridad</h3>
+                </div>
+                <div class="card_container">
+                    <div class="card">
+                        <i class="fas fa-circle fa-lg" style="color: #F05A54;" id="circulo"></i>
+                        <h2>Calidad</h2>
+                        <hr>
+                        <p>Destacamos por ofrecer productos/servicios de calidad inigualable. Desde el inicio hasta el final, nos esforzamos por superar tus expectativas.</p>
+                    </div>
+                    <div class="card">
+                        <i class="fas fa-circle fa-lg" style="color: #2B9AFF;" id="circulo"></i>
+                        <h2>Experiencia</h2>
+                        <hr>
+                        <p>En Brainwave, con años de liderazgo en salud, brindamos servicios perfeccionados. Confía en nuestra experiencia para una atención destacada y dedicada.</p>
+                    </div>
+                    <div class="card">
+                        <i class="fas fa-circle fa-lg" style="color: #47DF9F;" id="circulo"></i>
+                        <h2>Precio</h2>
+                        <hr>
+                        <p>Priorizamos la calidad sin elevar los costos. Ofrecemos servicios de alta calidad a precios accesibles, garantizando un valor excepcional en cada experiencia.</p>
+                    </div>
+                    <div class="card">
+                        <i class="fas fa-circle fa-lg" style="color: magenta;" id="circulo"></i>
+                        <h2>Innovación</h2>
+                        <hr>
+                        <p>Destacamos por integrar tecnología e innovación de vanguardia en todos nuestros procesos, Desde soluciones tecnológicas avanzadas hasta enfoques innovadores.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section_5">
+            <div class="inner_section5">
+                <div class="titulo_section5">
+                    <i class="fas fa-circle fa-xs" style="margin-right: 10px;" id="circulo"></i>
+                    <p>DESTACAR</p> <br>
+                    <h3>Nuestra Prioridad</h3>
+                </div>
+                <div class="circulos_container">
+                    <div class="circulo">
+
+                    </div>
+                    <div class="circulo">
+
+                    </div>
+                    <div class="circulo">
+
+                    </div>
                 </div>
             </div>
         </div>
