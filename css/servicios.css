@@ -1,0 +1,148 @@
+@import url('satoshi.css');
+
+:root{
+    --regular: 'Satoshi-Regular', sans-serif;
+    --medium: 'Satoshi-Medium', sans-serif;
+    --bold: 'Satoshi-Bold', sans-serif;
+}
+
+:root{
+    --negro: #0D0D0D;
+    --gris: #595959;
+    --tarjeta: #1F1F1F;
+    --morado: #7E42FB;
+}
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Satoshi-Regular', sans-serif;
+}
+
+/* Estilos del nav */
+
+.container{
+    width: 100%;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--morado);
+}
+
+.inner_container{
+    width: 80%;
+    height: 40%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 15px;
+}
+
+.inner_container p{
+    font-family: var(--bold);
+    font-size: 20px;
+}
+
+.nav_container{
+    background-color: var(--negro);
+    width: 100%;
+    height: max-content;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+}
+
+.nav_inner{
+    width: 90%;
+    display: grid;
+    grid-template-columns: 10% 80% 10%;
+    grid-template-rows: 1fr;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo img{
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+}
+
+.lista{
+    display: flex;
+    align-items: center;
+    justify-content: right;
+}
+
+.lista ul{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: right;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.lista a{
+    text-decoration: none;
+    transition: all 300ms ease-in-out;
+    color: white;
+}
+
+.lista ul a:hover{
+    color: var(--morado);
+}
+
+.lista li{
+    margin-right: 10px;
+    font-family: var(--medium);
+}
+
+.perfil{
+    display: flex;
+    justify-content: right;
+}
+
+#color_perfil{
+    color: white;
+    transition: all 300ms ease-in-out;
+  }
+  
+  #color_perfil:hover{
+    color: var(--morado);
+  }
+
+.div_contacto{
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    background-color: white;
+    border-radius: 10px;
+    padding: 7px;
+    transition: all 300ms ease-in-out;
+}
+
+.div_contacto:hover{
+    background-color: var(--morado);
+  }
+
+.div_contacto:hover{
+    background-color: var(--morado);
+  }
+
+.div_contacto a{
+    margin: 0;
+}
+
+.div_contacto li{
+    color: black;
+    margin: 0;
+    font-family: var(--bold);
+}

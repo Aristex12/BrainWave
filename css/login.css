@@ -111,6 +111,7 @@
 }
 
 #color_perfil{
+  color: white;
   transition: all 300ms ease-in-out;
 }
 
@@ -125,6 +126,11 @@
   background-color: white;
   border-radius: 10px;
   padding: 7px;
+  transition: all 300ms ease-in-out;
+}
+
+.div_contacto:hover{
+  background-color: var(--morado);
 }
 
 .div_contacto a{

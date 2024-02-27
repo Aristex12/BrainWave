@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../css/home.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" crossorigin="anonymous">
-    <title>Home</title>
+    <script src="../../js/home.js" defer></script>
+    <title>BrainWave | Home</title>
 </head>
 
 <?php
@@ -60,7 +61,7 @@ session_start();
                                     echo "login.php";
                                 }
 
-                                ?>"><i class="fas fa-user-circle fa-2x" id="color_perfil" style="color:white"></i></a>
+                                ?>"><i class="fas fa-user-circle fa-2x" id="color_perfil"></i></a>
                 </div>
 
             </div>
@@ -175,7 +176,7 @@ session_start();
         <div class="section_4">
             <div class="inner_section4">
                 <div class="titulo_section4">
-                    <i class="fas fa-circle fa-xs" style="margin-right: 10px;" id="circulo"></i>
+                    <i class="fas fa-circle fa-xs" style="margin-right: 10px;"></i>
                     <p>DESTACAR</p> <br>
                     <h3>Nuestra Prioridad</h3>
                 </div>
@@ -211,25 +212,101 @@ session_start();
         <div class="section_5">
             <div class="inner_section5">
                 <div class="titulo_section5">
-                    <i class="fas fa-circle fa-xs" style="margin-right: 10px;" id="circulo"></i>
-                    <p>DESTACAR</p> <br>
-                    <h3>Nuestra Prioridad</h3>
+                    <i class="fas fa-circle fa-xs" style="margin-right: 10px;"></i>
+                    <p>RESULTADOS</p> <br>
+                    <h3>Logros</h3>
                 </div>
                 <div class="circulos_container">
                     <div class="circulo">
-
+                        <div class="outer">
+                            <div class="inner">
+                                <div id="number">
+                                    50%
+                                </div>
+                            </div>
+                        </div>
+                        <h3>Mejora en la Concentración</h3>
                     </div>
                     <div class="circulo">
-
+                        <div class="outer">
+                            <div class="inner">
+                                <div id="number">
+                                    75%
+                                </div>
+                            </div>
+                        </div>
+                        <h3>Desarrollo de habilidades organizativas</h3>
                     </div>
                     <div class="circulo">
-
+                        <div class="outer">
+                            <div class="inner">
+                                <div id="number">
+                                    90%
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                        <h3>Reducción del Estrés y la Ansiedad</h3>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
 
     </main>
+
+    <footer>
+        <div class="container_footer">
+            <div class="inner_footer_container">
+                <div class="social_media">
+                    <h2>Social</h2>
+                    <i class="fab fa-instagram fa-2x"></i>
+                    <i class="fab fa-facebook fa-2x"></i>
+                    <i class="fab fa-linkedin fa-2x"></i>
+                </div>
+                <div class="contact">
+                    <h2>Contacto</h2>
+                    <p><span class="fuerte">Telefono: </span><a href="tel://+34 632707689">+34 632 707 689</a></p>
+                    <p><span class="fuerte">Email: </span><a href="mailto:aristex@hotmail.com">aristex@hotmail.com</a></p>
+                    <p><span class="fuerte">Direccion: </span><a href="https://maps.app.goo.gl/JZpVZw3dKvSbVxxa9"></a>C. Tajo, s/n, 28670 Villaviciosa de Odón, Madrid</p>
+                </div>
+                <div class="links">
+                    <h2>Links</h2>
+                    <div class="inner_link">
+                        <div class="link_piece">
+                            <a href="">Servicios</a>
+                        </div>
+                        <div class="link_piece">
+                            <a href="">Recursos</a>
+                        </div>
+                        <div class="link_piece">
+                            <a href="">Nosotros</a>
+                        </div>
+                        <div class="link_piece">
+                            <a href="">Contacto</a>
+                        </div>
+                        <div class="link_piece">
+                            <a href="">Perfil</a>
+                        </div>
+                        <div class="link_piece">
+                            <a href="">Workshops</a>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                <div class="legal">
+                    <div class="copy">
+                        brainwave copyright - own elements
+                    </div>
+                    <div class="disclaimer">
+                        <a href="">Disclaimer</a>
+                        <a href="">Politica de privacidad</a>
+                        <a href="">Terminos de Uso</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
 
 </body>
 

@@ -62,7 +62,7 @@ require_once "../bases_de_datos/tablas.php";
                                     echo "login.php";
                                 }
 
-                                ?>"><i class="fas fa-user-circle fa-2x" id="color_perfil" style="color:white"></i></a>
+                                ?>"><i class="fas fa-user-circle fa-2x" id="color_perfil"></i></a>
                 </div>
 
             </div>
