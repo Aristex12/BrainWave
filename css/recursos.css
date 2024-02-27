@@ -133,6 +133,10 @@
   background-color: var(--morado);
 }
 
+.div_contacto:hover {
+  background-color: var(--morado);
+}
+
 .div_contacto a {
   margin: 0;
 }
@@ -143,7 +147,7 @@
   font-family: var(--bold);
 }
 
-/* Estilos de toda la página */
+/* Todos los estilos de la página */
 
 .section1 {
   width: 100%;
@@ -151,7 +155,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-image: url(../img/background10.svg);
+  background-image: url(../img/background7.svg);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -163,7 +167,19 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-image: url(../img/background11.svg);
+  background-image: url(../img/background8.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.section3 {
+  width: 100%;
+  height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: url(../img/background9.svg);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -183,7 +199,7 @@
 .image_container1 {
   width: 65%;
   height: 65%;
-  background-image: url(../img/shape10.svg);
+  background-image: url(../img/shape6.svg);
   background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
@@ -194,7 +210,18 @@
 .image_container2 {
   width: 65%;
   height: 65%;
-  background-image: url(../img/shape9.svg);
+  background-image: url(../img/shape7.svg);
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: right;
+}
+
+.image_container3 {
+  width: 65%;
+  height: 65%;
+  background-image: url(../img/shape8.svg);
   background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
@@ -243,6 +270,7 @@ h2 {
 }
 
 /* Estilos del footer */
+
 .container_footer {
   width: 100%;
   height: 350px;
