@@ -120,7 +120,7 @@
                         </div>
                         <div class="psicologo_texto">
                             <h3>Maria Rodríguez</h3>
-                            <p></p>
+                            <p>¡Hola! Soy la Dra. María Rodríguez, psicóloga con más de 10 años de experiencia. Estoy encantada de ser tu guía en este viaje hacia el bienestar emocional. Mi enfoque cálido y empático te brindará el apoyo que necesitas.</p>
                         </div>
                     </div>
                     <div class="psicologo">
@@ -128,8 +128,8 @@
 
                         </div>
                         <div class="psicologo_texto">
-                            <h3>Pedro Arroyo</h3>
-                            <p></p>
+                            <h3>Carlos Martinez</h3>
+                            <p>Saludos, soy el Lic. Carlos Martínez, psicólogo especializado en ansiedad y estrés. Estoy emocionado de trabajar contigo para superar los desafíos emocionales. Juntos, construiremos un camino hacia la tranquilidad y el equilibrio.</p>
                         </div>
                     </div>
                     <div class="psicologo">
@@ -137,11 +137,18 @@
 
                         </div>
                         <div class="psicologo_texto">
-                            <h3>Paula Sego</h3>
-                            <p></p>
+                            <h3>Laura Gómez</h3>
+                            <p>¡Bienvenido! Soy la Dra. Laura Gómez, psicóloga clínica. Estoy emocionada de formar parte de tu proceso de crecimiento personal. Con un enfoque positivo y orientado a soluciones, trabajaremos juntos para alcanzar tus metas emocionales.</p>
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+
+        <div class="section4">
+            <div class="inner_section4">
+                <h1>¿A que esperas?</h1>
+                <a href=""><button>Pide cita</button></a>
             </div>
         </div>
 
