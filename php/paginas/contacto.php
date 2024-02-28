@@ -73,7 +73,7 @@ require_once "../bases_de_datos/tablas.php";
 
     <main>
         <div class="titulo">
-            <h1>Conctáctanos</h1>
+            <h1>Contáctanos</h1>
         </div>
 
         <div class="container2">

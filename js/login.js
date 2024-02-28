@@ -25,7 +25,6 @@ function login() {
     div_general.className = "clase_modificada";
     general_error_message.textContent =
       "Username o contraseña esta mal";
-      alert("VINA");
     flag = true;
   } else {
     div_general.className = "clase_original";
@@ -71,7 +70,7 @@ function enviarFormulario() {
 
   $.ajax({
     type: "POST",
-    url: "../php/procesamiento_datos/procesar_login.php",
+    url: "../procesamiento_datos/procesar_login.php",
     dataType: "json",
     data: { datos: datosJSON },
     success: function (respuesta) {

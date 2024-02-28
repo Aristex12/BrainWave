@@ -21,7 +21,7 @@
   font-weight: normal;
 }
 
-/*Todos los estilos del nav*/
+/* Los estilos del nav */
 
 .container {
   width: 100%;
@@ -144,7 +144,7 @@
   font-family: var(--bold);
 }
 
-/* Todos los estilos de la página */
+/* Todos los estilos del resto de la pagina */
 
 .titulo {
   width: 100%;
@@ -162,11 +162,11 @@
 
 .section1 {
   width: 100%;
-  height: 500px;
+  height: 800px;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-image: url(../img/background12.svg);
+  background-image: url(../img/background15.svg);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -175,75 +175,105 @@
 .inner_section {
   width: 90%;
   height: 90%;
-  display: flex;
-  align-items: center;
-  justify-content: left;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 1fr;
+  flex-direction: row;
+  place-items: center;
   color: white;
 }
 
 .text_container {
-  padding: 30px;
+  width: 70%;
+  height: max-content;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
 }
 
-.text_container > * {
-  margin-bottom: 20px;
+.text_container p {
+  text-transform: uppercase;
 }
 
 h2 {
-  text-transform: uppercase;
-  font-size: 40px;
   width: 100%;
+  font-size: 35px;
+  text-transform: uppercase;
+}
+
+.datos_container {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(3, 1fr);
+  width: 90%;
+  height: 90%;
+  flex-direction: column;
+  place-items: center;
+}
+
+.dato {
+  width: 80%;
+  height: 90%;
+  background-color: var(--tarjeta);
+  padding: 20px;
+  border-radius: 25px;
+}
+
+.dato span {
+  font-size: 25px;
+  font-family: var(--bold);
+  color: var(--gris);
+}
+
+.dato h3 {
+  font-size: 30px;
+  font-family: var(--medium);
+  margin-bottom: 10px;
 }
 
 .section2 {
   width: 100%;
-  height: 700px;
+  height: 300px;
   display: flex;
   align-items: center;
-  justify-content: right;
-  background-image: url(../img/background13.svg);
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
+  justify-content: left;
+  background-color: var(--negro);
 }
 
-.inner_section2{
-    width: 80%;
-    height: 60%;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: 1fr;
-    border-radius: 25px 0 0 25px;
-    background-color: var(--tarjeta);
-    place-items: center;
-    color: white;
+.inner_section2 {
+  width: 60%;
+  height: 70%;
+  display: grid;
+  grid-template-columns: 70% 30%;
+  grid-template-rows: 1fr;
+  flex-direction: row;
+  place-items: center;
+  color: white;
+  border-radius: 0 25px 25px 0;
+  background-color: var(--tarjeta);
 }
 
-.section_image{
-    width: 50%;
-    height: 50%;
-    background-image: url(../img/shape11.svg);
-    background-position: center;
-    background-size: contain;
-    background-repeat: no-repeat;
+.boton_container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.section_text > *{
-    margin-bottom: 20px;
+.boton_articulos {
+  background-color: white;
+  color: black;
+  padding: 20px 45px;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  font-size: 20px;
+  font-family: var(--medium);
 }
 
-.section_text{
-    padding: 50px 60px 50px 0;
-}
-
-p{
-    font-size: 20px;
-}
-
-.section3{
+.section3 {
   width: 100%;
   height: 900px;
-  background-image: url(../img/background14.svg);
+  background-image: url(../img/background16.svg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -252,7 +282,7 @@ p{
   justify-content: center;
 }
 
-.inner_section3{
+.inner_section3 {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -260,23 +290,25 @@ p{
   width: 90%;
   height: 80%;
   color: white;
-  background-color: rgba(255, 255, 255, 0.1);
   padding: 50px;
   border-radius: 25px;
 }
 
-.section_text2{
+.section_text2 {
+  display: flex;
   width: 100%;
   height: max-content;
+  align-items: center;
+  flex-wrap: wrap;
 }
 
-.section_text2 h1{
+.section_text2 h2 {
   font-size: 50px;
   font-family: var(--medium);
   margin-bottom: 5px;
 }
 
-.fundadores{
+.psicologos_container {
   width: 95%;
   height: 80%;
   display: grid;
@@ -285,18 +317,18 @@ p{
   place-items: center;
 }
 
-.fundador{
+.psicologo {
   width: 70%;
   height: 80%;
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 70% 30%;
   place-items: center;
-  background-color: var(--negro);
+  background-color: var(--tarjeta);
   border-radius: 25px;
 }
 
-.fundador_imagen1{
+.psicologo_imagen1 {
   width: 100%;
   height: 100%;
   background-image: url(../img/persona1.jpg);
@@ -305,7 +337,7 @@ p{
   background-repeat: no-repeat;
   border-radius: 25px 25px 0 0;
 }
-.fundador_imagen2{
+.psicologo_imagen2 {
   width: 100%;
   height: 100%;
   background-image: url(../img/persona3.jpg);
@@ -314,7 +346,7 @@ p{
   background-repeat: no-repeat;
   border-radius: 25px 25px 0 0;
 }
-.fundador_imagen3{
+.psicologo_imagen3 {
   width: 100%;
   height: 100%;
   background-image: url(../img/persona2.jpg);
@@ -323,69 +355,6 @@ p{
   background-repeat: no-repeat;
   border-radius: 25px 25px 0 0;
 }
-
-.section4{
-  width: 100%;
-  height: 800px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: var(--negro);
-  color: white;
-}
-
-.inner_section4{
-  width: 80%;
-  height: 80%;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: 1fr;
-  place-items: center;
-}
-
-.text_section4{
-  width: 80%;
-  height: max-content;
-  display: flex;
-  align-items: center;
-  justify-content: left;
-  flex-wrap: wrap;
-}
-
-.datos{
-  width: 70%;
-  height: 40%;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(2, 1fr);
-  grid-gap: 20px;
-}
-
-.dato{
-  text-transform: uppercase;
-}
-
-.dato h2{
-  font-family: var(--medium);
-  color: var(--morado);
-}
-
-.section5{
-  width: 100%;
-  height: 400px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-transform: uppercase;
-  background-color: var(--tarjeta);
-  color: white;
-}
-
-.section5 h3{
-  font-family: var(--medium);
-  font-size: 20px;
-}
-
 
 /* Todos los estilos del footer */
 

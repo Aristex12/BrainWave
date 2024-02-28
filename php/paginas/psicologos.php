@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" crossorigin="anonymous">
-    <link rel="stylesheet" href="../../css/servicios.css">
+    <link rel="stylesheet" href="../../css/psicologos.css">
     <title>BrainWave | Servicios</title>
 </head>
 
@@ -63,30 +63,84 @@
     <main>
 
         <div class="titulo">
-            <h1>Servicios</h1>
+            <h1>Psicólogos</h1>
         </div>
 
         <div class="section1">
             <div class="inner_section">
-                <div class="image_container1">
-                </div>
                 <div class="text_container">
-                    <h2>Psicólogos</h2>
-                    <p>Nuestros psicólogos especializados en TDAH brindan apoyo personalizado y efectivo, utilizando estrategias adaptadas a las necesidades individuales. Con empatía y experiencia, guiaremos a cada persona afectada por el TDAH hacia el autodescubrimiento y el desarrollo personal.</p>
-                    <a href="psicologos.php"><button class="boton_ver">Ver</button></a>
+                    <i class="fas fa-circle fa-xs" style="margin-right: 10px;"></i>
+                    <p>Cómodo</p> <br>
+                    <h2>Lo Hacemos Sencillo</h2>
+                </div>
+                <div class="datos_container">
+                    <div class="dato">
+                        <span>01</span>
+                        <h3>Elige tu psicólogo</h3>
+                        <p>Explora la plataforma y selecciona entre una variedad de profesionales.</p>
+                    </div>
+                    <div class="dato">
+                        <span>02</span>
+                        <h3>Conócelo Más</h3>
+                        <p>Investiga el perfil de tu psicólogo elegido para entender su enfoque y experiencia.</p>
+                    </div>
+                    <div class="dato">
+                        <span>03</span>
+                        <h3>Sesión Virtual</h3>
+                        <p>Coordina una sesión por videollamada o llamada para discutir preocupaciones y establecer objetivos.</p>
+                    </div>
                 </div>
             </div>
         </div>
 
         <div class="section2">
-            <div class="inner_section">
+            <div class="inner_section2">
                 <div class="text_container">
-                    <h2>Workshops</h2>
-                    <p>Nuestros talleres especializados ofrecen apoyo y estrategias personalizadas para abordar el TDAH. Con enfoque práctico, brindamos herramientas efectivas para el desarrollo personal y la gestión del trastorno.</p>
-                    <a href="podcasts.php"><button class="boton_ver">Ver</button></a>
+                    <i class="fas fa-circle fa-xs" style="margin-right: 10px;"></i>
+                    <p>Leer</p> <br>
+                    <h2>Infórmate sobre nuestros articulos</h2>
                 </div>
-                <div class="image_container2">
+                <div class="boton_container">
+                    <a href=""><button class="boton_articulos">Ver</button></a>
+                </div>
+            </div>
+        </div>
 
+        <div class="section3">
+            <div class="inner_section3">
+                <div class="section_text2">
+                    <i class="fas fa-circle fa-xs" style="margin-right: 10px;"></i>
+                    <p>Ellos</p> <br>
+                    <h2>Nuestros Expertos</h2>
+                </div>
+                <div class="psicologos_container">
+                    <div class="psicologo">
+                        <div class="psicologo_imagen1">
+
+                        </div>
+                        <div class="psicologo_texto">
+                            <h3>Maria Rodríguez</h3>
+                            <p></p>
+                        </div>
+                    </div>
+                    <div class="psicologo">
+                        <div class="psicologo_imagen2">
+
+                        </div>
+                        <div class="psicologo_texto">
+                            <h3>Pedro Arroyo</h3>
+                            <p></p>
+                        </div>
+                    </div>
+                    <div class="psicologo">
+                        <div class="psicologo_imagen3">
+
+                        </div>
+                        <div class="psicologo_texto">
+                            <h3>Paula Sego</h3>
+                            <p></p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

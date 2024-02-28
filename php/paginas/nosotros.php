@@ -99,7 +99,7 @@
                 </div>
                 <div class="fundadores">
                     <div class="fundador">
-                        <div class="fundador_imagen">
+                        <div class="fundador_imagen1">
 
                         </div>
                         <div class="fundador_texto">
@@ -107,23 +107,55 @@
                         </div>
                     </div>
                     <div class="fundador">
-                        <div class="fundador_imagen">
+                        <div class="fundador_imagen2">
 
                         </div>
                         <div class="fundador_texto">
-                            <h3>Maria Rodríguez</h3>
+                            <h3>Pedro Arroyo</h3>
                         </div>
                     </div>
                     <div class="fundador">
-                        <div class="fundador_imagen">
+                        <div class="fundador_imagen3">
 
                         </div>
                         <div class="fundador_texto">
-                            <h3>Maria Rodríguez</h3>
+                            <h3>Paula Sego</h3>
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
+
+        <div class="section4">
+            <div class="inner_section4">
+                <div class="text_section4">
+                    <i class="fas fa-circle fa-xs" style="margin-right: 10px;"></i>
+                    <p>MOTIVACIÓN</p>
+                    <h2>Nuestra Comunidad</h2>
+                </div>
+                <div class="datos">
+                    <div class="dato">
+                        <h2>100K</h2>
+                        <p>Usuarios</p>
+                    </div>
+                    <div class="dato">
+                        <h2>1K</h2>
+                        <p>Psicólogos</p>
+                    </div>
+                    <div class="dato">
+                        <h2>55</h2>
+                        <p>Patrocinadores</p>
+                    </div>
+                    <div class="dato">
+                        <h2>12</h2>
+                        <p>Premios</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section5">
+            <h3>día a día en la búsqueda de un mundo más comprensivo y solidario en torno al TDAH</h3>
         </div>
 
     </main>

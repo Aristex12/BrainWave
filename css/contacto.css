@@ -124,14 +124,14 @@
   display: flex;
   align-items: center;
   justify-content: right;
-  background-color: white;
+  background-color: var(--morado);
   border-radius: 10px;
   padding: 7px;
   transition: all 300ms ease-in-out;
 }
 
 .div_contacto:hover{
-  background-color: var(--morado);
+  background-color: var(--gris);
 }
 
 .div_contacto a{
@@ -139,7 +139,7 @@
 }
 
 .div_contacto li{
-  color: black;
+  color: white;
   margin: 0;
   font-family: var(--bold);
 }
@@ -149,7 +149,7 @@
 .titulo{
   width: 100%;
   height: 300px;
-  background-color: var(--negro);
+  background-color: var(--morado);
   color: white;
   display: flex;
   align-items: center;
@@ -194,7 +194,7 @@
   width: 90%;
   height: 80%;
   color: white;
-  font-size: 35px;
+  font-size: 25px;
   font-family: var(--regular);
   text-transform: uppercase;
 }

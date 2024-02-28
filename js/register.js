@@ -123,7 +123,7 @@ function enviarFormulario() {
 
   $.ajax({
     type: "POST",
-    url: "../php/procesamiento_datos/procesar_registro.php",
+    url: "../procesamiento_datos/procesar_registro.php",
     dataType: "json",
     data: { datos: datosJSON },
     success: function (respuesta) {
