@@ -209,7 +209,25 @@ if (mysqli_num_rows($res) <= 0) {
         ('TED Talks Daily', 'TED', 'https://youtu.be/n5SaHkzv468?si=fizLzWA6BLbCWJXN'),
         ('Science Vs', 'Wondery', 'https://youtu.be/QIo-ESOav8Y?si=v2Fz70jlDH_YLkno')";
 
-    
+    // Inserts para relacion_libro_imagen
+    $insert_relacion_libro_imagen = "INSERT INTO relacion_libro_imagen (id_libro, id_imagen) VALUES
+        (1, 1),
+        (2, 2),
+        (3, 3),
+        (4, 4),
+        (5, 5),
+        (6, 6);";
+
+    // Inserts para relacion_podcast_imagen
+    $insert_relacion_podcast_imagen = "INSERT INTO relacion_podcast_imagen (id_podcast, id_imagen) VALUES
+        (7, 7),
+        (8, 8),
+        (9, 9),
+        (10, 10),
+        (11, 11),
+        (12, 12);";
+
+
 
 
     $ruta_directorio = '../../img_web';
@@ -261,6 +279,11 @@ if (mysqli_num_rows($res) <= 0) {
     mysqli_query($conexion, $insert_eventos_talleres);
     mysqli_query($conexion, $insert_eventos_pacientes);
     mysqli_query($conexion, $insert_contacto);
+    mysqli_query($conexion, $insert_libros);
+    mysqli_query($conexion, $insert_podcasts);
+    mysqli_query($conexion, $insert_relacion_libro_imagen);
+    mysqli_query($conexion, $insert_relacion_podcast_imagen);
+    
 }
 
 
