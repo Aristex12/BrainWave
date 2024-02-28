@@ -17,7 +17,8 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  font-family: "Satoshi-Regular", sans-serif;
+  font-family: var(--regular);
+  font-weight: normal;
 }
 
 /* Estilos del nav */

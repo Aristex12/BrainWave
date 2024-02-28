@@ -18,6 +18,7 @@
   margin: 0;
   box-sizing: border-box;
   font-family: var(--regular);
+  font-weight: normal;
 }
 
 /* Estilos del nav */

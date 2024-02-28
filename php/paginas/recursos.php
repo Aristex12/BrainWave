@@ -62,6 +62,10 @@
 
     <main>
 
+        <div class="titulo">
+            <h1>Recursos</h1>
+        </div>
+
         <div class="section1">
             <div class="inner_section">
                 <div class="image_container1">
