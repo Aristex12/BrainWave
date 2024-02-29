@@ -108,6 +108,7 @@ require_once '../bases_de_datos/tablas.php';
                         $contenido_resumen = substr($articulo['contenido'], 0, 150); // Limitar a 150 caracteres, ajusta según tus necesidades
 
                         echo '<p>' . $contenido_resumen . '...</p>';
+                        echo '<span>Autor: ' . $articulo["autor"] . '</span>';
 
                         // Agregar elemento oculto con el contenido completo
                         echo '<div class="contenido-completo-oculto" style="display:none;">' . $articulo['contenido'] . '</div>';
@@ -120,9 +121,8 @@ require_once '../bases_de_datos/tablas.php';
             </div>
         </div>
         <div id="myModal" class="modal">
+            <i class="fas fa-times fa-2x" id="closeBtn"></i>
             <div class="modal-content" id="modalContent">
-
-                <span class="close" id="closeBtn">&times;</span>
             </div>
         </div>
 

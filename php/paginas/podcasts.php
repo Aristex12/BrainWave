@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" crossorigin="anonymous">
     <link rel="stylesheet" href="../../css/podcasts.css">
+    <script src="../../js/podcasts.js" defer></script>
     <title>BrainWave | Podcasts</title>
 </head>
 
@@ -80,7 +81,7 @@ require_once '../bases_de_datos/tablas.php';
                         <input type="text" name="buscador" id="" placeholder="Buscar" value="<?php if (isset($_GET['buscador'])) echo $_GET['buscador']; ?>"><button type="submit">Enviar</button>
                     </form>
                 </div>
-                <div class="libros_container">
+                <div class="podcast_container">
 
                     <?php
 
@@ -90,38 +91,41 @@ require_once '../bases_de_datos/tablas.php';
                     if (isset($_GET['buscador'])) {
                         $busqueda = $_GET['buscador'];
 
-                        // Realiza la consulta para obtener libros con imágenes que coincidan con la búsqueda
-                        $query_libros_imagenes = "SELECT libros.*, imagenes.ruta AS imagen_ruta 
-                        FROM libros 
-                        JOIN relacion_libro_imagen ON libros.id_libro = relacion_libro_imagen.id_libro 
-                        JOIN imagenes ON relacion_libro_imagen.id_imagen = imagenes.id_imagen
-                        WHERE libros.titulo LIKE '%$busqueda%' OR libros.autor LIKE '%$busqueda%'";
-                                    } else {
-                                        // Consulta sin búsqueda, obtener todos los libros con imágenes
-                                        $query_libros_imagenes = "SELECT libros.*, imagenes.ruta AS imagen_ruta 
-                        FROM libros 
-                        JOIN relacion_libro_imagen ON libros.id_libro = relacion_libro_imagen.id_libro 
-                        JOIN imagenes ON relacion_libro_imagen.id_imagen = imagenes.id_imagen";
+                        // Realiza la consulta para obtener podcasts con enlaces que coincidan con la búsqueda
+                        $query_podcasts_enlaces = "SELECT podcasts.*, imagenes.ruta AS imagen_ruta 
+                        FROM podcasts 
+                        JOIN relacion_podcast_imagen ON podcasts.id_podcast = relacion_podcast_imagen.id_podcast 
+                        JOIN imagenes ON relacion_podcast_imagen.id_imagen = imagenes.id_imagen
+                        WHERE podcasts.titulo LIKE '%$busqueda%' OR podcasts.autor LIKE '%$busqueda%'";
+                    } else {
+                        // Consulta sin búsqueda, obtener todos los podcasts con enlaces
+                        $query_podcasts_enlaces = "SELECT podcasts.*, imagenes.ruta AS imagen_ruta 
+                        FROM podcasts 
+                        JOIN relacion_podcast_imagen ON podcasts.id_podcast = relacion_podcast_imagen.id_podcast 
+                        JOIN imagenes ON relacion_podcast_imagen.id_imagen = imagenes.id_imagen";
                     }
 
-                    $result_libros_imagenes = mysqli_query($conexion, $query_libros_imagenes);
+                    $result_podcasts_enlaces = mysqli_query($conexion, $query_podcasts_enlaces);
 
                     // Almacena los resultados en un array asociativo
-                    $libros_imagenes = mysqli_fetch_all($result_libros_imagenes, MYSQLI_ASSOC);
+                    $podcasts_enlaces = mysqli_fetch_all($result_podcasts_enlaces, MYSQLI_ASSOC);
 
                     // Cierra la conexión
                     cerrarConexion($conexion);
 
-                    foreach ($libros_imagenes as $libro_imagen) {
-                        echo '<div class="articulo">';
-                        echo '<div class="texto_articulo">';
-                        echo '<h2>' . $libro_imagen['titulo'] . '</h2>';
-                        echo '<p>' . $libro_imagen['autor'] . '</p>';
+                    foreach ($podcasts_enlaces as $podcast_enlace) {
+                        echo '<div class="podcast" style="background-image:url(' . $podcast_enlace['imagen_ruta'] .')">';
+                        echo "<div class='inner_podcast'>";
+                        echo "<div class='box'>";
+                        echo '<i class="fas fa-play fa-2x"></i>';
+                        echo '<h2>' . $podcast_enlace['titulo'] . '</h2>';
+                        echo '<p>' . $podcast_enlace['autor'] . '</p>';
+                        echo "</div>";
                         echo '</div>';
                         echo '</div>';
                     }
-
                     ?>
+
 
                 </div>
             </div>

@@ -1,33 +1,31 @@
 document.addEventListener('DOMContentLoaded', function () {
-    var articulos = document.querySelectorAll('.articulo');
+    var podcastDivs = document.querySelectorAll('.podcast');
 
-    articulos.forEach(function (articulo) {
-        articulo.addEventListener('click', function () {
+    podcastDivs.forEach(function (podcastDiv) {
+        podcastDiv.addEventListener('click', function () {
+            var link = podcastDiv.getAttribute('data-link');
+
             var modal = document.getElementById('myModal');
             var modalContent = document.getElementById('modalContent');
             var closeBtn = document.getElementById('closeBtn');
 
-            // Obtener datos del artículo
-            var titulo = articulo.querySelector('h2').textContent;
-
-            // Obtener contenido completo oculto
-            var contenidoCompleto = articulo.querySelector('.contenido-completo-oculto').textContent;
-
-            // Mostrar datos en el modal
-            modalContent.innerHTML = '<h2>' + titulo + '</h2><p class="contenido-completo">' + contenidoCompleto + '</p>';
+            // Mostrar iframe con el enlace del podcast
+            modalContent.innerHTML = '<iframe width="560" height="315" src="' + link + '" frameborder="0" allowfullscreen></iframe>';
 
             // Mostrar el modal
             modal.style.display = 'flex';
 
-            // Cambiado: Utilizar addEventListener para el evento 'click'
+            // Cerrar el modal al hacer clic en el botón de cierre
             closeBtn.addEventListener('click', function () {
                 modal.style.display = 'none';
+                modalContent.innerHTML = ''; // Limpiar el contenido del iframe
             });
 
             // Cerrar el modal al hacer clic fuera del contenido
             window.addEventListener('click', function (event) {
                 if (event.target == modal) {
                     modal.style.display = 'none';
+                    modalContent.innerHTML = ''; // Limpiar el contenido del iframe
                 }
             });
         });

@@ -236,12 +236,17 @@ if (mysqli_num_rows($res) <= 0) {
         (5, 11),
         (6, 12);";
 
-    $insert_articulos = "INSERT INTO articulos (titulo, autor, contenido) VALUES
-        ('Cómo manejar el TDAH en niños', 'Ana López', 'El Trastorno por Déficit de Atención e Hiperactividad (TDAH) puede ser desafiante para los padres. Aquí hay algunas estrategias para manejarlo.'),
-        ('Consejos para el rendimiento académico en jóvenes con TDAH', 'David García', 'Los estudiantes con TDAH pueden enfrentar dificultades académicas. Descubre algunos consejos para mejorar su rendimiento escolar.'),
-        ('Impacto del TDAH en la vida diaria', 'Elena Sánchez', 'El TDAH puede afectar diversas áreas de la vida diaria. Exploraremos cómo este trastorno puede influir en las rutinas cotidianas.'),
-        ('Tratamientos actuales para el TDAH', 'Pedro González', 'Existen diferentes enfoques para tratar el TDAH, desde terapias psicológicas hasta medicamentos. Conoce las opciones disponibles.'),
-        ('Mitigando los desafíos sociales del TDAH', 'Silvia Fernández', 'Las personas con TDAH a menudo enfrentan desafíos sociales. Descubre estrategias para mejorar las habilidades sociales en individuos con este trastorno.');";
+$insert_articulos = "INSERT INTO articulos (titulo, autor, contenido) VALUES
+('Cómo manejar el TDAH en niños', 'Ana López', 'El Trastorno por Déficit de Atención e Hiperactividad (TDAH) puede ser desafiante para los padres. En muchos casos, es importante adoptar un enfoque comprensivo que involucre tanto a la familia como a los educadores. Se recomienda establecer rutinas estructuradas y proporcionar un entorno de estudio tranquilo. Además, trabajar en colaboración con profesionales de la salud mental puede ofrecer estrategias adicionales para abordar las necesidades específicas de cada niño con TDAH. Recordemos que cada caso es único y requiere una atención individualizada.'),
+
+('Consejos para el rendimiento académico en jóvenes con TDAH', 'David García', 'Los estudiantes con TDAH pueden enfrentar dificultades académicas que afectan su rendimiento escolar. En lugar de centrarse únicamente en las limitaciones, es fundamental identificar las fortalezas de cada estudiante y adaptar el entorno educativo para aprovechar esas habilidades. Implementar técnicas de estudio específicas, proporcionar apoyo individualizado y fomentar un ambiente inclusivo pueden marcar la diferencia. Es esencial trabajar en colaboración con los docentes y los profesionales de la educación para desarrollar estrategias efectivas.'),
+
+('Impacto del TDAH en la vida diaria', 'Elena Sánchez', 'El TDAH puede afectar diversas áreas de la vida diaria, desde la organización personal hasta las relaciones interpersonales. Para abordar estos desafíos, es crucial implementar estrategias que fortalezcan las habilidades de autorregulación y gestión del tiempo. Además, la terapia cognitivo-conductual puede ser beneficiosa para mejorar la autoestima y la toma de decisiones. En el ámbito social, fomentar la empatía y la comprensión puede contribuir a la creación de entornos más compasivos y solidarios.'),
+
+('Tratamientos actuales para el TDAH', 'Pedro González', 'Existen diferentes enfoques para tratar el TDAH, y la elección del tratamiento puede depender de diversos factores, como la gravedad de los síntomas y las preferencias del individuo. Las opciones incluyen terapias psicológicas, como la terapia conductual y la terapia cognitivo-conductual, que se centran en desarrollar habilidades de afrontamiento y autorregulación. Además, algunos pacientes pueden beneficiarse de medicamentos, como los estimulantes y no estimulantes, que ayudan a controlar los síntomas. La intervención temprana y la colaboración interdisciplinaria son clave en el manejo efectivo del TDAH.'),
+
+('Mitigando los desafíos sociales del TDAH', 'Silvia Fernández', 'Las personas con TDAH a menudo enfrentan desafíos sociales que pueden afectar su vida cotidiana y sus relaciones. Para mejorar las habilidades sociales, es recomendable participar en programas de entrenamiento social y practicar situaciones sociales de manera estructurada. La empatía y la comprensión por parte de amigos, familiares y compañeros son fundamentales. Fomentar un entorno de apoyo y promover la aceptación puede ayudar a reducir el estigma asociado al TDAH y mejorar la calidad de vida de quienes lo experimentan.');";
+
 
 
 

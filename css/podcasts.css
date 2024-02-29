@@ -199,7 +199,7 @@
 }
 
 form{
-  width: 25%;
+  width: max-content;
   height: max-content;
 }
 
@@ -236,81 +236,63 @@ input:focus{
   border-bottom: 2px solid var(--morado);
 }
 
-.articulos_container{
+.podcast_container{
   width: 90%;
   height: 90%;
   display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: repeat(5, 1fr);
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(3, 1fr);
   place-items: center;
   grid-gap: 50px;
   margin: 50px 0 100px 0;
 }
 
-.libro{
-  width: 60%;
+.podcast{
+  width: 80%;
   height: max-content;
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: repeat(2, 1fr);
-  background-color: var(--tarjeta);
   border-radius: 25px;
-  min-height: 400px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
-.libro:hover{
+.inner_podcast{
+  width: 100%;
+  height: 300px;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: end;
+  justify-content: center;
+  border-radius: 25px;
+  color: white;
+  flex-wrap: wrap;
+}
+
+.podcast:hover{
   border: solid 2px var(--morado);
   cursor: pointer;
 }
 
-.libro:hover .imagen_libro{
-  background-size: contain;
-}
-
-.imagen_libro{
-  width: 100%;
-  height: 100%;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  border-radius: 25px 25px 0 0;
-}
-
-.texto_libro{
+.box{
+  margin-bottom: 50px;
+  width: max-content;
+  height: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 100%;
-  height: 100%;
-  text-align: center;
-  color: white;
-  padding: 10px;
   flex-wrap: wrap;
 }
 
-.texto_libro h2{
+.box h2{
   width: 100%;
   font-family: var(--medium);
+  text-align: center;
 }
 
-.texto_libro p{
+.box p{
   text-transform: uppercase;
   width: 100%;
-}
-
-.texto_libro button{
-  padding: 10px 15px;
-  background-color: white;
-  color: black;
-  font-family: var(--medium);
-  border: 0;
-  border-radius: 5px;
-  transition: all 300ms ease-in-out;
-}
-
-.texto_libro button:hover{
-  background-color: var(--morado);
-  cursor: pointer;
+  text-align: center;
 }
 
 /* Todos los estilos del footer */
