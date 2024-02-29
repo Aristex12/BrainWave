@@ -32,10 +32,10 @@ require_once '../bases_de_datos/tablas.php';
 
                     <ul>
                         <a href="servicios.php">
-                            <li style="color: #7E42FB;">Servicios</li>
+                            <li>Servicios</li>
                         </a>
                         <a href="recursos.php">
-                            <li>Recursos</li>
+                            <li style="color: #7E42FB;">Recursos</li>
                         </a>
                         <a href="nosotros.php">
                             <li>Nosotros</li>
@@ -77,7 +77,7 @@ require_once '../bases_de_datos/tablas.php';
             <div class="inner_section">
                 <div class="buscador">
                     <form action="" method="GET">
-                        <input type="text" name="buscador" id="" placeholder="Buscar" value="<?php echo $_GET['buscador']; ?>"><button type="submit">Enviar</button>
+                        <input type="text" name="buscador" id="" placeholder="Buscar" value="<?php if (isset($_GET['buscador'])) echo $_GET['buscador']; ?>"><button type="submit">Enviar</button>
                     </form>
                 </div>
                 <div class="libros_container">
