@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" crossorigin="anonymous">
-    <link rel="stylesheet" href="../../css/libros.css">
+    <link rel="stylesheet" href="../../css/articulos.css">
+    <script src="../../js/articulos.js" defer></script>
     <title>BrainWave | Artículos</title>
 </head>
 
@@ -80,53 +81,48 @@ require_once '../bases_de_datos/tablas.php';
                         <input type="text" name="buscador" id="" placeholder="Buscar" value="<?php if (isset($_GET['buscador'])) echo $_GET['buscador']; ?>"><button type="submit">Enviar</button>
                     </form>
                 </div>
-                <div class="libros_container">
+                <div class="articulos_container">
 
                     <?php
-
                     $conexion = obtenerConexion();
 
                     // Verificar si se ha enviado una consulta de búsqueda
                     if (isset($_GET['buscador'])) {
                         $busqueda = $_GET['buscador'];
 
-                        // Realiza la consulta para obtener libros con imágenes que coincidan con la búsqueda
-                        $query_libros_imagenes = "SELECT libros.*, imagenes.ruta AS imagen_ruta 
-                        FROM libros 
-                        JOIN relacion_libro_imagen ON libros.id_libro = relacion_libro_imagen.id_libro 
-                        JOIN imagenes ON relacion_libro_imagen.id_imagen = imagenes.id_imagen
-                        WHERE libros.titulo LIKE '%$busqueda%' OR libros.autor LIKE '%$busqueda%'";
-                                    } else {
-                                        // Consulta sin búsqueda, obtener todos los libros con imágenes
-                                        $query_libros_imagenes = "SELECT libros.*, imagenes.ruta AS imagen_ruta 
-                        FROM libros 
-                        JOIN relacion_libro_imagen ON libros.id_libro = relacion_libro_imagen.id_libro 
-                        JOIN imagenes ON relacion_libro_imagen.id_imagen = imagenes.id_imagen";
+                        // Realiza la consulta para obtener artículos que coincidan con la búsqueda
+                        $query_articulos = "SELECT * FROM articulos WHERE titulo LIKE '%$busqueda%' OR autor LIKE '%$busqueda%' OR contenido LIKE '%$busqueda%'";
+                    } else {
+                        // Consulta sin búsqueda, obtener todos los artículos
+                        $query_articulos = "SELECT * FROM articulos";
                     }
 
-                    $result_libros_imagenes = mysqli_query($conexion, $query_libros_imagenes);
-
-                    // Almacena los resultados en un array asociativo
-                    $libros_imagenes = mysqli_fetch_all($result_libros_imagenes, MYSQLI_ASSOC);
+                    $result_articulos = mysqli_query($conexion, $query_articulos);
 
                     // Cierra la conexión
                     cerrarConexion($conexion);
 
-                    foreach ($libros_imagenes as $libro_imagen) {
-                        echo '<div class="libro">';
-                        echo '<div class="imagen_libro" style="background-image:url(' . $libro_imagen["imagen_ruta"] . ')">';
-                        echo '</div>';
-                        echo '<div class="texto_libro">';
-                        echo '<h2>' . $libro_imagen['titulo'] . '</h2>';
-                        echo '<p>' . $libro_imagen['autor'] . '</p>';
-                        echo '<a href="' . $libro_imagen['link'] . '" target="_blank"><button>Comprar</button></a>';
-                        echo '</div>';
+                    while ($articulo = mysqli_fetch_assoc($result_articulos)) {
+                        echo '<div class="articulo">';
+                        echo '<h2>' . $articulo['titulo'] . '</h2>';
+                        $contenido_resumen = substr($articulo['contenido'], 0, 150); // Limitar a 150 caracteres, ajusta según tus necesidades
+
+                        echo '<p>' . $contenido_resumen . '...</p>';
+
+                        // Agregar elemento oculto con el contenido completo
+                        echo '<div class="contenido-completo-oculto" style="display:none;">' . $articulo['contenido'] . '</div>';
+
                         echo '</div>';
                     }
-
                     ?>
 
                 </div>
+            </div>
+        </div>
+        <div id="myModal" class="modal">
+            <div class="modal-content" id="modalContent">
+
+                <span class="close" id="closeBtn">&times;</span>
             </div>
         </div>
 

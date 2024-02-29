@@ -175,7 +175,7 @@
 }
 
 .inner_section{
-  width: 90%;
+  width: 80%;
   height: max-content;
   display: flex;
   align-items: center;
@@ -236,81 +236,75 @@ input:focus{
   border-bottom: 2px solid var(--morado);
 }
 
-.libros_container{
+.articulos_container{
   width: 90%;
   height: 90%;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(2, 1fr);
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(5, 1fr);
   place-items: center;
   grid-gap: 50px;
   margin: 50px 0 100px 0;
 }
 
-.libro{
-  width: 60%;
+.articulo{
+  width: 90%;
   height: max-content;
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: repeat(2, 1fr);
+  display: flex;
+  align-items: center;
+  justify-content: left;
   background-color: var(--tarjeta);
   border-radius: 25px;
-  min-height: 400px;
+  padding: 40px;
+  color: white;
+  flex-wrap: wrap;
 }
 
-.libro:hover{
+.articulo h2{
+    font-family: var(--medium);
+    font-size: 25px;
+    text-transform: uppercase;
+}
+
+.articulo p{
+    font-size: 20px;
+}
+
+.articulo > *{
+    width: 100%;
+}
+
+.articulo:hover{
   border: solid 2px var(--morado);
   cursor: pointer;
 }
 
-.libro:hover .imagen_libro{
-  background-size: contain;
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    overflow-x: hidden;
+    overflow-y: auto;
+    z-index: 1;
 }
 
-.imagen_libro{
-  width: 100%;
-  height: 100%;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  border-radius: 25px 25px 0 0;
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    width: 70%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.texto_libro{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: 100%;
-  text-align: center;
-  color: white;
-  padding: 10px;
-  flex-wrap: wrap;
-}
-
-.texto_libro h2{
-  width: 100%;
-  font-family: var(--medium);
-}
-
-.texto_libro p{
-  text-transform: uppercase;
-  width: 100%;
-}
-
-.texto_libro button{
-  padding: 10px 15px;
-  background-color: white;
-  color: black;
-  font-family: var(--medium);
-  border: 0;
-  border-radius: 5px;
-  transition: all 300ms ease-in-out;
-}
-
-.texto_libro button:hover{
-  background-color: var(--morado);
-  cursor: pointer;
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
 }
 
 /* Todos los estilos del footer */

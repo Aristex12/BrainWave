@@ -119,6 +119,13 @@ if (mysqli_num_rows($res) <= 0) {
         FOREIGN KEY (id_imagen) REFERENCES imagenes(id_imagen)
     )";
 
+    $articulos = "CREATE TABLE articulos (
+        id_articulo INT AUTO_INCREMENT PRIMARY KEY,
+        titulo VARCHAR(255) NOT NULL,
+        autor VARCHAR(255) NOT NULL,
+        contenido TEXT NOT NULL
+    )";
+
     // Ejecutar las consultas de creación de tablas
     mysqli_query($conexion, $perfiles_personas);
     mysqli_query($conexion, $login);
@@ -131,9 +138,11 @@ if (mysqli_num_rows($res) <= 0) {
     mysqli_query($conexion, $imagenes);
     mysqli_query($conexion, $libros);
     mysqli_query($conexion, $podcasts);
+    mysqli_query($conexion, $articulos);
     mysqli_query($conexion, $relacion_libro_imagen);
     mysqli_query($conexion, $relacion_podcast_imagen);
     mysqli_query($conexion, $relacion_usuario_imagen);
+
 
 
 
@@ -227,6 +236,14 @@ if (mysqli_num_rows($res) <= 0) {
         (5, 11),
         (6, 12);";
 
+    $insert_articulos = "INSERT INTO articulos (titulo, autor, contenido) VALUES
+        ('Cómo manejar el TDAH en niños', 'Ana López', 'El Trastorno por Déficit de Atención e Hiperactividad (TDAH) puede ser desafiante para los padres. Aquí hay algunas estrategias para manejarlo.'),
+        ('Consejos para el rendimiento académico en jóvenes con TDAH', 'David García', 'Los estudiantes con TDAH pueden enfrentar dificultades académicas. Descubre algunos consejos para mejorar su rendimiento escolar.'),
+        ('Impacto del TDAH en la vida diaria', 'Elena Sánchez', 'El TDAH puede afectar diversas áreas de la vida diaria. Exploraremos cómo este trastorno puede influir en las rutinas cotidianas.'),
+        ('Tratamientos actuales para el TDAH', 'Pedro González', 'Existen diferentes enfoques para tratar el TDAH, desde terapias psicológicas hasta medicamentos. Conoce las opciones disponibles.'),
+        ('Mitigando los desafíos sociales del TDAH', 'Silvia Fernández', 'Las personas con TDAH a menudo enfrentan desafíos sociales. Descubre estrategias para mejorar las habilidades sociales en individuos con este trastorno.');";
+
+
 
     $ruta_directorio = '../../img_web';
 
@@ -279,9 +296,9 @@ if (mysqli_num_rows($res) <= 0) {
     mysqli_query($conexion, $insert_contacto);
     mysqli_query($conexion, $insert_libros);
     mysqli_query($conexion, $insert_podcasts);
+    mysqli_query($conexion, $insert_articulos);
     mysqli_query($conexion, $insert_relacion_libro_imagen);
     mysqli_query($conexion, $insert_relacion_podcast_imagen);
-    
 }
 
 

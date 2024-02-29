@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" crossorigin="anonymous">
-    <link rel="stylesheet" href="../../css/libros.css">
-    <title>BrainWave | Libros</title>
+    <link rel="stylesheet" href="../../css/podcasts.css">
+    <title>BrainWave | Podcasts</title>
 </head>
 
 <?php
@@ -70,7 +70,7 @@ require_once '../bases_de_datos/tablas.php';
     <main>
 
         <div class="titulo">
-            <h1>Libros</h1>
+            <h1>Podcasts</h1>
         </div>
 
         <div class="section1">
@@ -113,13 +113,10 @@ require_once '../bases_de_datos/tablas.php';
                     cerrarConexion($conexion);
 
                     foreach ($libros_imagenes as $libro_imagen) {
-                        echo '<div class="libro">';
-                        echo '<div class="imagen_libro" style="background-image:url(' . $libro_imagen["imagen_ruta"] . ')">';
-                        echo '</div>';
-                        echo '<div class="texto_libro">';
+                        echo '<div class="articulo">';
+                        echo '<div class="texto_articulo">';
                         echo '<h2>' . $libro_imagen['titulo'] . '</h2>';
                         echo '<p>' . $libro_imagen['autor'] . '</p>';
-                        echo '<a href="' . $libro_imagen['link'] . '" target="_blank"><button>Comprar</button></a>';
                         echo '</div>';
                         echo '</div>';
                     }

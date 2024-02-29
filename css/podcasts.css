@@ -236,12 +236,12 @@ input:focus{
   border-bottom: 2px solid var(--morado);
 }
 
-.libros_container{
+.articulos_container{
   width: 90%;
   height: 90%;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(2, 1fr);
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(5, 1fr);
   place-items: center;
   grid-gap: 50px;
   margin: 50px 0 100px 0;
