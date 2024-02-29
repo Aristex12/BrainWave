@@ -101,7 +101,7 @@
                     <h2>Infórmate sobre nuestros articulos</h2>
                 </div>
                 <div class="boton_container">
-                    <a href=""><button class="boton_articulos">Ver</button></a>
+                    <a href="articulos.php"><button class="boton_articulos">Ver</button></a>
                 </div>
             </div>
         </div>

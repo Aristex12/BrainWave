@@ -220,14 +220,12 @@ if (mysqli_num_rows($res) <= 0) {
 
     // Inserts para relacion_podcast_imagen
     $insert_relacion_podcast_imagen = "INSERT INTO relacion_podcast_imagen (id_podcast, id_imagen) VALUES
-        (7, 7),
-        (8, 8),
-        (9, 9),
-        (10, 10),
-        (11, 11),
-        (12, 12);";
-
-
+        (1, 7),
+        (2, 8),
+        (3, 9),
+        (4, 10),
+        (5, 11),
+        (6, 12);";
 
 
     $ruta_directorio = '../../img_web';
