@@ -256,10 +256,11 @@ input:focus{
   background-color: var(--tarjeta);
   border-radius: 25px;
   min-height: 400px;
+  transition: all 300ms ease-in-out;
 }
 
 .libro:hover{
-  border: solid 2px var(--morado);
+  background-color: var(--morado);
   cursor: pointer;
 }
 

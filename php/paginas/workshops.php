@@ -1,3 +1,61 @@
+<?php
+require_once '../bases_de_datos/conecta.php';
+require_once '../bases_de_datos/tablas.php';
+
+session_start();
+
+// Verificar si el método de solicitud es POST y el botón de envío está presente
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["boton_enviar"])) {
+
+    // Verificar si hay una sesión iniciada
+    if (isset($_SESSION["username"])) {
+        // Obtener el id del evento desde el campo oculto
+        $id_evento = $_POST["id_escondido"];
+
+        // Obtener el id del paciente (supongamos que lo obtienes de alguna manera)
+        $id_paciente = obtenerIdPaciente($_SESSION["username"]);
+
+        // Insertar datos en la tabla relacion_workshops_usuarios
+        if ($id_evento && $id_paciente) {
+            $conexion = obtenerConexion();
+
+            $query_insert = "INSERT INTO relacion_workshops_usuarios (id_evento, id_paciente) VALUES ($id_evento, $id_paciente)";
+            mysqli_query($conexion, $query_insert);
+
+            cerrarConexion($conexion);
+
+            // Mensaje de éxito u otra lógica después de la inserción
+            echo "Inserción exitosa en la tabla relacion_workshops_usuarios";
+            session_write_close();
+        } else {
+            // Manejar el caso en que no se puedan obtener los ids necesarios
+            echo "Error: No se pudieron obtener los ids necesarios";
+        }
+    } else {
+        // Redirige a la página de inicio de sesión si no hay una sesión iniciada
+        header("Location: login.php");
+        exit(); // Asegúrate de salir después de la redirección
+    }
+}
+
+function obtenerIdPaciente($username)
+{
+    // Obtener el id del paciente según el nombre de usuario (implementa según tu lógica)
+    // Puedes realizar una consulta a la base de datos para obtener el id del paciente asociado al username
+    // Este es solo un ejemplo de cómo podría ser, ajusta según tu estructura de la base de datos
+    $conexion = obtenerConexion();
+    $query = "SELECT id_paciente FROM relacion_usuarios_login WHERE id_login = (SELECT id_login FROM login WHERE username = '$username')";
+    $result = mysqli_query($conexion, $query);
+
+    if ($row = mysqli_fetch_assoc($result)) {
+        return $row["id_paciente"];
+    }
+
+    return null; // Otra lógica si no se puede obtener el id del paciente
+}
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,18 +63,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" crossorigin="anonymous">
-    <link rel="stylesheet" href="../../css/podcasts.css">
-    <script src="../../js/podcasts.js" defer></script>
-    <script src="https://www.youtube.com/iframe_api"></script>
-    <title>BrainWave | Podcasts</title>
+    <link rel="stylesheet" href="../../css/workshops.css">
+    <script src="../../js/workshops.js" defer></script>
+    <title>BrainWave | Workshops</title>
 </head>
-
-<?php
-
-require_once '../bases_de_datos/conecta.php';
-require_once '../bases_de_datos/tablas.php';
-
-?>
 
 <body>
 
@@ -72,7 +122,7 @@ require_once '../bases_de_datos/tablas.php';
     <main>
 
         <div class="titulo">
-            <h1>Podcasts</h1>
+            <h1>Workshops</h1>
         </div>
 
         <div class="section1">
@@ -82,48 +132,37 @@ require_once '../bases_de_datos/tablas.php';
                         <input type="text" name="buscador" id="" placeholder="Buscar" value="<?php if (isset($_GET['buscador'])) echo $_GET['buscador']; ?>"><button type="submit">Enviar</button>
                     </form>
                 </div>
-                <div class="podcast_container">
+                <div class="workshop_container">
 
                     <?php
-
                     $conexion = obtenerConexion();
 
                     // Verificar si se ha enviado una consulta de búsqueda
                     if (isset($_GET['buscador'])) {
                         $busqueda = $_GET['buscador'];
 
-                        // Realiza la consulta para obtener podcasts con enlaces que coincidan con la búsqueda
-                        $query_podcasts_enlaces = "SELECT podcasts.*, imagenes.ruta AS imagen_ruta 
-                        FROM podcasts 
-                        JOIN relacion_podcast_imagen ON podcasts.id_podcast = relacion_podcast_imagen.id_podcast 
-                        JOIN imagenes ON relacion_podcast_imagen.id_imagen = imagenes.id_imagen
-                        WHERE podcasts.titulo LIKE '%$busqueda%' OR podcasts.autor LIKE '%$busqueda%'";
+                        // Realiza la consulta para obtener eventos que coincidan con la búsqueda
+                        $query_eventos = "SELECT * FROM workshops WHERE nombre_evento LIKE '%$busqueda%' OR descripcion LIKE '%$busqueda%'";
                     } else {
-                        // Consulta sin búsqueda, obtener todos los podcasts con enlaces
-                        $query_podcasts_enlaces = "SELECT podcasts.*, imagenes.ruta AS imagen_ruta 
-                        FROM podcasts 
-                        JOIN relacion_podcast_imagen ON podcasts.id_podcast = relacion_podcast_imagen.id_podcast 
-                        JOIN imagenes ON relacion_podcast_imagen.id_imagen = imagenes.id_imagen";
+                        // Consulta sin búsqueda, obtener todos los eventos
+                        $query_eventos = "SELECT * FROM workshops";
                     }
 
-                    $result_podcasts_enlaces = mysqli_query($conexion, $query_podcasts_enlaces);
-
-                    // Almacena los resultados en un array asociativo
-                    $podcasts_enlaces = mysqli_fetch_all($result_podcasts_enlaces, MYSQLI_ASSOC);
+                    $result_eventos = mysqli_query($conexion, $query_eventos);
 
                     // Cierra la conexión
                     cerrarConexion($conexion);
 
-                    foreach ($podcasts_enlaces as $podcast_enlace) {
-                        // Extract the YouTube video ID from the link
-                        echo '<div class="podcast" style="background-image:url(' . $podcast_enlace['imagen_ruta'] . ')" data-link="' . $podcast_enlace['link'] . '">';
-                        echo "<div class='inner_podcast'>";
-                        echo "<div class='box'>";
-                        echo '<i class="fas fa-play fa-2x"></i>';
-                        echo '<h2>' . $podcast_enlace['titulo'] . '</h2>';
-                        echo '<p>' . $podcast_enlace['autor'] . '</p>';
-                        echo "</div>";
-                        echo '</div>';
+                    while ($evento = mysqli_fetch_assoc($result_eventos)) {
+                        echo '<div class="workshop" data-fecha="' . $evento['fecha'] . '" data-hora="' . $evento['hora'] . '" data-lugar-nombre="' . $evento['lugar_nombre'] . '" data-lugar-direccion="' . $evento['lugar_direccion'] . ' " data-id="' . $evento["id_evento"] . '"">';
+                        echo '<h2>' . $evento['nombre_evento'] . '</h2>';
+
+                        $descripcion_resumen = substr($evento['descripcion'], 0, 150); // Limitar a 150 caracteres, ajusta según tus necesidades
+                        echo '<p>' . $descripcion_resumen . '...</p>';
+
+                        // Agregar elemento oculto con el contenido completo
+                        echo '<div class="contenido-completo-oculto" style="display:none;">' . $evento['descripcion'] . '</div>';
+
                         echo '</div>';
                     }
                     ?>
@@ -136,6 +175,7 @@ require_once '../bases_de_datos/tablas.php';
             <i class="fas fa-times fa-2x" id="closeBtn"></i>
             <div class="modal-content" id="modalContent">
             </div>
+        </div>
         </div>
 
     </main>

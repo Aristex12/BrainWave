@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     podcastDivs.forEach(function (podcastDiv) {
         podcastDiv.addEventListener('click', function () {
+            // Retrieve the link from the data-link attribute
             var link = podcastDiv.getAttribute('data-link');
 
             var modal = document.getElementById('myModal');
@@ -10,7 +11,7 @@ document.addEventListener('DOMContentLoaded', function () {
             var closeBtn = document.getElementById('closeBtn');
 
             // Mostrar iframe con el enlace del podcast
-            modalContent.innerHTML = '<iframe width="560" height="315" src="' + link + '" frameborder="0" allowfullscreen></iframe>';
+            modalContent.innerHTML = '<iframe width="100%" height="100%" src="' + link + '" frameborder="0" allowfullscreen></iframe>';
 
             // Mostrar el modal
             modal.style.display = 'flex';

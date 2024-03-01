@@ -54,10 +54,13 @@ if (mysqli_num_rows($res) <= 0) {
 
     $eventos_talleres = "CREATE TABLE workshops (
         id_evento INT AUTO_INCREMENT PRIMARY KEY,
-        nombre_evento VARCHAR(255),
-        fecha DATE
-            -- Otros campos relevantes para la información del evento
-        )";
+        nombre_evento VARCHAR(255) NOT NULL,
+        fecha DATE NOT NULL,
+        hora TIME NOT NULL,
+        lugar_nombre VARCHAR(255) NOT NULL,
+        lugar_direccion VARCHAR(500) NOT NULL,
+        descripcion TEXT NOT NULL
+    );";
 
     $eventos_pacientes = "CREATE TABLE relacion_workshops_usuarios (
         id_relacion INT AUTO_INCREMENT PRIMARY KEY,
@@ -181,12 +184,14 @@ if (mysqli_num_rows($res) <= 0) {
         (4, 4),
         (5, 5);";
 
-    $insert_eventos_talleres = "INSERT INTO workshops (nombre_evento, fecha) VALUES
-        ('Taller A', '2024-02-01'),
-        ('Conferencia B', '2024-03-15'),
-        ('Sesión de Grupo C', '2024-04-20'),
-        ('Evento D', '2024-05-10'),
-        ('Videocall', '2024-07-15');";
+    $insert_eventos_talleres = "INSERT INTO workshops (nombre_evento, fecha, hora, lugar_nombre, lugar_direccion, descripcion) VALUES
+        ('Desafiando Límites: Un Encuentro sobre el TDAH', '2024-05-15', '09:00:00', 'Plaza de Margaritas', '123 Calle Principal', 'Bienvenido a Desafiando Límites! Únete a nosotros para explorar estrategias prácticas, compartir experiencias y descubrir nuevas formas de apoyar a quienes viven con Trastorno por Déficit de Atención e Hiperactividad (TDAH). Este evento contará con sesiones educativas a cargo de expertos, talleres interactivos, una red de apoyo para establecer conexiones significativas, y recursos útiles para la comunidad.'),
+        ('Explorando Estrategias para el TDAH en Niños', '2024-06-10', '14:30:00', 'Ayuntamiento de Madrid', '456 Avenida Secundaria', 'Descubre técnicas efectivas para ayudar a niños con TDAH a alcanzar su máximo potencial. Este taller incluirá sesiones educativas adaptadas para padres y educadores, así como talleres interactivos diseñados específicamente para niños, fomentando habilidades de afrontamiento y autoestima.'),
+        ('Círculo de Apoyo para Familias con TDAH', '2024-07-20', '18:00:00', 'IFEMA', '789 Camino Residencial', 'Únete a nuestro círculo de apoyo dedicado a familias afectadas por el TDAH. Comparte experiencias, obtén apoyo emocional y encuentra estrategias efectivas para enfrentar los desafíos cotidianos. Aunque no habrá talleres interactivos, se facilitará la conexión y el intercambio de recursos valiosos.'),
+        ('Estrategias de Autogestión para Adultos con TDAH', '2024-08-15', '10:45:00', 'PLaza de Sol', '101 Plaza del Sol', 'Aprende técnicas prácticas para la gestión del tiempo, la organización y la concentración. Este taller se centra en proporcionar estrategias efectivas para adultos con TDAH, fomentando la independencia y el empoderamiento en diversas áreas de la vida.'),
+        ('Recursos Locales para Personas con TDAH', '2024-09-05', '16:00:00', 'Ayuntamiento de Zamora', '222 Paseo del Parque', 'Explora servicios y organizaciones locales que ofrecen apoyo y recursos para personas con TDAH. Aunque no habrá sesiones educativas ni talleres interactivos en este evento, proporcionará información valiosa sobre las opciones disponibles en la comunidad para aquellos que buscan apoyo y orientación.');";
+        
+        
 
     $insert_eventos_pacientes = "INSERT INTO relacion_workshops_usuarios (id_evento, id_paciente) VALUES
         (1, 1),
@@ -211,12 +216,12 @@ if (mysqli_num_rows($res) <= 0) {
         ('Pensar Rápido, Pensar Despacio', 'Daniel Kahneman', 'https://www.amazon.es/Pensar-r%C3%A1pido-despacio-Bolsillo-No-Ficci%C3%B3n/dp/8425219563/')";
 
     $insert_podcasts = "INSERT INTO podcasts (titulo, autor, link) VALUES
-        ('The Joe Rogan Experience', 'Joe Rogan', 'https://youtu.be/HuF7OPG61Ww?si=MfaxchW8ypLwyvCF'),
-        ('Serial', 'Sarah Koenig', 'https://youtu.be/HuF7OPG61Ww?si=uxwjJI7dxTsKEhWh'),
-        ('The Daily', 'The New York Times', 'https://youtu.be/P1x13ntninc?si=B5XU3pHUgY5EMVBi'),
-        ('How I Built This', 'Guy Raz', 'https://youtu.be/lZDXprVT8bY?si=A6exh2ZyQT7frtwo'),
-        ('TED Talks Daily', 'TED', 'https://youtu.be/n5SaHkzv468?si=fizLzWA6BLbCWJXN'),
-        ('Science Vs', 'Wondery', 'https://youtu.be/QIo-ESOav8Y?si=v2Fz70jlDH_YLkno')";
+        ('The Joe Rogan Experience', 'Joe Rogan', 'https://www.youtube.com/embed/HuF7OPG61Ww?si=Go78xLHjVWCD7JJ5'),
+        ('Serial', 'Sarah Koenig', 'https://www.youtube.com/embed/P1x13ntninc?si=RdFTwWrwCVUAhgUG'),
+        ('The Daily', 'The New York Times', 'https://www.youtube.com/embed/9uNDojHF804?si=YcpK4L7ZjnIPTj41'),
+        ('How I Built This', 'Guy Raz', 'https://www.youtube.com/embed/TjqrualxgkI?si=4Jk95PYUbgdKo_4P'),
+        ('TED Talks Daily', 'TED', 'https://www.youtube.com/embed/n5SaHkzv468?si=E9k1QKxkKhY1xuhG'),
+        ('Science Vs', 'Wondery', 'https://www.youtube.com/embed/QIo-ESOav8Y?si=vMoeeETEo71CJV07')";
 
     // Inserts para relacion_libro_imagen
     $insert_relacion_libro_imagen = "INSERT INTO relacion_libro_imagen (id_libro, id_imagen) VALUES

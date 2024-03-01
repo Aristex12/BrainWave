@@ -86,6 +86,7 @@ session_start();
             echo "</div>";
 
             $_SESSION["mensaje_bienvenida_mostrado"] = true;
+            session_write_close();
         } elseif ($tipo == "login" && $mensaje == false) {
 
             echo "<div class='container'>";
@@ -95,6 +96,7 @@ session_start();
             echo "</div>";
 
             $_SESSION["mensaje_bienvenida_mostrado"] = true;
+            session_write_close();
         }
     }
 

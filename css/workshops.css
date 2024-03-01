@@ -236,7 +236,7 @@ input:focus {
   border-bottom: 2px solid var(--morado);
 }
 
-.articulos_container {
+.workshop_container {
   width: 90%;
   height: 90%;
   display: grid;
@@ -247,7 +247,7 @@ input:focus {
   margin: 50px 0 100px 0;
 }
 
-.articulo {
+.workshop {
   width: 90%;
   height: max-content;
   display: flex;
@@ -261,22 +261,22 @@ input:focus {
   transition: all 300ms ease-in-out;
 }
 
-.articulo h2 {
+.workshop h2 {
   font-family: var(--medium);
   font-size: 25px;
   text-transform: uppercase;
 }
 
-.articulo p {
+.workshop p {
   font-size: 20px;
 }
 
-.articulo > * {
+.workshop > * {
   width: 100%;
   margin-top: 15px;
 }
 
-.articulo:hover {
+.workshop:hover {
   background-color: var(--morado);
   cursor: pointer;
 }
@@ -324,6 +324,14 @@ input:focus {
   top: 50px;
   right: 50px;
   cursor: pointer;
+}
+
+.boton_participar{
+    padding: 20px 10px;
+    font-family: var(--medium);
+    background-color: var(--morado);
+    font-size: 20px;
+    color: white;
 }
 
 /* Todos los estilos del footer */

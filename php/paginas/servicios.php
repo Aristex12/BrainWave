@@ -83,7 +83,7 @@
                 <div class="text_container">
                     <h2>Workshops</h2>
                     <p>Nuestros talleres especializados ofrecen apoyo y estrategias personalizadas para abordar el TDAH. Con enfoque práctico, brindamos herramientas efectivas para el desarrollo personal y la gestión del trastorno.</p>
-                    <a href="podcasts.php"><button class="boton_ver">Ver</button></a>
+                    <a href="workshops.php"><button class="boton_ver">Ver</button></a>
                 </div>
                 <div class="image_container2">
 
