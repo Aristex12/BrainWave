@@ -39,9 +39,9 @@ if (mysqli_num_rows($res) <= 0) {
     $datos_psicologos = "CREATE TABLE psicologos (
         id_psicologo INT AUTO_INCREMENT PRIMARY KEY,
         nombre VARCHAR(255),
-        apellidos VARCHAR(255),
-        descripcion VARCHAR(255)
-            -- Otros campos relevantes para la información del psicólogo
+        descripcion VARCHAR(255),
+        especialista VARCHAR(500),
+        formacion VARCHAR(500)
         )";
 
     $psicologos_pacientes = "CREATE TABLE relacion_psicologos_usuarios (
@@ -122,6 +122,14 @@ if (mysqli_num_rows($res) <= 0) {
         FOREIGN KEY (id_imagen) REFERENCES imagenes(id_imagen)
     )";
 
+    $relacion_psicologo_imagen = "CREATE TABLE relacion_psicologo_imagen (
+        id_relacion INT AUTO_INCREMENT PRIMARY KEY,
+        id_psicologo INT,
+        id_imagen INT,
+        FOREIGN KEY (id_psicologo) REFERENCES psicologos(id_psicologo),
+        FOREIGN KEY (id_imagen) REFERENCES imagenes(id_imagen)
+    )";
+
     $articulos = "CREATE TABLE articulos (
         id_articulo INT AUTO_INCREMENT PRIMARY KEY,
         titulo VARCHAR(255) NOT NULL,
@@ -145,8 +153,7 @@ if (mysqli_num_rows($res) <= 0) {
     mysqli_query($conexion, $relacion_libro_imagen);
     mysqli_query($conexion, $relacion_podcast_imagen);
     mysqli_query($conexion, $relacion_usuario_imagen);
-
-
+    mysqli_query($conexion, $relacion_psicologo_imagen);
 
 
     $insert_perfiles_personas = "INSERT INTO usuarios (nombre, apellidos, email) VALUES
@@ -170,12 +177,13 @@ if (mysqli_num_rows($res) <= 0) {
         (4, 4),
         (5, 5);";
 
-    $insert_datos_psicologos = "INSERT INTO psicologos (nombre, apellidos) VALUES
-        ('Ana', 'López'),
-        ('Pedro', 'García'),
-        ('Sofía', 'Martínez'),
-        ('David', 'Hernández'),
-        ('Aris', 'Kuhs');";
+    $insert_psicologos = "INSERT INTO psicologos (nombre, descripcion, especialista, formacion) VALUES
+        ('Ana Rodríguez', 'Terapeuta con diez años de dedicación a la psicología. Me complace ser tu guía en este viaje hacia el equilibrio emocional. Mi estilo cercano y comprensivo te brindará el respaldo necesario en este camino.', 'Trastornos en Niños y Adolescentes, Depresión, Trastorno de Ansiedad', 'Psicología en la Universidad Nacional Autónoma de México (2010), Máster de Psicología en TDAH (2015), Psicoterapeuta y especialista en Medicina Familiar'),
+        ('Marta González', 'Terapeuta con una década de dedicación a la psicología. Estoy encantada de acompañarte en este recorrido hacia el equilibrio emocional. Mi estilo cercano y comprensivo te proporcionará el respaldo necesario en este camino.', 'Trastornos en Niños y Adolescentes, Depresión, Trastorno de Ansiedad', 'Psicología en la Universidad Complutense de Madrid (2010), Máster de Psicología en TDAH (2015), Psicoterapeuta y especialista en Medicina Familiar'),
+        ('David Pérez', 'Terapeuta con diez años de dedicación a la psicología. Es un placer para mí ser tu guía en este viaje hacia el equilibrio emocional. Mi estilo cercano y comprensivo te brindará el respaldo necesario en este camino.', 'Trastornos en Niños y Adolescentes, Depresión, Trastorno de Ansiedad', 'Psicología en la Universidad de Barcelona (2010), Máster de Psicología en TDAH (2015), Psicoterapeuta y especialista en Medicina Familiar'),
+        ('Patricia López', 'Terapeuta con una década de dedicación a la psicología. Estoy encantada de acompañarte en este recorrido hacia el equilibrio emocional. Mi estilo cercano y comprensivo te proporcionará el respaldo necesario en este camino.', 'Trastornos en Niños y Adolescentes, Depresión, Trastorno de Ansiedad', 'Psicología en la Universidad Complutense de Madrid (2010), Máster de Psicología en TDAH (2015), Psicoterapeuta y especialista en Medicina Familiar'),
+        ('Carlos Rodríguez', 'Terapeuta con diez años de dedicación a la psicología. Es un placer para mí ser tu guía en este viaje hacia el equilibrio emocional. Mi estilo cercano y comprensivo te brindará el respaldo necesario en este camino.', 'Trastornos en Niños y Adolescentes, Depresión, Trastorno de Ansiedad', 'Psicología en la Universidad Nacional Autónoma de México (2010), Máster de Psicología en TDAH (2015), Psicoterapeuta y especialista en Medicina Familiar'),
+        ('Laura Martínez', 'Terapeuta con una década de dedicación a la psicología. Estoy encantada de acompañarte en este recorrido hacia el equilibrio emocional. Mi estilo cercano y comprensivo te proporcionará el respaldo necesario en este camino.', 'Trastornos en Niños y Adolescentes, Depresión, Trastorno de Ansiedad', 'Psicología en la Universidad Complutense de Madrid (2010), Máster de Psicología en TDAH (2015), Psicoterapeuta y especialista en Medicina Familiar')";
 
     $insert_psicologos_pacientes = "INSERT INTO relacion_psicologos_usuarios (id_psicologo, id_paciente) VALUES
         (1, 1),
@@ -190,8 +198,8 @@ if (mysqli_num_rows($res) <= 0) {
         ('Círculo de Apoyo para Familias con TDAH', '2024-07-20', '18:00:00', 'IFEMA', '789 Camino Residencial', 'Únete a nuestro círculo de apoyo dedicado a familias afectadas por el TDAH. Comparte experiencias, obtén apoyo emocional y encuentra estrategias efectivas para enfrentar los desafíos cotidianos. Aunque no habrá talleres interactivos, se facilitará la conexión y el intercambio de recursos valiosos.'),
         ('Estrategias de Autogestión para Adultos con TDAH', '2024-08-15', '10:45:00', 'PLaza de Sol', '101 Plaza del Sol', 'Aprende técnicas prácticas para la gestión del tiempo, la organización y la concentración. Este taller se centra en proporcionar estrategias efectivas para adultos con TDAH, fomentando la independencia y el empoderamiento en diversas áreas de la vida.'),
         ('Recursos Locales para Personas con TDAH', '2024-09-05', '16:00:00', 'Ayuntamiento de Zamora', '222 Paseo del Parque', 'Explora servicios y organizaciones locales que ofrecen apoyo y recursos para personas con TDAH. Aunque no habrá sesiones educativas ni talleres interactivos en este evento, proporcionará información valiosa sobre las opciones disponibles en la comunidad para aquellos que buscan apoyo y orientación.');";
-        
-        
+
+
 
     $insert_eventos_pacientes = "INSERT INTO relacion_workshops_usuarios (id_evento, id_paciente) VALUES
         (1, 1),
@@ -241,7 +249,15 @@ if (mysqli_num_rows($res) <= 0) {
         (5, 11),
         (6, 12);";
 
-$insert_articulos = "INSERT INTO articulos (titulo, autor, contenido) VALUES
+    $insert_relacion_psicologos_imagen = "INSERT INTO relacion_psicologo_imagen(id_psicologo, id_imagen) VALUES
+        (1, 13),
+        (2, 14),
+        (3, 15),
+        (4, 16),
+        (5, 17),
+        (6, 18);";
+
+    $insert_articulos = "INSERT INTO articulos (titulo, autor, contenido) VALUES
 ('Cómo manejar el TDAH en niños', 'Ana López', 'El Trastorno por Déficit de Atención e Hiperactividad (TDAH) puede ser desafiante para los padres. En muchos casos, es importante adoptar un enfoque comprensivo que involucre tanto a la familia como a los educadores. Se recomienda establecer rutinas estructuradas y proporcionar un entorno de estudio tranquilo. Además, trabajar en colaboración con profesionales de la salud mental puede ofrecer estrategias adicionales para abordar las necesidades específicas de cada niño con TDAH. Recordemos que cada caso es único y requiere una atención individualizada.'),
 
 ('Consejos para el rendimiento académico en jóvenes con TDAH', 'David García', 'Los estudiantes con TDAH pueden enfrentar dificultades académicas que afectan su rendimiento escolar. En lugar de centrarse únicamente en las limitaciones, es fundamental identificar las fortalezas de cada estudiante y adaptar el entorno educativo para aprovechar esas habilidades. Implementar técnicas de estudio específicas, proporcionar apoyo individualizado y fomentar un ambiente inclusivo pueden marcar la diferencia. Es esencial trabajar en colaboración con los docentes y los profesionales de la educación para desarrollar estrategias efectivas.'),
@@ -299,7 +315,7 @@ $insert_articulos = "INSERT INTO articulos (titulo, autor, contenido) VALUES
     mysqli_query($conexion, $insert_perfiles_personas);
     mysqli_query($conexion, $insert_login);
     mysqli_query($conexion, $insert_pacientes_login);
-    mysqli_query($conexion, $insert_datos_psicologos);
+    mysqli_query($conexion, $insert_psicologos);
     mysqli_query($conexion, $insert_psicologos_pacientes);
     mysqli_query($conexion, $insert_eventos_talleres);
     mysqli_query($conexion, $insert_eventos_pacientes);
@@ -309,6 +325,7 @@ $insert_articulos = "INSERT INTO articulos (titulo, autor, contenido) VALUES
     mysqli_query($conexion, $insert_articulos);
     mysqli_query($conexion, $insert_relacion_libro_imagen);
     mysqli_query($conexion, $insert_relacion_podcast_imagen);
+    mysqli_query($conexion, $insert_relacion_psicologos_imagen);
 }
 
 

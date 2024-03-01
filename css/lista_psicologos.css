@@ -1,0 +1,425 @@
+@import url("satoshi.css");
+
+:root {
+  --regular: "Satoshi-Regular", sans-serif;
+  --medium: "Satoshi-Medium", sans-serif;
+  --bold: "Satoshi-Bold", sans-serif;
+}
+
+:root {
+  --negro: #0d0d0d;
+  --gris: #595959;
+  --tarjeta: #1f1f1f;
+  --morado: #7e42fb;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: var(--regular);
+  font-weight: normal;
+}
+
+/* Estilos del nav */
+
+.container {
+  width: 100%;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--morado);
+}
+
+.inner_container {
+  width: 80%;
+  height: 40%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 15px;
+}
+
+.inner_container p {
+  font-family: var(--bold);
+  font-size: 20px;
+}
+
+.nav_container {
+  background-color: var(--negro);
+  width: 100%;
+  height: max-content;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+}
+
+.nav_inner {
+  width: 90%;
+  display: grid;
+  grid-template-columns: 10% 80% 10%;
+  grid-template-rows: 1fr;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50px;
+}
+
+.lista {
+  display: flex;
+  align-items: center;
+  justify-content: right;
+}
+
+.lista ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: right;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lista a {
+  text-decoration: none;
+  transition: all 300ms ease-in-out;
+  color: white;
+}
+
+.lista ul a:hover {
+  color: var(--morado);
+}
+
+.lista li {
+  margin-right: 10px;
+  font-family: var(--medium);
+}
+
+.perfil {
+  display: flex;
+  justify-content: right;
+}
+
+#color_perfil {
+  color: white;
+  transition: all 300ms ease-in-out;
+}
+
+#color_perfil:hover {
+  color: var(--morado);
+}
+
+.div_contacto {
+  display: flex;
+  align-items: center;
+  justify-content: right;
+  background-color: white;
+  border-radius: 10px;
+  padding: 7px;
+  transition: all 300ms ease-in-out;
+}
+
+.div_contacto:hover {
+  background-color: var(--morado);
+}
+
+.div_contacto:hover {
+  background-color: var(--morado);
+}
+
+.div_contacto a {
+  margin: 0;
+}
+
+.div_contacto li {
+  color: black;
+  margin: 0;
+  font-family: var(--bold);
+}
+
+/* Todos los estilos de la web */
+
+.titulo {
+  width: 100%;
+  height: 300px;
+  background-color: var(--morado);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  padding: 50px;
+  text-transform: uppercase;
+  font-size: 30px;
+  font-family: var(--bold);
+}
+
+.section1{
+  width: 100%;
+  height: max-content;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--negro);
+  padding: 50px;
+}
+
+.inner_section{
+  width: 90%;
+  height: max-content;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 25px;
+  padding: 20px;
+  min-height: 800px;
+  margin: 100px 0 100px 0;
+}
+
+.buscador{
+  width: 90%;
+  height: max-content;
+  display: flex;
+  align-items: center;
+  justify-content: right;
+  padding: 15px;
+  margin: 50px 0 0 0;
+}
+
+form{
+  width: 25%;
+  height: max-content;
+}
+
+form button{
+  padding: 10px 15px;
+  background-color: white;
+  color: black;
+  font-family: var(--medium);
+  border: 0;
+  border-radius: 5px;
+  transition: all 300ms ease-in-out;
+}
+
+form button:hover{
+  background-color: var(--gris);
+  cursor: pointer;
+}
+
+input{
+  width: 60%;
+  border: 0;
+  border-bottom: 2px solid white;
+  font-size: 20px;
+  background-color: transparent;
+  outline: none;
+  margin-right: 15px;
+  transition: all 300ms ease-in-out;
+  color: white;
+  font-family: var(--medium);
+}
+
+input:focus{
+  width: 65%;
+  border-bottom: 2px solid var(--morado);
+}
+
+.psicologos_container{
+  width: 90%;
+  height: 90%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  place-items: center;
+  grid-gap: 50px;
+  margin: 50px 0 100px 0;
+}
+
+.psicologo{
+  width: 60%;
+  height: max-content;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(2, 1fr);
+  background-color: var(--tarjeta);
+  border-radius: 25px;
+  min-height: 400px;
+  transition: all 300ms ease-in-out;
+}
+
+.imagen_psicologo{
+  width: 100%;
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 25px 25px 0 0;
+}
+
+.texto_psicologo{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  color: white;
+  padding: 10px;
+  flex-wrap: wrap;
+}
+
+.texto_psicologo h2{
+  width: 100%;
+  font-family: var(--medium);
+}
+
+.texto_psicologo p{
+  text-transform: uppercase;
+  width: 100%;
+}
+
+.texto_psicologo button{
+  padding: 10px 15px;
+  background-color: white;
+  color: black;
+  font-family: var(--medium);
+  border: 0;
+  border-radius: 5px;
+  transition: all 300ms ease-in-out;
+}
+
+.texto_psicologo button:hover{
+  background-color: var(--morado);
+  cursor: pointer;
+}
+
+/* Todos los estilos del footer */
+
+.container_footer {
+  width: 100%;
+  height: 350px;
+  background-color: var(--negro);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.inner_footer_container {
+  width: 90%;
+  height: 90%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 1fr 1fr;
+  color: white;
+  text-transform: uppercase;
+  place-items: center;
+}
+
+.inner_footer_container a {
+  text-decoration: none;
+  color: white;
+}
+
+.social_media {
+  width: 80%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  flex-direction: row;
+  padding: 20px;
+}
+
+.social_media i {
+  margin: 20px;
+  height: fit-content;
+}
+
+.inner_footer_container h2 {
+  width: 100%;
+  text-align: center;
+  font-size: 30px;
+  margin-bottom: 20px;
+}
+
+.links {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 20px;
+  width: 80%;
+  height: 100%;
+}
+
+.contact {
+  width: 80%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 20px;
+}
+
+.contact p {
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+.fuerte {
+  font-family: var(--bold);
+}
+
+.legal {
+  width: 100%;
+  grid-column: span 3;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.copy {
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  width: 50%;
+  font-family: var(--bold);
+}
+
+.disclaimer {
+  display: flex;
+  align-items: center;
+  justify-content: right;
+  width: 50%;
+}
+
+.disclaimer a {
+  margin-left: 20px;
+  font-family: var(--bold);
+}
+
+.inner_link {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  grid-gap: 20px;
+  flex-basis: fit-content;
+}
+
+hr {
+  width: 100%;
+  grid-column: span 3;
+}

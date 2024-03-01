@@ -148,7 +148,7 @@
         <div class="section4">
             <div class="inner_section4">
                 <h1>¿A que esperas?</h1>
-                <a href=""><button>Pide cita</button></a>
+                <a href="lista_psicologos.php"><button>Pide cita</button></a>
             </div>
         </div>
 

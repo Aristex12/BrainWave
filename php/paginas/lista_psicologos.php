@@ -1,61 +1,3 @@
-<?php
-require_once '../bases_de_datos/conecta.php';
-require_once '../bases_de_datos/tablas.php';
-
-session_start();
-
-// Verificar si el método de solicitud es POST y el botón de envío está presente
-if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["boton_enviar"])) {
-
-    // Verificar si hay una sesión iniciada
-    if (isset($_SESSION["usuario"])) {
-        // Obtener el id del evento desde el campo oculto
-        $id_evento = $_POST["id_escondido"];
-
-        // Obtener el id del paciente (supongamos que lo obtienes de alguna manera)
-        $id_paciente = obtenerIdPaciente($_SESSION["usuario"]);
-
-        // Insertar datos en la tabla relacion_workshops_usuarios
-        if ($id_evento && $id_paciente) {
-            $conexion = obtenerConexion();
-
-            $query_insert = "INSERT INTO relacion_workshops_usuarios (id_evento, id_paciente) VALUES ($id_evento, $id_paciente)";
-            mysqli_query($conexion, $query_insert);
-
-            cerrarConexion($conexion);
-
-            // Mensaje de éxito u otra lógica después de la inserción
-            echo "Inserción exitosa en la tabla relacion_workshops_usuarios";
-            session_write_close();
-        } else {
-            // Manejar el caso en que no se puedan obtener los ids necesarios
-            echo "Error: No se pudieron obtener los ids necesarios";
-        }
-    } else {
-        // Redirige a la página de inicio de sesión si no hay una sesión iniciada
-        header("Location: login.php");
-        exit(); // Asegúrate de salir después de la redirección
-    }
-}
-
-function obtenerIdPaciente($username)
-{
-    // Obtener el id del paciente según el nombre de usuario (implementa según tu lógica)
-    // Puedes realizar una consulta a la base de datos para obtener el id del paciente asociado al username
-    // Este es solo un ejemplo de cómo podría ser, ajusta según tu estructura de la base de datos
-    $conexion = obtenerConexion();
-    $query = "SELECT id_paciente FROM relacion_usuarios_login WHERE id_login = (SELECT id_login FROM login WHERE username = '$username')";
-    $result = mysqli_query($conexion, $query);
-
-    if ($row = mysqli_fetch_assoc($result)) {
-        return $row["id_paciente"];
-    }
-
-    return null; // Otra lógica si no se puede obtener el id del paciente
-}
-?>
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -63,10 +5,16 @@ function obtenerIdPaciente($username)
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" crossorigin="anonymous">
-    <link rel="stylesheet" href="../../css/workshops.css">
-    <script src="../../js/workshops.js" defer></script>
-    <title>BrainWave | Workshops</title>
+    <link rel="stylesheet" href="../../css/lista_psicologos.css">
+    <title>BrainWave | Elige</title>
 </head>
+
+<?php
+
+require_once '../bases_de_datos/conecta.php';
+require_once '../bases_de_datos/tablas.php';
+
+?>
 
 <body>
 
@@ -84,10 +32,10 @@ function obtenerIdPaciente($username)
 
                     <ul>
                         <a href="servicios.php">
-                            <li>Servicios</li>
+                            <li style="color: #7E42FB;">Servicios</li>
                         </a>
                         <a href="recursos.php">
-                            <li style="color: #7E42FB;">Recursos</li>
+                            <li>Recursos</li>
                         </a>
                         <a href="nosotros.php">
                             <li>Nosotros</li>
@@ -122,7 +70,7 @@ function obtenerIdPaciente($username)
     <main>
 
         <div class="titulo">
-            <h1>Workshops</h1>
+            <h1>Elige tu experto</h1>
         </div>
 
         <div class="section1">
@@ -132,7 +80,7 @@ function obtenerIdPaciente($username)
                         <input type="text" name="buscador" id="" placeholder="Buscar" value="<?php if (isset($_GET['buscador'])) echo $_GET['buscador']; ?>"><button type="submit">Enviar</button>
                     </form>
                 </div>
-                <div class="workshop_container">
+                <div class="psicologos_container">
 
                     <?php
                     $conexion = obtenerConexion();
@@ -141,41 +89,41 @@ function obtenerIdPaciente($username)
                     if (isset($_GET['buscador'])) {
                         $busqueda = $_GET['buscador'];
 
-                        // Realiza la consulta para obtener eventos que coincidan con la búsqueda
-                        $query_eventos = "SELECT * FROM workshops WHERE nombre_evento LIKE '%$busqueda%' OR descripcion LIKE '%$busqueda%'";
+                        // Realiza la consulta para obtener psicólogos con imágenes que coincidan con la búsqueda
+                        $query_psicologos_imagenes = "SELECT psicologos.*, imagenes.ruta AS imagen_ruta 
+                        FROM psicologos 
+                        JOIN relacion_psicologo_imagen ON psicologos.id_psicologo = relacion_psicologo_imagen.id_psicologo 
+                        JOIN imagenes ON relacion_psicologo_imagen.id_imagen = imagenes.id_imagen
+                        WHERE psicologos.nombre LIKE '%$busqueda%'";
                     } else {
-                        // Consulta sin búsqueda, obtener todos los eventos
-                        $query_eventos = "SELECT * FROM workshops";
+                        // Consulta sin búsqueda, obtener todos los psicólogos con imágenes
+                        $query_psicologos_imagenes = "SELECT psicologos.*, imagenes.ruta AS imagen_ruta 
+                        FROM psicologos 
+                        JOIN relacion_psicologo_imagen ON psicologos.id_psicologo = relacion_psicologo_imagen.id_psicologo 
+                        JOIN imagenes ON relacion_psicologo_imagen.id_imagen = imagenes.id_imagen";
                     }
 
-                    $result_eventos = mysqli_query($conexion, $query_eventos);
+                    $result_psicologos_imagenes = mysqli_query($conexion, $query_psicologos_imagenes);
+
+                    // Almacena los resultados en un array asociativo
+                    $psicologos_imagenes = mysqli_fetch_all($result_psicologos_imagenes, MYSQLI_ASSOC);
 
                     // Cierra la conexión
                     cerrarConexion($conexion);
 
-                    while ($evento = mysqli_fetch_assoc($result_eventos)) {
-                        echo '<div class="workshop" data-fecha="' . $evento['fecha'] . '" data-hora="' . $evento['hora'] . '" data-lugar-nombre="' . $evento['lugar_nombre'] . '" data-lugar-direccion="' . $evento['lugar_direccion'] . ' " data-id="' . $evento["id_evento"] . '"">';
-                        echo '<h2>' . $evento['nombre_evento'] . '</h2>';
-
-                        $descripcion_resumen = substr($evento['descripcion'], 0, 150); // Limitar a 150 caracteres, ajusta según tus necesidades
-                        echo '<p>' . $descripcion_resumen . '...</p>';
-
-                        // Agregar elemento oculto con el contenido completo
-                        echo '<div class="contenido-completo-oculto" style="display:none;">' . $evento['descripcion'] . '</div>';
-
+                    foreach ($psicologos_imagenes as $psicologo_imagen) {
+                        echo '<div class="psicologo">';
+                        echo '<div class="imagen_psicologo" style="background-image:url(' . $psicologo_imagen["imagen_ruta"] . ')"></div>';
+                        echo '<div class="texto_psicologo">';
+                        echo '<h2>' . $psicologo_imagen['nombre'] . '</h2>';
+                        echo '<a href="pedir_cita.php?id=' . $psicologo_imagen['id_psicologo'] . '"><button>Pedir Cita</button></a>';
+                        echo '</div>';
                         echo '</div>';
                     }
                     ?>
 
-
                 </div>
             </div>
-        </div>
-        <div id="myModal" class="modal">
-            <i class="fas fa-times fa-2x" id="closeBtn"></i>
-            <div class="modal-content" id="modalContent">
-            </div>
-        </div>
         </div>
 
     </main>
