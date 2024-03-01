@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" crossorigin="anonymous">
-    <link rel="stylesheet" href="../../css/lista_psicologos.css">
-    <title>BrainWave | Elige</title>
+    <link rel="stylesheet" href="../../css/pedir_cita.css">
+    <title>BrainWave | Pedir Cita</title>
 </head>
 
 <?php
@@ -67,6 +67,33 @@ require_once '../bases_de_datos/tablas.php';
         </div>
     </nav>
 
+    <?php
+    $conexion = obtenerConexion();
+
+    // Inicializa las variables
+    $psicologos_imagenes = [];
+
+    // Verificar si se ha enviado una consulta de búsqueda
+    if (isset($_GET['id'])) {
+        $id_psicologo = $_GET['id'];
+        // Consulta con búsqueda, obtener los datos del psicólogo específico con su imagen
+        $query_psicologo_imagen = "SELECT psicologos.*, imagenes.ruta AS imagen_ruta 
+                FROM psicologos 
+                JOIN relacion_psicologo_imagen ON psicologos.id_psicologo = relacion_psicologo_imagen.id_psicologo 
+                JOIN imagenes ON relacion_psicologo_imagen.id_imagen = imagenes.id_imagen
+                WHERE psicologos.id_psicologo = $id_psicologo";
+        $result_psicologo_imagen = mysqli_query($conexion, $query_psicologo_imagen);
+
+        // Almacena el resultado en el array
+        $psicologos_imagenes = mysqli_fetch_assoc($result_psicologo_imagen);
+    }
+
+    // Cierra la conexión
+    cerrarConexion($conexion);
+
+    // Ahora, $psicologos_imagenes contiene un array asociativo con los datos del psicólogo e imagen.
+    ?>
+
     <main>
 
         <div class="titulo">
@@ -75,42 +102,48 @@ require_once '../bases_de_datos/tablas.php';
 
         <div class="section1">
             <div class="inner_section">
-                <div class="buscador">
-                    <form action="" method="GET">
-                        <input type="text" name="buscador" id="" placeholder="Buscar" value="<?php if (isset($_GET['buscador'])) echo $_GET['buscador']; ?>"><button type="submit">Enviar</button>
-                    </form>
+                <div class="psicologo">
+                    <div class="inner_psicologo">
+                        <div class="imagen" style="background-image: url('<?php echo $psicologos_imagenes["imagen_ruta"] ?>');">
+                        </div>
+                        <div class="texto_imagen">
+                            <h2><?php echo $psicologos_imagenes["nombre"] ?></h2>
+                        </div>
+                    </div>
                 </div>
-                <div class="psicologos_container">
+                <div class="info_psicologo">
+                    <div class="box1">
+                        <h2>Descripción</h2>
+                        <p><?php echo $psicologos_imagenes["descripcion"] ?></p>
+                        <h2>Especialización</h2>
+                        <ul>
+                            <?php
+                            $especializacion_comas = $psicologos_imagenes["especialista"];
+                            $especializacion_sin_comas = explode(",", $especializacion_comas);
 
-                    <?php
-                    $conexion = obtenerConexion();
+                            foreach ($especializacion_sin_comas as $valor) {
+                                echo "<li>$valor</li>";
+                            }
+                            ?>
+                        </ul>
+                        <h2>Formación</h2>
+                        <ul>
+                            <?php
+                            $formacion_comas = $psicologos_imagenes["formacion"];
+                            $formacion_sin_comas = explode(",", $formacion_comas);
 
-                    // Inicializa las variables
-                    $psicologos_imagenes = [];
-
-                    // Verificar si se ha enviado una consulta de búsqueda
-                    if (isset($_GET['buscador'])) {
-                        $id_psicologo = $_GET['id'];
-                        // Consulta sin búsqueda, obtener todos los psicólogos con imágenes
-                        $query_psicologos_imagenes = "SELECT psicologos.*, imagenes.ruta AS imagen_ruta 
-                        FROM psicologos 
-                        JOIN relacion_psicologo_imagen ON psicologos.id_psicologo = relacion_psicologo_imagen.id_psicologo 
-                        JOIN imagenes ON relacion_psicologo_imagen.id_imagen = imagenes.id_imagen";
-                    }
-
-                    $result_psicologos_imagenes = mysqli_query($conexion, $query_psicologos_imagenes);
-
-                    // Almacena el resultado directamente en el array
-                    $psicologos_imagenes = mysqli_fetch_all($result_psicologos_imagenes, MYSQLI_ASSOC);
-
-                    // Cierra la conexión
-                    cerrarConexion($conexion);
-
-                    // Ahora, $psicologos_imagenes contiene un array de arrays asociativos con los datos de psicólogos e imágenes.
-                    ?>
-
+                            foreach ($formacion_sin_comas as $valor) {
+                                echo "<li>$valor</li>";
+                            }
+                            ?>
+                        </ul>
+                    </div>
                 </div>
             </div>
+        </div>
+
+        <div class="section2">
+
         </div>
 
     </main>
