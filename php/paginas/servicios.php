@@ -45,13 +45,13 @@
 
                 <div class="perfil">
                     <a href="<?php
-
-                                if (isset($_SESSION["tipo"])) {
+                                session_start();
+                                if (isset($_SESSION["usuario"])) {
                                     echo "perfil.php";
                                 } else {
                                     echo "login.php";
                                 }
-
+                                session_write_close();
                                 ?>"><i class="fas fa-user-circle fa-2x" id="color_perfil"></i></a>
                 </div>
 

@@ -45,7 +45,6 @@ function selectDay(element) {
 
     element.classList.add('active');
     selectedDate = element.dataset.date;
-    selectedHour = null;
     updateSelectedDateTime();
 }
 
@@ -64,71 +63,64 @@ function updateSelectedDateTime() {
     const horaInput = document.querySelector('input[name="hora"]');
 
     if (selectedDate && selectedHour) {
-        fechaInput.value = selectedDate;
-        horaInput.value = selectedHour;
+        const formattedDate = new Date(selectedDate);
+        const formattedTime = new Date(`2000-01-01T${selectedHour}`);
+        const formattedDateTime = new Date(formattedDate.getFullYear(), formattedDate.getMonth(), formattedDate.getDate(), formattedTime.getHours(), formattedTime.getMinutes());
+
+        fechaInput.value = formattedDateTime.toISOString().slice(0, 10); // Modificado para incluir solo la fecha
+        horaInput.value = formattedDateTime.toTimeString().slice(0, 5);
     } else {
         const today = new Date();
-        const formattedToday = `${today.getFullYear()}-${today.getMonth() + 1}-${today.getDate()}`;
+        const formattedToday = `${today.getFullYear()}-${(today.getMonth() + 1).toString().padStart(2, '0')}-${today.getDate().toString().padStart(2, '0')}`;
         fechaInput.value = formattedToday;
     }
 }
 
+
 function validarCita() {
     if (!selectedDate || !selectedHour) {
         alert('Selecciona una fecha y hora antes de enviar el formulario.');
-        return true;
+        return false;
     }
 
-    const selectedDateObject = new Date(selectedDate);
-    const currentDateObject = new Date();
+    const selectedDateTime = new Date(`${selectedDate}T${selectedHour}`);
+    const currentDateTime = new Date();
 
-    if (selectedDateObject < currentDateObject) {
-        alert('La fecha seleccionada es en el pasado. Por favor, elige una fecha futura.');
-        return true;
+    if (selectedDateTime < currentDateTime) {
+        alert('La fecha y hora seleccionadas son en el pasado. Por favor, elige una fecha y hora futura.');
+        return false;
     }
 
-    if (selectedDateObject.toDateString() === currentDateObject.toDateString()) {
-        const selectedTime = new Date(`2000-01-01T${selectedHour}`);
-        const currentTime = new Date(`2000-01-01T${currentDateObject.getHours()}:${currentDateObject.getMinutes()}`);
-
-        if (selectedTime <= currentTime) {
-            alert('La hora seleccionada es en el pasado. Por favor, elige una hora futura.');
-            return true;
-        }
-    }
-
-    return false;
+    return true;
 }
 
 function enviarCita() {
     if (validarCita()) {
-        return;
+        var datosCita = {
+            fecha: selectedDate.trim(),
+            hora: selectedHour.trim(),
+        };
+
+        var datosJSON = JSON.stringify(datosCita);
+
+        $.ajax({
+            type: "POST",
+            url: "../procesamiento_datos/procesar_cita.php",
+            dataType: "json",
+            data: { datos: datosJSON },
+            success: function (respuesta) {
+                console.log(respuesta);
+                if (respuesta.success) {
+                    // Hacer algo en caso de éxito
+                } else {
+                    // Hacer algo en caso de error
+                }
+            },
+            error: function (error) {
+                console.error("Error en la solicitud AJAX: ", error);
+            },
+        });
     }
-
-    var datosCita = {
-        fecha: selectedDate.trim(),
-        hora: selectedHour.trim(),
-    };
-
-    var datosJSON = JSON.stringify(datosCita);
-
-    $.ajax({
-        type: "POST",
-        url: "../procesamiento_datos/procesar_cita.php",
-        dataType: "json",
-        data: { datos: datosJSON },
-        success: function (respuesta) {
-            console.log(respuesta);
-            if (respuesta.success) {
-                
-            } else {
-                
-            }
-        },
-        error: function (error) {
-            console.error("Error en la solicitud AJAX: ", error);
-        },
-    });
 }
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -156,11 +148,8 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     const form = document.querySelector('form');
-    const fechaInput = form.querySelector('input[name="fecha"]');
-    const horaInput = form.querySelector('input[name="hora"]');
-    const botonEnviar = form.querySelector('.boton_enviar');
 
-    botonEnviar.addEventListener('click', (event) => {
+    form.addEventListener('submit', function (event) {
         event.preventDefault();
         enviarCita();
     });

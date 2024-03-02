@@ -10,8 +10,9 @@ if (isset($datosJSON)) {
 
     $datos = json_decode($datosJSON, true);
 
-    $username = $datos["username"];
-    $password = $datos["passwd"];
+    $fecha= $datos["username"];
+    $hora = $datos["passwd"];
+    
 
     // Obtener el hash almacenado para el usuario
     $stmt = $conexion->prepare("SELECT password FROM login WHERE username = ?");

@@ -90,27 +90,28 @@ require_once '../bases_de_datos/tablas.php';
                     if (isset($_GET['buscador'])) {
                         $busqueda = $_GET['buscador'];
 
-                        // Realiza la consulta para obtener eventos que coincidan con la búsqueda
-                        $query_eventos = "SELECT * FROM workshops WHERE nombre_evento LIKE '%$busqueda%' OR descripcion LIKE '%$busqueda%'";
+                        // Realiza la consulta para obtener artículos que coincidan con la búsqueda
+                        $query_articulos = "SELECT * FROM articulos WHERE titulo LIKE '%$busqueda%' OR autor LIKE '%$busqueda%' OR contenido LIKE '%$busqueda%'";
                     } else {
-                        // Consulta sin búsqueda, obtener todos los eventos
-                        $query_eventos = "SELECT * FROM workshops";
+                        // Consulta sin búsqueda, obtener todos los artículos
+                        $query_articulos = "SELECT * FROM articulos";
                     }
 
-                    $result_eventos = mysqli_query($conexion, $query_eventos);
+                    $result_articulos = mysqli_query($conexion, $query_articulos);
 
                     // Cierra la conexión
                     cerrarConexion($conexion);
 
-                    while ($evento = mysqli_fetch_assoc($result_eventos)) {
-                        echo '<div class="workshop" data-fecha="' . $evento['fecha'] . '" data-hora="' . $evento['hora'] . '" data-lugar-nombre="' . $evento['lugar_nombre'] . '" data-lugar-direccion="' . $evento['lugar_direccion'] . '">';
-                        echo '<h2>' . $evento['nombre_evento'] . '</h2>';
+                    while ($articulo = mysqli_fetch_assoc($result_articulos)) {
+                        echo '<div class="articulo">';
+                        echo '<h2>' . $articulo['titulo'] . '</h2>';
+                        $contenido_resumen = substr($articulo['contenido'], 0, 150); // Limitar a 150 caracteres, ajusta según tus necesidades
 
-                        $descripcion_resumen = substr($evento['descripcion'], 0, 150); // Limitar a 150 caracteres, ajusta según tus necesidades
-                        echo '<p>' . $descripcion_resumen . '...</p>';
+                        echo '<p>' . $contenido_resumen . '...</p>';
+                        echo '<span>Autor: ' . $articulo["autor"] . '</span>';
 
                         // Agregar elemento oculto con el contenido completo
-                        echo '<div class="contenido-completo-oculto" style="display:none;">' . $evento['descripcion'] . '</div>';
+                        echo '<div class="contenido-completo-oculto" style="display:none;">' . $articulo['contenido'] . '</div>';
 
                         echo '</div>';
                     }

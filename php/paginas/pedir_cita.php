@@ -55,13 +55,13 @@ require_once '../bases_de_datos/tablas.php';
 
                 <div class="perfil">
                     <a href="<?php
-
+                                session_start();
                                 if (isset($_SESSION["tipo"])) {
                                     echo "perfil.php";
                                 } else {
                                     echo "login.php";
                                 }
-
+                                session_write_close();
                                 ?>"><i class="fas fa-user-circle fa-2x" id="color_perfil"></i></a>
                 </div>
 
@@ -186,7 +186,8 @@ require_once '../bases_de_datos/tablas.php';
 
                         <div class="form">
                             <!-- <p><span class="fecha_esscogida">Fecha escogida:</span></p> -->
-                            <form action="" method="post">
+                            <form id="citaForm" action="" method="post">
+                                <input type="hidden" name="id_psicologo" value="<?php echo $_GET["id"] ?>">
                                 <input type="hidden" name="fecha" value="">
                                 <input type="hidden" name="hora" value="">
                                 <button class="boton_enviar">Pedir Cita</button>
