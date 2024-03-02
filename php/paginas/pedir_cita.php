@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" crossorigin="anonymous">
     <link rel="stylesheet" href="../../css/pedir_cita.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="../../js/pedir_cita.js" defer></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
     <title>BrainWave | Pedir Cita</title>
 </head>
 
@@ -143,7 +146,56 @@ require_once '../bases_de_datos/tablas.php';
         </div>
 
         <div class="section2">
+            <div class="inner_section2">
+                <div class="error">
+                    <p class="texto_error">Tienes que elegir una hora</p>
+                </div>
+                <div class="wrapper">
+                    <header>
+                        <p class="current-date"></p>
+                        <div class="icons">
+                            <span id="prev" class="material-symbols-rounded">chevron_left</span>
+                            <span id="next" class="material-symbols-rounded">chevron_right</span>
+                        </div>
+                    </header>
+                    <div class="calendar">
+                        <ul class="weeks">
+                            <li>Sun</li>
+                            <li>Mon</li>
+                            <li>Tue</li>
+                            <li>Wed</li>
+                            <li>Thu</li>
+                            <li>Fri</li>
+                            <li>Sat</li>
+                        </ul>
+                        <ul class="days"></ul>
+                    </div>
+                </div>
+                <div class="horas_container">
 
+                    <div class="inner_horas">
+
+                        <div class="hora selectable-hour"><span id="hour1" data-hour="09:30:00">9.30 AM</span></div>
+                        <div class="hora selectable-hour"><span id="hour2" data-hour="10:30:00">10.30 AM</span></div>
+                        <div class="hora selectable-hour"><span id="hour3" data-hour="11:30:00">11.30 AM</span></div>
+                        <div class="hora selectable-hour"><span id="hour4" data-hour="12:30:00">12.30 PM</span></div>
+                        <div class="hora selectable-hour"><span id="hour5" data-hour="13:30:00">13.30 PM</span></div>
+                        <div class="hora selectable-hour"><span id="hour6" data-hour="14:30:00">14.30 PM</span></div>
+                        <div class="hora selectable-hour"><span id="hour7" data-hour="15:30:00">15.30 PM</span></div>
+                        <div class="hora selectable-hour"><span id="hour8" data-hour="16:30:00">16.30 PM</span></div>
+
+                        <div class="form">
+                            <!-- <p><span class="fecha_esscogida">Fecha escogida:</span></p> -->
+                            <form action="" method="post">
+                                <input type="hidden" name="fecha" value="">
+                                <input type="hidden" name="hora" value="">
+                                <button class="boton_enviar">Pedir Cita</button>
+                            </form>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
         </div>
 
     </main>

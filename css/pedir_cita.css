@@ -259,6 +259,213 @@
 .section2{
     width: 100%;
     height: 800px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--negro);
+}
+
+.inner_section2{
+    display: grid;
+    width: 70%;
+    height: max-content;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 1fr;
+    place-items: center;
+}
+
+.horas_container{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.inner_horas{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    width: 70%;
+    height: 90%;
+    flex-wrap: wrap;
+    place-items: center;
+}
+
+.hora{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 70%;
+    height: 70%;
+    background-color: var(--tarjeta);
+    border-radius: 25px;
+    transition: all 300ms ease-in-out;
+}
+
+.hora:hover{
+    background-color: var(--morado);
+    cursor: pointer;
+    color: white;
+}
+
+.hora span{
+    color: white;
+}
+
+.form{
+    width: 100%;
+    height: 10%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    grid-column: span 2;
+    flex-wrap: wrap;
+}
+
+/* .form p{
+    width: 100%;
+    color: white;
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 20px;
+}
+
+.form p span{
+    font-family: var(--medium);
+    color: var(--morado);
+} */
+
+.form button{
+    padding: 15px 20px;
+    background-color: var(--morado);
+    font-size: 15px;
+    font-family: var(--medium);
+    border-radius: 5px;
+    color: white;
+    border: 0;
+    transition: all 300ms ease-in-out;
+}
+
+.form button:hover{
+    background-color: var(--gris);
+    cursor: pointer;
+}
+
+.selectable-hour.selected {
+    background-color: var(--morado);
+}
+
+.error{
+    width: 100%;
+    height: max-content;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: red;
+    grid-column: span 2;
+    display: none;
+    margin: 30px;
+}
+
+.texto_error{
+    padding: 20px;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 15px;
+    color: black;
+    font-family: var(--bold);
+}
+
+/* Calendario */
+
+.wrapper{
+  width: 450px;
+  height: max-content;
+  background: var(--tarjeta);
+  border-radius: 10px;
+}
+.wrapper header{
+  display: flex;
+  align-items: center;
+  padding: 25px 30px 10px;
+  justify-content: space-between;
+}
+header .icons{
+  display: flex;
+}
+header .icons span{
+  height: 38px;
+  width: 38px;
+  margin: 0 1px;
+  cursor: pointer;
+  color: #878787;
+  text-align: center;
+  line-height: 38px;
+  font-size: 1.9rem;
+  user-select: none;
+  border-radius: 50%;
+}
+.icons span:last-child{
+  margin-right: -10px;
+}
+header .icons span:hover{
+  background: #f2f2f2;
+}
+header .current-date{
+  font-size: 1.45rem;
+  font-weight: 500;
+  color: white;
+}
+.calendar{
+  padding: 20px;
+}
+.calendar ul{
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  text-align: center;
+}
+.calendar .days{
+  margin-bottom: 20px;
+}
+.calendar li{
+  color: white;
+  width: calc(100% / 7);
+  font-size: 1.07rem;
+}
+.calendar .weeks li{
+  font-weight: 500;
+  cursor: default;
+}
+.calendar .days li{
+  z-index: 1;
+  cursor: pointer;
+  position: relative;
+  margin-top: 30px;
+}
+.days li.inactive{
+  color: #aaa;
+}
+.days li.active{
+  color: #fff;
+}
+.days li::before{
+  position: absolute;
+  content: "";
+  left: 50%;
+  top: 50%;
+  height: 40px;
+  width: 40px;
+  z-index: -1;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+.days li.active::before{
+  background: #9B59B6;
+}
+.days li:not(.active):hover::before{
+  background: var(--gris);
 }
 
 /* Todos los estilos del footer */

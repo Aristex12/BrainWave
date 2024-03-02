@@ -48,6 +48,8 @@ if (mysqli_num_rows($res) <= 0) {
         id_relacion INT AUTO_INCREMENT PRIMARY KEY,
         id_psicologo INT,
         id_paciente INT,
+        fecha DATE NOT NULL,
+        hora TIME NOT NULL,
         FOREIGN KEY (id_psicologo) REFERENCES psicologos(id_psicologo),
         FOREIGN KEY (id_paciente) REFERENCES usuarios(id_paciente)
         )";
@@ -185,12 +187,12 @@ if (mysqli_num_rows($res) <= 0) {
         ('Carlos Rodríguez', 'Terapeuta con diez años de dedicación a la psicología. Es un placer para mí ser tu guía en este viaje hacia el equilibrio emocional. Mi estilo cercano y comprensivo te brindará el respaldo necesario en este camino.', 'Trastornos en Niños y Adolescentes, Depresión, Trastorno de Ansiedad', 'Psicología en la Universidad Nacional Autónoma de México (2010), Máster de Psicología en TDAH (2015), Psicoterapeuta y especialista en Medicina Familiar'),
         ('Laura Martínez', 'Terapeuta con una década de dedicación a la psicología. Estoy encantada de acompañarte en este recorrido hacia el equilibrio emocional. Mi estilo cercano y comprensivo te proporcionará el respaldo necesario en este camino.', 'Trastornos en Niños y Adolescentes, Depresión, Trastorno de Ansiedad', 'Psicología en la Universidad Complutense de Madrid (2010), Máster de Psicología en TDAH (2015), Psicoterapeuta y especialista en Medicina Familiar')";
 
-    $insert_psicologos_pacientes = "INSERT INTO relacion_psicologos_usuarios (id_psicologo, id_paciente) VALUES
-        (1, 1),
-        (2, 2),
-        (3, 3),
-        (4, 4),
-        (5, 5);";
+    $insert_psicologos_pacientes = "INSERT INTO relacion_psicologos_usuarios (id_psicologo, id_paciente, fecha, hora) VALUES
+    (3, 4, '2024-03-12', '12:00:00'),
+    (4, 2, '2024-03-13', '10:15:00'),
+    (5, 1, '2024-03-14', '15:30:00'),
+    (1, 5, '2024-03-15', '09:45:00'),
+    (2, 3, '2024-03-16', '18:00:00');";
 
     $insert_eventos_talleres = "INSERT INTO workshops (nombre_evento, fecha, hora, lugar_nombre, lugar_direccion, descripcion) VALUES
         ('Desafiando Límites: Un Encuentro sobre el TDAH', '2024-05-15', '09:00:00', 'Plaza de Margaritas', '123 Calle Principal', 'Bienvenido a Desafiando Límites! Únete a nosotros para explorar estrategias prácticas, compartir experiencias y descubrir nuevas formas de apoyar a quienes viven con Trastorno por Déficit de Atención e Hiperactividad (TDAH). Este evento contará con sesiones educativas a cargo de expertos, talleres interactivos, una red de apoyo para establecer conexiones significativas, y recursos útiles para la comunidad.'),
