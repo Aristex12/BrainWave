@@ -62,37 +62,18 @@ function updateSelectedDateTime() {
     const fechaInput = document.querySelector('input[name="fecha"]');
     const horaInput = document.querySelector('input[name="hora"]');
 
-    if (selectedDate && selectedHour) {
-        const formattedDate = new Date(selectedDate);
-        const formattedTime = new Date(`2000-01-01T${selectedHour}`);
-        const formattedDateTime = new Date(formattedDate.getFullYear(), formattedDate.getMonth(), formattedDate.getDate(), formattedTime.getHours(), formattedTime.getMinutes());
+    fechaInput.value = selectedDate || ''; // Almacenar la fecha seleccionada o dejar vacío si no hay ninguna seleccionada
+    horaInput.value = selectedHour || ''; // Almacenar la hora seleccionada o dejar vacío si no hay ninguna seleccionada
+}
 
-        fechaInput.value = formattedDateTime.toISOString().slice(0, 10); // Modificado para incluir solo la fecha
-        horaInput.value = formattedDateTime.toTimeString().slice(0, 5);
-    } else {
-        const today = new Date();
-        const formattedToday = `${today.getFullYear()}-${(today.getMonth() + 1).toString().padStart(2, '0')}-${today.getDate().toString().padStart(2, '0')}`;
-        fechaInput.value = formattedToday;
-    }
+// Función para validar si la fecha está en el pasado
+function esFechaEnElPasado(fecha) {
+    const fechaSeleccionada = new Date(fecha);
+    const fechaActual = new Date();
+    return fechaSeleccionada < fechaActual;
 }
 
 
-function validarCita() {
-    if (!selectedDate || !selectedHour) {
-        alert('Selecciona una fecha y hora antes de enviar el formulario.');
-        return false;
-    }
-
-    const selectedDateTime = new Date(`${selectedDate}T${selectedHour}`);
-    const currentDateTime = new Date();
-
-    if (selectedDateTime < currentDateTime) {
-        alert('La fecha y hora seleccionadas son en el pasado. Por favor, elige una fecha y hora futura.');
-        return false;
-    }
-
-    return true;
-}
 
 function enviarCita() {
     if (validarCita()) {
@@ -111,9 +92,11 @@ function enviarCita() {
             success: function (respuesta) {
                 console.log(respuesta);
                 if (respuesta.success) {
-                    // Hacer algo en caso de éxito
+                    // Hacer algo en caso de éxito, por ejemplo, redireccionar a otra página
+                    window.location.href = "tu_pagina_de_exito.html";
                 } else {
                     // Hacer algo en caso de error
+                    alert('Error al procesar la cita. Por favor, inténtalo de nuevo.');
                 }
             },
             error: function (error) {

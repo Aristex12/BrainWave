@@ -119,6 +119,7 @@ session_start();
                         <div class="texto_imagen">
                             <h2><?php echo $nombre . " " . $apellidos ?></h2>
                         </div>
+                        <button class="cerrar_sesion">Cerrar Sesion</button>
                     </div>
                 </div>
                 <div class="info_perfil">

@@ -185,13 +185,7 @@ require_once '../bases_de_datos/tablas.php';
                         <div class="hora selectable-hour"><span id="hour8" data-hour="16:30:00">16.30 PM</span></div>
 
                         <div class="form">
-                            <!-- <p><span class="fecha_esscogida">Fecha escogida:</span></p> -->
-                            <form id="citaForm" action="" method="post">
-                                <input type="hidden" name="id_psicologo" value="<?php echo $_GET["id"] ?>">
-                                <input type="hidden" name="fecha" value="">
-                                <input type="hidden" name="hora" value="">
                                 <button class="boton_enviar">Pedir Cita</button>
-                            </form>
                         </div>
 
                     </div>
