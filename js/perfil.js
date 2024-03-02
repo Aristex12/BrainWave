@@ -56,13 +56,18 @@ document.addEventListener('DOMContentLoaded', function () {
         // Mostrar el mensaje de éxito y hacer visible el div
         exitoDiv.style.display = 'flex';
         errorDiv.style.display = 'none';
+
+        setTimeout(function () {
+            location.reload();
+        }, 2000);
     }
 
     function validarCampos(valores) {
         const regexSoloLetras = /^[a-zA-ZÀ-ÖØ-öø-ÿ\s]{2,}$/;
+        const regexUsername = /^[a-zA-ZÀ-ÖØ-öø-ÿ0-9\s]{2,}$/;
         const regexFormatoEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-        if (!regexSoloLetras.test(valores.username) || !regexSoloLetras.test(valores.nombre) || !regexSoloLetras.test(valores.apellidos) || !regexFormatoEmail.test(valores.email)) {
+        if (!regexUsername.test(valores.username) || !regexSoloLetras.test(valores.nombre) || !regexSoloLetras.test(valores.apellidos) || !regexFormatoEmail.test(valores.email)) {
             return false;
         }
 

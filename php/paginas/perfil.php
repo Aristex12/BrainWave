@@ -55,13 +55,13 @@ session_start();
                 <div class="perfil">
                     <a href="<?php
 
-                        if (isset($_SESSION["usuario"])) {
-                            echo "perfil.php";
-                        } else {
-                            echo "login.php";
-                        }
+                                if (isset($_SESSION["usuario"])) {
+                                    echo "perfil.php";
+                                } else {
+                                    echo "login.php";
+                                }
 
-                        ?>"><i class="fas fa-user-circle fa-2x" id="color_perfil"></i></a>
+                                ?>"><i class="fas fa-user-circle fa-2x" id="color_perfil"></i></a>
                 </div>
 
             </div>
@@ -70,13 +70,6 @@ session_start();
     </nav>
 
     <?php
-
-    // Verificar si la sesión está iniciada
-    if (!isset($_SESSION["usuario"])) {
-        // Redirigir a la página de inicio de sesión si no hay sesión iniciada
-        header("Location: login.php");
-        exit();
-    }
 
     // Obtener el nombre de usuario de la sesión
     $username = $_SESSION["usuario"];
@@ -137,7 +130,7 @@ session_start();
                             </div>
                             <div class="succes">
                                 <p class="succes_text"></p>
-                                <i class="fa fa-exclamation-circle"></i>
+                                <i class="fas fa-check" style="color: black;"></i>
                             </div>
                             <label for="username">Username</label><br>
                             <input type="text" id="username" name="username" value="<?php echo $_SESSION["usuario"] ?>"> <br>
@@ -158,6 +151,151 @@ session_start();
                 </div>
             </div>
         </div>
+
+        <div class="section2">
+            <div class="titulo_section1">
+                <i class="fas fa-circle fa-xs" style="margin-right: 10px;"></i>
+                <p>RECORDATORIO</p> <br>
+                <h1>Tu Semana</h1>
+            </div>
+            <div class="inner_section2">
+                <?php
+                // ... (código anterior)
+
+                $conexion = obtenerConexion();
+
+                // Obtener el username de la sesión
+                $username = $_SESSION["usuario"];
+
+                // Consulta para obtener el id_login (ID del usuario) a partir del username
+                $queryLogin = "SELECT id_login FROM login WHERE username = ?";
+                $stmtLogin = mysqli_prepare($conexion, $queryLogin);
+                mysqli_stmt_bind_param($stmtLogin, 's', $username);
+                mysqli_stmt_execute($stmtLogin);
+                mysqli_stmt_bind_result($stmtLogin, $id_login);
+                mysqli_stmt_fetch($stmtLogin);
+                mysqli_stmt_close($stmtLogin);
+
+                // Verificar si se encontró el usuario
+                if (!empty($id_login)) {
+                    // Consulta para obtener el id_usuario a partir del id_login
+                    $queryUsuario = "SELECT id_paciente FROM relacion_usuarios_login WHERE id_login = ?";
+                    $stmtUsuario = mysqli_prepare($conexion, $queryUsuario);
+                    mysqli_stmt_bind_param($stmtUsuario, 'i', $id_login);
+                    mysqli_stmt_execute($stmtUsuario);
+                    mysqli_stmt_bind_result($stmtUsuario, $idUsuario);
+                    mysqli_stmt_fetch($stmtUsuario);
+                    mysqli_stmt_close($stmtUsuario);
+
+                    // Verificar si se encontró el id_usuario
+                    if (!empty($idUsuario)) {
+                        // Obtener la fecha actual
+                        $fechaActual = date("Y-m-d");
+
+                        // Obtener el primer día de esta semana (lunes)
+                        $primerDiaSemana = date("Y-m-d", strtotime('monday this week'));
+
+                        // Consultar eventos de psicólogos para esta semana
+                        $queryPsicologos = "SELECT psicologos.nombre AS nombre_psicologo, relacion_psicologos_usuarios.fecha, relacion_psicologos_usuarios.hora
+                            FROM relacion_psicologos_usuarios
+                            INNER JOIN psicologos ON relacion_psicologos_usuarios.id_psicologo = psicologos.id_psicologo
+                            WHERE relacion_psicologos_usuarios.id_paciente = ? AND relacion_psicologos_usuarios.fecha >= ?";
+
+                        $stmtPsicologos = mysqli_prepare($conexion, $queryPsicologos);
+                        mysqli_stmt_bind_param($stmtPsicologos, 'is', $idUsuario, $primerDiaSemana);
+                        mysqli_stmt_execute($stmtPsicologos);
+                        $resultadoPsicologos = mysqli_stmt_get_result($stmtPsicologos);
+
+                        // Consultar eventos de workshops para esta semana
+                        $queryWorkshops = "SELECT workshops.nombre_evento AS nombre_evento, workshops.fecha AS fecha_evento, workshops.hora AS hora_evento
+                            FROM relacion_workshops_usuarios
+                            INNER JOIN workshops ON relacion_workshops_usuarios.id_evento = workshops.id_evento
+                            WHERE relacion_workshops_usuarios.id_paciente = ? AND workshops.fecha >= ?";
+
+                        $stmtWorkshops = mysqli_prepare($conexion, $queryWorkshops);
+                        mysqli_stmt_bind_param($stmtWorkshops, 'is', $idUsuario, $primerDiaSemana);
+                        mysqli_stmt_execute($stmtWorkshops);
+                        $resultadoWorkshops = mysqli_stmt_get_result($stmtWorkshops);
+
+                        // Mostrar eventos de workshops
+                        // Función para obtener la fecha en formato 'd-m-Y'
+                        function obtenerFechaFormateada($fecha)
+                        {
+                            return date('d-m-Y', strtotime($fecha));
+                        }
+
+                        // Mostrar eventos de workshops
+                        while ($rowWorkshop = mysqli_fetch_assoc($resultadoWorkshops)) {
+                            $fechaEvento = $rowWorkshop['fecha_evento'];
+                            $nombreEvento = $rowWorkshop['nombre_evento'];
+                            $horaEvento = $rowWorkshop['hora_evento'];
+
+                            // Verificar si la fecha es de esta semana en adelante
+                            if (strtotime($fechaEvento) >= strtotime('today')) {
+                                echo '<div class="evento">';
+                                echo "<div class='inner_evento'>";
+
+                                // Verificar si la fecha supera los 7 días en adelante
+                                if (strtotime($fechaEvento) > strtotime('+7 days')) {
+                                    echo '<p class="dia">' . obtenerFechaFormateada($fechaEvento) . '</p>';
+                                } else {
+                                    setlocale(LC_TIME, 'es_ES');
+                                    $nombreDia = strftime('%A', strtotime($fechaEvento));
+                                    echo '<p class="dia">' . $nombreDia . '</p>';
+                                }
+
+                                echo '<p class="texto">Evento: "' . $nombreEvento . '"</p>';
+                                echo '</div>';
+                                echo "<div class='hora_container'>";
+                                echo '<p class="hora">' . $horaEvento . '</p>';
+                                echo "</div>";
+                                echo '</div>';
+                            }
+                        }
+
+                        // Mostrar eventos de psicólogos
+                        while ($rowPsicologo = mysqli_fetch_assoc($resultadoPsicologos)) {
+                            $fechaPsicologo = $rowPsicologo['fecha'];
+                            $nombrePsicologo = $rowPsicologo['nombre_psicologo'];
+                            $horaPsicologo = $rowPsicologo['hora'];
+
+                            // Verificar si la fecha es de esta semana en adelante
+                            if (strtotime($fechaPsicologo) >= strtotime('today')) {
+                                echo '<div class="evento">';
+                                echo "<div class='inner_evento'>";
+
+                                // Verificar si la fecha supera los 7 días en adelante
+                                if (strtotime($fechaPsicologo) > strtotime('+7 days')) {
+                                    echo '<p class="dia">' . obtenerFechaFormateada($fechaPsicologo) . '</p>';
+                                } else {
+                                    setlocale(LC_TIME, 'es_ES');
+                                    $nombreDiaPsicologo = strftime('%A', strtotime($fechaPsicologo));
+                                    echo '<p class="dia">' . $nombreDiaPsicologo . '</p>';
+                                }
+
+                                echo '<p class="texto">Cita con ' . $nombrePsicologo . '</p>';
+                                echo '</div>';
+                                echo "<div class='hora_container'>";
+                                echo '<p class="hora">' . $horaPsicologo . '</p>';
+                                echo "</div>";
+                                echo '</div>';
+                            }
+                        }
+                    } else {
+                        echo "ID del usuario no encontrado";
+                    }
+                } else {
+                    echo "Usuario no encontrado";
+                }
+
+                // Cerrar la conexión
+                cerrarConexion($conexion);
+                ?>
+
+
+            </div>
+        </div>
+
     </main>
 
     <footer>
