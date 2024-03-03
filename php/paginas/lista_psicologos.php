@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" crossorigin="anonymous">
     <link rel="stylesheet" href="../../css/lista_psicologos.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="../../js/lista_psicologos.js" defer></script>
     <title>BrainWave | Elige</title>
 </head>
 
@@ -84,8 +86,8 @@ require_once '../bases_de_datos/tablas.php';
             </div>
             <div class="inner_section">
                 <div class="buscador">
-                    <form action="" method="GET">
-                        <input type="text" name="buscador" id="" placeholder="Buscar" value="<?php if (isset($_GET['buscador'])) echo $_GET['buscador']; ?>"><button type="submit">Enviar</button>
+                    <form id="searchForm">
+                        <input type="text" name="buscador" id="buscador" placeholder="Buscar" value="<?php if (isset($_GET['buscador'])) echo $_GET['buscador']; ?>">
                     </form>
                 </div>
                 <div class="psicologos_container">
