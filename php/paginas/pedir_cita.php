@@ -79,6 +79,7 @@ require_once '../bases_de_datos/tablas.php';
     // Verificar si se ha enviado una consulta de búsqueda
     if (isset($_GET['id'])) {
         $id_psicologo = $_GET['id'];
+
         // Consulta con búsqueda, obtener los datos del psicólogo específico con su imagen
         $query_psicologo_imagen = "SELECT psicologos.*, imagenes.ruta AS imagen_ruta 
                 FROM psicologos 
@@ -106,6 +107,7 @@ require_once '../bases_de_datos/tablas.php';
         <div class="section1">
             <div class="inner_section">
                 <div class="psicologo">
+                    <?php echo '<input id="id_psicologo" type="hidden" value="' . $id_psicologo . '">'; ?>
                     <div class="inner_psicologo">
                         <div class="imagen" style="background-image: url('<?php echo $psicologos_imagenes["imagen_ruta"] ?>');">
                         </div>
@@ -146,6 +148,14 @@ require_once '../bases_de_datos/tablas.php';
         </div>
 
         <div class="section2">
+            <div class="error">
+                <p class="error_text"></p>
+                <i class="fa fa-exclamation-circle"></i>
+            </div>
+            <div class="succes">
+                <p class="succes_text"></p>
+                <i class="fas fa-check" style="color: black;"></i>
+            </div>
             <div class="inner_section2">
                 <div class="error">
                     <p class="texto_error">Tienes que elegir una hora</p>
@@ -185,7 +195,7 @@ require_once '../bases_de_datos/tablas.php';
                         <div class="hora selectable-hour"><span id="hour8" data-hour="16:30:00">16.30 PM</span></div>
 
                         <div class="form">
-                                <button class="boton_enviar">Pedir Cita</button>
+                            <button class="boton_enviar" onclick="enviarCita()">Pedir Cita</button>
                         </div>
 
                     </div>

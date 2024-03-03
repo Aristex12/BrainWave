@@ -263,6 +263,7 @@
     align-items: center;
     justify-content: center;
     background-color: var(--negro);
+    flex-wrap: wrap;
 }
 
 .inner_section2{
@@ -323,19 +324,6 @@
     flex-wrap: wrap;
 }
 
-/* .form p{
-    width: 100%;
-    color: white;
-    text-align: center;
-    margin-bottom: 20px;
-    font-size: 20px;
-}
-
-.form p span{
-    font-family: var(--medium);
-    color: var(--morado);
-} */
-
 .form button{
     padding: 15px 20px;
     background-color: var(--morado);
@@ -375,6 +363,67 @@
     font-size: 15px;
     color: black;
     font-family: var(--bold);
+}
+
+.error {
+  width: 100%;
+  height: max-content;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: red;
+  grid-column: span 2;
+  display: none;
+  margin: 30px;
+}
+
+.texto_error {
+  padding: 20px;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 15px;
+  color: black;
+  font-family: var(--bold);
+}
+
+.error{
+  width: 60%;
+  height: max-content;
+  padding: 15px;
+  align-items: center;
+  justify-content: center;
+  background-color: red;
+  display: none;
+  margin-left: 0;
+  flex-direction: row;
+}
+
+.error_text{
+  width: 100%;
+  text-align: center;
+  color: black;
+  font-size: 20px;
+  font-family: var(--medium);
+}
+
+.succes{
+  width: 60%;
+  height: max-content;
+  padding: 15px;
+  align-items: center;
+  justify-content: center;
+  background-color: lawngreen;
+  display: none;
+  margin-left: 0;
+  flex-direction: row;
+}
+
+.succes_text{
+  width: 100%;
+  text-align: center;
+  color: black;
+  font-size: 20px;
+  font-family: var(--medium);
 }
 
 /* Calendario */
@@ -445,7 +494,8 @@ header .current-date{
   margin-top: 30px;
 }
 .days li.inactive{
-  color: #aaa;
+  color: var(--morado);
+  font-family: var(--medium);
 }
 .days li.active{
   color: #fff;

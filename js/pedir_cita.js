@@ -44,8 +44,7 @@ function selectDay(element) {
     });
 
     element.classList.add('active');
-    selectedDate = element.dataset.date;
-    updateSelectedDateTime();
+    selectedDate = element.dataset.date; // Asigna el valor de data-date a selectedDate
 }
 
 function selectHour(element) {
@@ -54,34 +53,67 @@ function selectHour(element) {
     });
 
     element.classList.add('selected');
-    selectedHour = element.querySelector('span').dataset.hour;
-    updateSelectedDateTime();
+    selectedHour = element.querySelector('span').dataset.hour; // Asigna el valor de data-hour a selectedHour
 }
 
-function updateSelectedDateTime() {
-    const fechaInput = document.querySelector('input[name="fecha"]');
-    const horaInput = document.querySelector('input[name="hora"]');
+function mostrarError(mensaje) {
+    const errorDiv = document.querySelector('.error');
+    const errorText = document.querySelector('.error_text');
+    const exitoDiv = document.querySelector('.succes');
+    
+    // Mostrar el mensaje de error y hacer visible el div
+    errorText.textContent = mensaje;
+    errorDiv.style.display = 'flex';
+    exitoDiv.style.display = 'none';
 
-    fechaInput.value = selectedDate || ''; // Almacenar la fecha seleccionada o dejar vacío si no hay ninguna seleccionada
-    horaInput.value = selectedHour || ''; // Almacenar la hora seleccionada o dejar vacío si no hay ninguna seleccionada
 }
 
-// Función para validar si la fecha está en el pasado
-function esFechaEnElPasado(fecha) {
-    const fechaSeleccionada = new Date(fecha);
-    const fechaActual = new Date();
-    return fechaSeleccionada < fechaActual;
+function mostrarExito(mensaje) {
+    const exitoDiv = document.querySelector('.succes');
+    const exitoText = document.querySelector('.succes_text');
+    const errorDiv = document.querySelector('.error');
+
+    // Agregar el icono de "check" de Font Awesome
+    exitoText.innerHTML = mensaje;
+
+    // Mostrar el mensaje de éxito y hacer visible el div
+    exitoDiv.style.display = 'flex';
+    errorDiv.style.display = 'none';
+
 }
 
 
+function validarCita() {
+    if (!selectedDate || !selectedHour) {
+        mostrarError('Selecciona una fecha y hora antes de enviar el formulario.');
+        return false;
+    }
+
+    const selectedDateOnly = new Date(selectedDate);
+    const currentDateOnly = new Date();
+
+    // Establecer la hora, minutos, segundos y milisegundos de la fecha actual a cero
+    currentDateOnly.setHours(0, 0, 0, 0);
+
+    if (selectedDateOnly.getTime() < currentDateOnly.getTime()) {
+        mostrarError('La fecha seleccionada es en el pasado. Por favor, elige una fecha futura.');
+        return false;
+    }
+
+    return true;
+}
 
 function enviarCita() {
     if (validarCita()) {
+
+        id_psicologo = document.getElementById("id_psicologo").value;
+
         var datosCita = {
             fecha: selectedDate.trim(),
             hora: selectedHour.trim(),
+            id: id_psicologo.trim(),
         };
-
+    
         var datosJSON = JSON.stringify(datosCita);
 
         $.ajax({
@@ -92,11 +124,9 @@ function enviarCita() {
             success: function (respuesta) {
                 console.log(respuesta);
                 if (respuesta.success) {
-                    // Hacer algo en caso de éxito, por ejemplo, redireccionar a otra página
-                    window.location.href = "tu_pagina_de_exito.html";
+                    mostrarExito(respuesta.mensaje);
                 } else {
-                    // Hacer algo en caso de error
-                    alert('Error al procesar la cita. Por favor, inténtalo de nuevo.');
+                    mostrarError(respuesta.mensaje);
                 }
             },
             error: function (error) {
@@ -128,12 +158,5 @@ document.addEventListener("DOMContentLoaded", function () {
         hourSpan.addEventListener('click', () => {
             selectHour(hourSpan);
         });
-    });
-
-    const form = document.querySelector('form');
-
-    form.addEventListener('submit', function (event) {
-        event.preventDefault();
-        enviarCita();
     });
 });
