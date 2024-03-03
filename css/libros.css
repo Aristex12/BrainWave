@@ -321,7 +321,6 @@ input:focus{
 }
 
 .libro:hover{
-  background-color: var(--morado);
   cursor: pointer;
 }
 

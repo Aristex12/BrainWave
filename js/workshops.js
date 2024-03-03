@@ -29,7 +29,26 @@ $(document).ready(function () {
         }, 2000);
     }
 
+    function esconderMensajes(){
+        const errorDiv = document.querySelector('.error');
+        const exitoDiv = document.querySelector('.succes');
+
+        errorDiv.style.display = "none";
+        exitoDiv.style.display = "none";
+
+    }
+
     function buscarWorkshops(busqueda) {
+        // Valida el input con una expresión regular
+        var inputValor = document.getElementById("buscador").value;
+        var regex = /^[a-zA-Z0-9\s]*$/;
+        if (!regex.test(inputValor)) {
+            mostrarError('El valor introducido no es válido. Solo se permiten letras, números y espacios.');
+            return;
+        } else {
+            esconderMensajes();
+        }
+
         $.ajax({
             url: '../procesamiento_datos/procesar_workshops.php',
             type: 'GET',
@@ -156,5 +175,7 @@ $(document).ready(function () {
     });
 
 });
+
+
 
 

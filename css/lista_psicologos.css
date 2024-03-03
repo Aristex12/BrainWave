@@ -211,6 +211,7 @@
   background-color: var(--negro);
   padding: 50px;
   position: relative;
+  flex-wrap: wrap;
 }
 
 .inner_section{
@@ -228,7 +229,7 @@
 }
 
 .buscador{
-  width: 90%;
+  width: 100%;
   height: max-content;
   display: flex;
   align-items: center;
@@ -342,6 +343,26 @@ input:focus{
 .texto_psicologo button:hover{
   background-color: var(--morado);
   cursor: pointer;
+}
+
+.error {
+  width: 100%;
+  height: max-content;
+  padding: 15px;
+  align-items: center;
+  justify-content: center;
+  background-color: red;
+  display: none;
+  margin-left: 0;
+  flex-direction: row;
+}
+
+.error_text {
+  width: 100%;
+  text-align: center;
+  color: black;
+  font-size: 20px;
+  font-family: var(--medium);
 }
 
 /* Todos los estilos del footer */

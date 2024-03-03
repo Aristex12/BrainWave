@@ -77,6 +77,10 @@ require_once '../bases_de_datos/tablas.php';
         </div>
 
         <div class="section1">
+            <div class="error">
+                <p class="error_text"></p>
+                <i class="fa fa-exclamation-circle"></i>
+            </div>
             <div class="volver">
                 <a href="psicologos.php">
                     <svg xmlns="http://www.w3.org/2000/svg" height="30" width="30" viewBox="0 0 512 512">

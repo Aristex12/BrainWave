@@ -9,7 +9,6 @@ $(document).ready(function () {
     $('#searchForm').on('submit', function (event) {
         // Cancelar el envío del formulario
         event.preventDefault();
-
         // Obtener el valor del buscador y realizar la búsqueda
         var busqueda = $('#buscador').val();
         buscarPsicologos(busqueda);
@@ -17,6 +16,9 @@ $(document).ready(function () {
 
     // Función para realizar la búsqueda de psicólogos
     function buscarPsicologos(busqueda) {
+
+        var busqueda = $('#buscador').val();
+
         $.ajax({
             url: '../procesamiento_datos/procesar_lista_psicologos.php',
             type: 'POST',
@@ -33,6 +35,15 @@ $(document).ready(function () {
                 console.error('Error en la petición AJAX', error);
             }
         });
+
+        // Validar la entrada con expresión regular
+        var regex = /^[a-zA-Z0-9\s]*$/;
+        if (!regex.test(busqueda)) {
+            mostrarError('La búsqueda no es válida. Solo se permiten letras, números y espacios.');
+            return;
+        } else {
+            esconderMensajes();
+        }
     }
 
     // Función para mostrar los resultados de la búsqueda
@@ -58,3 +69,24 @@ $(document).ready(function () {
         }
     }
 });
+
+function esconderMensajes(){
+    const errorDiv = document.querySelector('.error');
+    const exitoDiv = document.querySelector('.succes');
+
+    errorDiv.style.display = "none";
+    exitoDiv.style.display = "none";
+
+}
+
+function mostrarError(mensaje) {
+    const errorDiv = document.querySelector('.error');
+    const errorText = document.querySelector('.error_text');
+    const exitoDiv = document.querySelector('.succes');
+    
+    // Mostrar el mensaje de error y hacer visible el div
+    errorText.textContent = mensaje;
+    errorDiv.style.display = 'flex';
+    exitoDiv.style.display = 'none';
+
+}

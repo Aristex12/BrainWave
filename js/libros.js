@@ -17,6 +17,7 @@ function buscarLibros() {
                 console.error('Error en la petición AJAX', error);
             }
         });
+        esconderMensajes();
     } else {
         // Mensaje de error si la cadena de búsqueda no es válida
         mostrarError('La búsqueda contiene caracteres no permitidos. Por favor, ingrese una búsqueda válida.');
@@ -39,5 +40,14 @@ function mostrarError(mensaje) {
     errorText.textContent = mensaje;
     errorDiv.style.display = 'flex';
     exitoDiv.style.display = 'none';
+
+}
+
+function esconderMensajes(){
+    const errorDiv = document.querySelector('.error');
+    const exitoDiv = document.querySelector('.succes');
+
+    errorDiv.style.display = "none";
+    exitoDiv.style.display = "none";
 
 }
