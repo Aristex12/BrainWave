@@ -487,7 +487,7 @@ button:hover {
 
 
 
-/* Todos los estilos del footer */
+/*Estilos del footer */
 
 .container_footer {
     width: 100%;
@@ -557,6 +557,15 @@ button:hover {
 .contact p {
     width: 100%;
     margin-bottom: 15px;
+}
+
+.inner_contacto {
+    width: 80%;
+    display: flex;
+    height: max-content;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
 }
 
 .fuerte {

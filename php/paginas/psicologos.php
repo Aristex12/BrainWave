@@ -168,15 +168,17 @@
             <div class="inner_footer_container">
                 <div class="social_media">
                     <h2>Social</h2>
-                    <i class="fab fa-instagram fa-2x"></i>
-                    <i class="fab fa-facebook fa-2x"></i>
-                    <i class="fab fa-linkedin fa-2x"></i>
+                    <a href=""><i class="fab fa-instagram fa-2x"></i></a>
+                    <a href=""><i class="fab fa-facebook fa-2x"></i></a>
+                    <a href=""><i class="fab fa-linkedin fa-2x"></i></a>
                 </div>
                 <div class="contact">
                     <h2>Contacto</h2>
-                    <p><span class="fuerte">Telefono: </span><a href="tel://+34 632707689">+34 632 707 689</a></p>
-                    <p><span class="fuerte">Email: </span><a href="mailto:aristex@hotmail.com">aristex@hotmail.com</a></p>
-                    <p><span class="fuerte">Direccion: </span><a href="https://maps.app.goo.gl/JZpVZw3dKvSbVxxa9"></a>C. Tajo, s/n, 28670 Villaviciosa de Odón, Madrid</p>
+                    <div class="inner_contacto">
+                        <p><span class="fuerte">Telefono: </span><a href="tel://+34 632707689">+34 632 707 689</a></p>
+                        <p><span class="fuerte">Email: </span><a href="mailto:aristex@hotmail.com">aristex@hotmail.com</a></p>
+                        <p><span class="fuerte">Direccion: </span><a href="https://maps.app.goo.gl/JZpVZw3dKvSbVxxa9"></a>C. Tajo, s/n, 28670 Villaviciosa de Odón, Madrid</p>
+                    </div>
                 </div>
                 <div class="links">
                     <h2>Links</h2>

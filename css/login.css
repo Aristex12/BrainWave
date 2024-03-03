@@ -260,9 +260,9 @@ input:focus{
   display: none;
 }
 
-/* Todos los estilos del footer */
+/*Estilos del footer */
 
-.container_footer{
+.container_footer {
   width: 100%;
   height: 350px;
   background-color: var(--negro);
@@ -271,7 +271,7 @@ input:focus{
   justify-content: center;
 }
 
-.inner_footer_container{
+.inner_footer_container {
   width: 90%;
   height: 90%;
   display: grid;
@@ -282,12 +282,12 @@ input:focus{
   place-items: center;
 }
 
-.inner_footer_container a{
+.inner_footer_container a {
   text-decoration: none;
   color: white;
 }
 
-.social_media{
+.social_media {
   width: 80%;
   height: 100%;
   display: flex;
@@ -297,19 +297,19 @@ input:focus{
   padding: 20px;
 }
 
-.social_media i{
+.social_media i {
   margin: 20px;
   height: fit-content;
 }
 
-.inner_footer_container h2{
+.inner_footer_container h2 {
   width: 100%;
   text-align: center;
   font-size: 30px;
   margin-bottom: 20px;
 }
 
-.links{
+.links {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
@@ -318,7 +318,7 @@ input:focus{
   height: 100%;
 }
 
-.contact{
+.contact {
   width: 80%;
   height: 100%;
   display: flex;
@@ -327,16 +327,25 @@ input:focus{
   padding: 20px;
 }
 
-.contact p{
+.contact p {
   width: 100%;
   margin-bottom: 15px;
 }
 
-.fuerte{
+.inner_contacto {
+  width: 80%;
+  display: flex;
+  height: max-content;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.fuerte {
   font-family: var(--bold);
 }
 
-.legal{
+.legal {
   width: 100%;
   grid-column: span 3;
   display: flex;
@@ -345,7 +354,7 @@ input:focus{
   flex-wrap: wrap;
 }
 
-.copy{
+.copy {
   display: flex;
   align-items: center;
   justify-content: left;
@@ -353,19 +362,19 @@ input:focus{
   font-family: var(--bold);
 }
 
-.disclaimer{
+.disclaimer {
   display: flex;
   align-items: center;
   justify-content: right;
   width: 50%;
 }
 
-.disclaimer a{
+.disclaimer a {
   margin-left: 20px;
   font-family: var(--bold);
 }
 
-.inner_link{
+.inner_link {
   width: 100%;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -374,7 +383,7 @@ input:focus{
   flex-basis: fit-content;
 }
 
-hr{
+hr {
   width: 100%;
   grid-column: span 3;
 }
