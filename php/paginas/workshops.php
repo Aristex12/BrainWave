@@ -84,10 +84,10 @@ function obtenerIdPaciente($username)
 
                     <ul>
                         <a href="servicios.php">
-                            <li>Servicios</li>
+                            <li style="color: #7E42FB;">Servicios</li>
                         </a>
                         <a href="recursos.php">
-                            <li style="color: #7E42FB;">Recursos</li>
+                            <li>Recursos</li>
                         </a>
                         <a href="nosotros.php">
                             <li>Nosotros</li>

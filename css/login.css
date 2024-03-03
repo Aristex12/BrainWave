@@ -21,9 +21,9 @@
   font-weight: normal;
 }
 
-/* Los estilos del nav */
+/* Estilos del nav */
 
-.container{
+.container {
   width: 100%;
   height: 100px;
   display: flex;
@@ -32,7 +32,7 @@
   background-color: var(--morado);
 }
 
-.inner_container{
+.inner_container {
   width: 80%;
   height: 40%;
   display: flex;
@@ -41,12 +41,12 @@
   border-radius: 15px;
 }
 
-.inner_container p{
+.inner_container p {
   font-family: var(--bold);
   font-size: 20px;
 }
 
-.nav_container{
+.nav_container {
   background-color: var(--negro);
   width: 100%;
   height: max-content;
@@ -58,29 +58,29 @@
   flex-direction: row;
 }
 
-.nav_inner{
+.nav_inner {
   width: 90%;
   display: grid;
-  grid-template-columns: 10% 80% 10%;
+  grid-template-columns: 5% 90% 5%;
   grid-template-rows: 1fr;
   flex-direction: row;
   align-items: center;
   justify-content: center;
 }
 
-.logo img{
+.logo img {
   width: 50px;
   height: 50px;
   border-radius: 50px;
 }
 
-.lista{
+.lista {
   display: flex;
   align-items: center;
   justify-content: right;
 }
 
-.lista ul{
+.lista ul {
   list-style: none;
   padding: 0;
   margin: 0;
@@ -91,36 +91,36 @@
   justify-content: center;
 }
 
-.lista a{
+.lista a {
   text-decoration: none;
   transition: all 300ms ease-in-out;
   color: white;
 }
 
-.lista ul a:hover{
+.lista ul a:hover {
   color: var(--morado);
 }
 
-.lista li{
-  margin-right: 10px;
+.lista li {
+  margin-right: 25px;
   font-family: var(--medium);
 }
 
-.perfil{
+.perfil {
   display: flex;
   justify-content: right;
 }
 
-#color_perfil{
+#color_perfil {
   color: white;
   transition: all 300ms ease-in-out;
 }
 
-#color_perfil:hover{
+#color_perfil:hover {
   color: var(--morado);
 }
 
-.div_contacto{
+.div_contacto {
   display: flex;
   align-items: center;
   justify-content: right;
@@ -131,14 +131,14 @@
 }
 
 .div_contacto:hover{
-  background-color: var(--morado);
-}
+    background-color: var(--morado);
+  }
 
-.div_contacto a{
+.div_contacto a {
   margin: 0;
 }
 
-.div_contacto li{
+.div_contacto li {
   color: black;
   margin: 0;
   font-family: var(--bold);

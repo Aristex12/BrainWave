@@ -21,7 +21,7 @@
   font-weight: normal;
 }
 
-/* Los estilos del nav */
+/* Estilos del nav */
 
 .container {
   width: 100%;
@@ -61,7 +61,7 @@
 .nav_inner {
   width: 90%;
   display: grid;
-  grid-template-columns: 10% 80% 10%;
+  grid-template-columns: 5% 90% 5%;
   grid-template-rows: 1fr;
   flex-direction: row;
   align-items: center;
@@ -102,7 +102,7 @@
 }
 
 .lista li {
-  margin-right: 10px;
+  margin-right: 25px;
   font-family: var(--medium);
 }
 
@@ -271,8 +271,8 @@ h2 {
   transition: all 300ms ease-in-out;
 }
 
-.boton_articulos:hover{
-    background-color: var(--morado);
+.boton_articulos:hover {
+  background-color: var(--morado);
 }
 
 .section3 {
@@ -342,6 +342,7 @@ h2 {
   background-repeat: no-repeat;
   border-radius: 25px 25px 0 0;
 }
+
 .psicologo_imagen2 {
   width: 100%;
   height: 100%;
@@ -351,6 +352,7 @@ h2 {
   background-repeat: no-repeat;
   border-radius: 25px 25px 0 0;
 }
+
 .psicologo_imagen3 {
   width: 100%;
   height: 100%;
@@ -361,56 +363,56 @@ h2 {
   border-radius: 25px 25px 0 0;
 }
 
-.psicologo_texto{
-    padding: 30px;
+.psicologo_texto {
+  padding: 30px;
 }
 
-.psicologo_texto h3{
-    width: 100%;
-    font-size: 25px;
-    font-family: var(--medium);
-    margin-bottom: 10px;
+.psicologo_texto h3 {
+  width: 100%;
+  font-size: 25px;
+  font-family: var(--medium);
+  margin-bottom: 10px;
 }
 
-.section4{
-    width: 100%;
-    height: 300px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: var(--tarjeta);
-    flex-wrap: wrap;
-    text-transform: uppercase;
-    color: white;
+.section4 {
+  width: 100%;
+  height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--tarjeta);
+  flex-wrap: wrap;
+  text-transform: uppercase;
+  color: white;
 }
 
-.inner_section4{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
+.inner_section4 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
-.inner_section4 h1{
-    width: 100%;
-    text-align: center;
-    margin-bottom: 10px;
+.inner_section4 h1 {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 10px;
 }
 
-.inner_section4 button{
-    background-color: var(--morado);
-    padding: 15px 25px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    font-family: var(--bold);
-    color: white;
-    transition: all 300ms ease-in-out;
+.inner_section4 button {
+  background-color: var(--morado);
+  padding: 15px 25px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  font-family: var(--bold);
+  color: white;
+  transition: all 300ms ease-in-out;
 }
 
-.inner_section4 button:hover{
-    background-color: var(--gris);
+.inner_section4 button:hover {
+  background-color: var(--gris);
 }
 
 /* Todos los estilos del footer */

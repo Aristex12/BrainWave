@@ -61,7 +61,7 @@
 .nav_inner {
   width: 90%;
   display: grid;
-  grid-template-columns: 10% 80% 10%;
+  grid-template-columns: 5% 90% 5%;
   grid-template-rows: 1fr;
   flex-direction: row;
   align-items: center;
@@ -102,7 +102,7 @@
 }
 
 .lista li {
-  margin-right: 10px;
+  margin-right: 25px;
   font-family: var(--medium);
 }
 
@@ -128,10 +128,6 @@
   border-radius: 10px;
   padding: 7px;
   transition: all 300ms ease-in-out;
-}
-
-.div_contacto:hover {
-  background-color: var(--morado);
 }
 
 .div_contacto:hover {
@@ -271,7 +267,7 @@ input:focus {
   font-size: 20px;
 }
 
-.workshop > * {
+.workshop>* {
   width: 100%;
   margin-top: 15px;
 }
@@ -305,16 +301,16 @@ input:focus {
   border-radius: 25px;
 }
 
-.modal-content h2{
+.modal-content h2 {
   font-size: 30px;
   font-family: var(--bold);
 }
 
-.modal-content p{
+.modal-content p {
   font-size: 22px;
 }
 
-.modal-content > *{
+.modal-content>* {
   margin-bottom: 20px;
 }
 
@@ -326,12 +322,12 @@ input:focus {
   cursor: pointer;
 }
 
-.boton_participar{
-    padding: 20px 10px;
-    font-family: var(--medium);
-    background-color: var(--morado);
-    font-size: 20px;
-    color: white;
+.boton_participar {
+  padding: 20px 10px;
+  font-family: var(--medium);
+  background-color: var(--morado);
+  font-size: 20px;
+  color: white;
 }
 
 /* Todos los estilos del footer */
