@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" crossorigin="anonymous">
     <link rel="stylesheet" href="../../css/libros.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="../../js/nav.js" defer></script>
     <script src="../../js/libros.js" defer></script>
     <title>BrainWave | Libros</title>
 </head>

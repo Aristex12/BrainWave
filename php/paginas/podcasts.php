@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" crossorigin="anonymous">
     <link rel="stylesheet" href="../../css/podcasts.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="../../js/nav.js" defer></script>
     <script src="../../js/podcasts.js" defer></script>
     <script src="https://www.youtube.com/iframe_api"></script>
     <title>BrainWave | Podcasts</title>
