@@ -166,11 +166,11 @@ if (mysqli_num_rows($res) <= 0) {
         ('Paula', 'Moure', 'paula.moure@gmail.com');";
 
     $insert_login = "INSERT INTO login (username, password) VALUES
-        ('usuario1', 'password1'),
-        ('usuario2', 'password2'),
-        ('usuario3', 'password3'),
-        ('usuario4', 'password4'),
-        ('usuario5', 'password5');";
+        ('usuario1', '" . password_hash('password1', PASSWORD_DEFAULT) . "'),
+        ('usuario2', '" . password_hash('password2', PASSWORD_DEFAULT) . "'),
+        ('usuario3', '" . password_hash('password3', PASSWORD_DEFAULT) . "'),
+        ('usuario4', '" . password_hash('password4', PASSWORD_DEFAULT) . "'),
+        ('usuario5', '" . password_hash('password5', PASSWORD_DEFAULT) . "')";
 
     $insert_pacientes_login = "INSERT INTO relacion_usuarios_login (id_paciente, id_login) VALUES
         (1, 1),
