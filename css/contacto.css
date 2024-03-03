@@ -247,6 +247,7 @@ input {
   background-color: var(--tarjeta);
   border: 0;
   font-size: 20px;
+  color: white;
 }
 
 textarea{
@@ -258,6 +259,7 @@ textarea{
   background-color: var(--tarjeta);
   border: 0;
   font-size: 20px;
+  color: white;
 }
 
 button {

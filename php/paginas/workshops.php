@@ -4,55 +4,6 @@ require_once '../bases_de_datos/tablas.php';
 
 session_start();
 
-// Verificar si el método de solicitud es POST y el botón de envío está presente
-if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["boton_enviar"])) {
-
-    // Verificar si hay una sesión iniciada
-    if (isset($_SESSION["usuario"])) {
-        // Obtener el id del evento desde el campo oculto
-        $id_evento = $_POST["id_escondido"];
-
-        // Obtener el id del paciente (supongamos que lo obtienes de alguna manera)
-        $id_paciente = obtenerIdPaciente($_SESSION["usuario"]);
-
-        // Insertar datos en la tabla relacion_workshops_usuarios
-        if ($id_evento && $id_paciente) {
-            $conexion = obtenerConexion();
-
-            $query_insert = "INSERT INTO relacion_workshops_usuarios (id_evento, id_paciente) VALUES ($id_evento, $id_paciente)";
-            mysqli_query($conexion, $query_insert);
-
-            cerrarConexion($conexion);
-
-            // Mensaje de éxito u otra lógica después de la inserción
-            echo "Inserción exitosa en la tabla relacion_workshops_usuarios";
-            session_write_close();
-        } else {
-            // Manejar el caso en que no se puedan obtener los ids necesarios
-            echo "Error: No se pudieron obtener los ids necesarios";
-        }
-    } else {
-        // Redirige a la página de inicio de sesión si no hay una sesión iniciada
-        header("Location: login.php");
-        exit(); // Asegúrate de salir después de la redirección
-    }
-}
-
-function obtenerIdPaciente($username)
-{
-    // Obtener el id del paciente según el nombre de usuario (implementa según tu lógica)
-    // Puedes realizar una consulta a la base de datos para obtener el id del paciente asociado al username
-    // Este es solo un ejemplo de cómo podría ser, ajusta según tu estructura de la base de datos
-    $conexion = obtenerConexion();
-    $query = "SELECT id_paciente FROM relacion_usuarios_login WHERE id_login = (SELECT id_login FROM login WHERE username = '$username')";
-    $result = mysqli_query($conexion, $query);
-
-    if ($row = mysqli_fetch_assoc($result)) {
-        return $row["id_paciente"];
-    }
-
-    return null; // Otra lógica si no se puede obtener el id del paciente
-}
 ?>
 
 
@@ -125,6 +76,14 @@ function obtenerIdPaciente($username)
         </div>
 
         <div class="section1">
+            <div class="error">
+                <p class="error_text"></p>
+                <i class="fa fa-exclamation-circle"></i>
+            </div>
+            <div class="succes">
+                <p class="succes_text"></p>
+                <i class="fas fa-check" style="color: black;"></i>
+            </div>
             <div class="inner_section">
                 <div class="buscador">
                     <form>
@@ -164,6 +123,7 @@ function obtenerIdPaciente($username)
 
                         echo '</div>';
                     }
+                    session_write_close();
                     ?>
 
 

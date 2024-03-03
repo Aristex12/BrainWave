@@ -1,17 +1,25 @@
 <?php
 require_once '../bases_de_datos/conecta.php';
-require_once '../bases_de_datos/tablas.php';
 
-// Verificar si el método de solicitud es POST y el campo 'id_evento' está presente
-if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["id_evento"])) {
+session_start();
 
+// Verificar si el método de solicitud es POST y el botón de envío está presente
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["boton_enviar"])) {
     // Verificar si hay una sesión iniciada
     if (isset($_SESSION["usuario"])) {
-        // Obtener el id del evento desde la solicitud
-        $id_evento = $_POST["id_evento"];
+        // Obtener el id del evento desde el campo oculto
+        $id_evento = $_POST["id_escondido"];
 
         // Obtener el id del paciente (supongamos que lo obtienes de alguna manera)
         $id_paciente = obtenerIdPaciente($_SESSION["usuario"]);
+
+        // Verificar si el usuario ya está inscrito en el evento
+        if (estaInscrito($id_evento, $id_paciente)) {
+            // Retornar un mensaje de error en formato JSON
+            $response = array("error" => true, "message" => "El usuario ya está inscrito en este evento");
+            echo json_encode($response);
+            exit();
+        }
 
         // Insertar datos en la tabla relacion_workshops_usuarios
         if ($id_evento && $id_paciente) {
@@ -23,18 +31,25 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["id_evento"])) {
             cerrarConexion($conexion);
 
             // Mensaje de éxito u otra lógica después de la inserción
-            echo "Inserción exitosa en la tabla relacion_workshops_usuarios";
+            $response = array("success" => true, "message" => "Te has inscrito correctamente en el evento!");
+            echo json_encode($response);
+            session_write_close();
         } else {
             // Manejar el caso en que no se puedan obtener los ids necesarios
-            echo "Error: No se pudieron obtener los ids necesarios";
+            $response = array("error" => true, "message" => "Error: No se pudieron obtener los ids necesarios");
+            echo json_encode($response);
         }
     } else {
-        // Manejar el caso en que no haya una sesión iniciada
-        echo "Error: No hay una sesión iniciada";
+        // Retornar un mensaje de error en formato JSON si el usuario no está logueado
+        $response = array("error" => true, "redirect" => "login.php");
+        echo json_encode($response);
+        exit();
     }
 } else {
-    // Manejar el caso en que la solicitud no sea POST o falte el campo 'id_evento'
-    echo "Error: Solicitud no válida";
+    // Retornar un mensaje de error en formato JSON si la solicitud no es POST o falta el botón de enviar
+    $response = array("error" => true, "message" => "Solicitud incorrecta");
+    echo json_encode($response);
+    exit();
 }
 
 function obtenerIdPaciente($username)
@@ -51,5 +66,15 @@ function obtenerIdPaciente($username)
     }
 
     return null; // Otra lógica si no se puede obtener el id del paciente
+}
+
+function estaInscrito($id_evento, $id_paciente)
+{
+    // Verificar si el usuario ya está inscrito en el evento
+    $conexion = obtenerConexion();
+    $query = "SELECT * FROM relacion_workshops_usuarios WHERE id_evento = $id_evento AND id_paciente = $id_paciente";
+    $result = mysqli_query($conexion, $query);
+
+    return mysqli_num_rows($result) > 0;
 }
 ?>

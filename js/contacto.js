@@ -77,6 +77,17 @@ function validarContacto() {
         mensaje_error_message.textContent = "";
     }
 
+    // Verificar que el checkbox esté marcado
+    var politicasCheckbox = document.getElementById("politicas");
+    if (!politicasCheckbox.checked) {
+        div_general.className = "clase_modificada";
+        general_error_message.textContent = "Debes aceptar las políticas de privacidad.";
+        flag = true;
+    } else {
+        div_general.className = "clase_original";
+        general_error_message.textContent = "";
+    }
+
     return flag; // Devuelve el estado de validez del formulario
 }
 

@@ -1,7 +1,81 @@
-document.addEventListener('DOMContentLoaded', function () {
-    var modal = document.getElementById('myModal');
-    var modalContent = document.getElementById('modalContent');
-    var closeBtn = document.getElementById('closeBtn');
+$(document).ready(function () {
+
+    function mostrarError(mensaje) {
+        const errorDiv = document.querySelector('.error');
+        const errorText = document.querySelector('.error_text');
+        const exitoDiv = document.querySelector('.succes');
+        
+        // Mostrar el mensaje de error y hacer visible el div
+        errorText.textContent = mensaje;
+        errorDiv.style.display = 'flex';
+        exitoDiv.style.display = 'none';
+
+    }
+
+    function mostrarExito(mensaje) {
+        const exitoDiv = document.querySelector('.succes');
+        const exitoText = document.querySelector('.succes_text');
+        const errorDiv = document.querySelector('.error');
+    
+        // Agregar el icono de "check" de Font Awesome
+        exitoText.innerHTML = mensaje;
+    
+        // Mostrar el mensaje de éxito y hacer visible el div
+        exitoDiv.style.display = 'flex';
+        errorDiv.style.display = 'none';
+
+        setTimeout(function () {
+            location.reload();
+        }, 2000);
+    }
+
+    function buscarWorkshops(busqueda) {
+        $.ajax({
+            url: '../procesamiento_datos/procesar_workshops.php',
+            type: 'GET',
+            data: { buscador: busqueda },
+            success: function (response) {
+                $('.workshop_container').html(response);
+            },
+            error: function (error) {
+                console.error('Error en la petición AJAX', error);
+            }
+        });
+    }
+
+    function enviarInscripcion(idEvento) {
+        $.ajax({
+            url: '../procesamiento_datos/procesar_workshops2.php',
+            type: 'POST',
+            dataType: 'json',
+            data: { id_escondido: idEvento, boton_enviar: true },
+            success: function (response) {
+                // Puedes manejar la respuesta según tus necesidades
+                console.log(response);
+                
+                if(response.success){
+                    mostrarExito(response.message);
+                }
+
+                if(response.error){
+                    mostrarError(response.message);
+                }
+
+                // Verificar si la respuesta contiene una redirección
+                if (response.redirect) {
+                    // Redirigir a la página de inicio de sesión
+                    window.location.href = response.redirect;
+                }
+            },
+            error: function (error) {
+                console.error('Error en la petición AJAX', error);
+            }
+        });
+    }
+
+    var modal = $('#myModal');
+    var modalContent = $('#modalContent');
+    var closeBtn = $('#closeBtn');
 
     // Utilizar la delegación de eventos en el contenedor .workshop_container
     $('.workshop_container').on('click', '.workshop', function () {
@@ -10,96 +84,77 @@ document.addEventListener('DOMContentLoaded', function () {
         var contenidoCompleto = $(this).find('.contenido-completo-oculto').text();
 
         // Mostrar datos en el modal
-        modalContent.innerHTML = '<h2>' + nombreEvento + '</h2>';
-        modalContent.innerHTML += '<p>' + contenidoCompleto + '</p>';
+        modalContent.html('<h2>' + nombreEvento + '</h2>');
+        modalContent.append('<p>' + contenidoCompleto + '</p>');
 
         // Mostrar detalles comunes a todos los eventos
-        modalContent.innerHTML += '<ul class="lista">';
-        modalContent.innerHTML += '<li><span class="fuerte">Fecha:</span> ' + $(this).data('fecha') + '</li>';
-        modalContent.innerHTML += '<li><span class="fuerte">Hora:</span> ' + $(this).data('hora') + '</li>';
-        modalContent.innerHTML += '<li><span class="fuerte">Lugar:</span> ' + $(this).data('lugar-nombre') + ', ' + $(this).data('lugar-direccion') + '</li>';
-        modalContent.innerHTML += '</ul>';
+        var detallesComunes = '<ul class="lista">';
+        detallesComunes += '<li><span class="fuerte">Fecha:</span> ' + $(this).data('fecha') + '</li>';
+        detallesComunes += '<li><span class="fuerte">Hora:</span> ' + $(this).data('hora') + '</li>';
+        detallesComunes += '<li><span class="fuerte">Lugar:</span> ' + $(this).data('lugar-nombre') + ', ' + $(this).data('lugar-direccion') + '</li>';
+        detallesComunes += '</ul>';
+        modalContent.append(detallesComunes);
 
         // Mostrar actividades
-        modalContent.innerHTML += '<h2>Lo que haremos</h2>';
-        modalContent.innerHTML += '<ul class="lista_actividades">';
-        modalContent.innerHTML += '<li><span class="fuerte">Sesiones Educativas:</span> Sumérgete en sesiones informativas dirigidas por expertos en TDAH, donde exploraremos la neurobiología, diagnóstico, tratamiento y manejo del TDAH en diferentes etapas de la vida.</li>';
-        modalContent.innerHTML += '<li><span class="fuerte">Talleres Interactivos:</span> Participa en talleres prácticos diseñados para enseñar estrategias y habilidades de afrontamiento tanto para aquellos que viven con TDAH como para sus familiares y cuidadores.</li>';
-        modalContent.innerHTML += '<li><span class="fuerte">Red de Apoyo:</span> Conecta con otras personas afectadas por el TDAH, comparte experiencias y construye una red de apoyo sólida y comprensiva.</li>';
-        modalContent.innerHTML += '<li><span class="fuerte">Recursos Útiles:</span> Descubre una variedad de recursos locales y nacionales disponibles para aquellos que enfrentan desafíos relacionados con el TDAH, incluyendo servicios de salud mental, grupos de apoyo y organizaciones comunitarias.</li>';
-        modalContent.innerHTML += '</ul>';
+        var actividades = '<h2>Lo que haremos</h2>';
+        actividades += '<ul class="lista_actividades">';
+        actividades += '<li><span class="fuerte">Sesiones Educativas:</span> Sumérgete en sesiones informativas dirigidas por expertos en TDAH, donde exploraremos la neurobiología, diagnóstico, tratamiento y manejo del TDAH en diferentes etapas de la vida.</li>';
+        actividades += '<li><span class="fuerte">Talleres Interactivos:</span> Participa en talleres prácticos diseñados para enseñar estrategias y habilidades de afrontamiento tanto para aquellos que viven con TDAH como para sus familiares y cuidadores.</li>';
+        actividades += '<li><span class="fuerte">Red de Apoyo:</span> Conecta con otras personas afectadas por el TDAH, comparte experiencias y construye una red de apoyo sólida y comprensiva.</li>';
+        actividades += '<li><span class="fuerte">Recursos Útiles:</span> Descubre una variedad de recursos locales y nacionales disponibles para aquellos que enfrentan desafíos relacionados con el TDAH, incluyendo servicios de salud mental, grupos de apoyo y organizaciones comunitarias.</li>';
+        actividades += '</ul>';
+        modalContent.append(actividades);
 
         // Mostrar razones para participar
-        modalContent.innerHTML += '<h2>Por qué deberías participar</h2>';
-        modalContent.innerHTML += '<p>"' + nombreEvento + '" no es solo un evento, es una oportunidad para aprender, conectarte y encontrar apoyo en un entorno inclusivo y comprensivo. Ya sea que estés buscando información educativa, estrategias prácticas o simplemente una comunidad que entienda tus desafíos, este evento está diseñado para brindarte las herramientas y el apoyo que necesitas.</p>';
-        modalContent.innerHTML += '<p>¡Únete a nosotros y juntos desafiaremos los límites del TDAH!</p>';
+        var razonesParticipar = '<h2>Por qué deberías participar</h2>';
+        razonesParticipar += '<p>"' + nombreEvento + '" no es solo un evento, es una oportunidad para aprender, conectarte y encontrar apoyo en un entorno inclusivo y comprensivo. Ya sea que estés buscando información educativa, estrategias prácticas o simplemente una comunidad que entienda tus desafíos, este evento está diseñado para brindarte las herramientas y el apoyo que necesitas.</p>';
+        razonesParticipar += '<p>¡Únete a nosotros y juntos desafiaremos los límites del TDAH!</p>';
+        modalContent.append(razonesParticipar);
 
-        modalContent.innerHTML += '<form method="post"><input type="hidden" name="id_escondido" value="' + $(this).data('id') + '"><button name="boton_enviar" type="submit" class="boton_participar">Participar</button></form>';
+        // Mostrar el formulario
+        var formulario = '<form id="inscripcionForm"><input type="hidden" name="id_escondido" value="' + $(this).data('id') + '"><button type="button" class="boton_participar">Participar</button></form>';
+        modalContent.append(formulario);
 
-        // Mostrar el modal
-        modal.style.display = 'flex';
+        // Mostrar el modal con animación
+        modal.fadeIn();
     });
 
-    // Utilizar addEventListener para el evento 'click' en el botón de cerrar
-    closeBtn.addEventListener('click', function () {
-        modal.style.display = 'none';
+    // Utilizar delegación de eventos para el botón de cerrar
+    closeBtn.on('click', function () {
+        // Ocultar el modal con animación
+        modal.fadeOut();
     });
 
     // Cerrar el modal al hacer clic fuera del contenido
-    window.addEventListener('click', function (event) {
-        if (event.target == modal) {
-            modal.style.display = 'none';
+    $(window).on('click', function (event) {
+        if (event.target == modal[0]) {
+            // Ocultar el modal con animación
+            modal.fadeOut();
         }
     });
 
     // Evento de entrada de texto en el buscador
     $('#buscador').on('input', function () {
         var busqueda = $(this).val();
-        buscarWorkshops(busqueda);
+        if (typeof buscarWorkshops === 'function') {
+            buscarWorkshops(busqueda);
+        }
     });
 
-    $('form').submit(function (e) {
-        e.preventDefault(); // Evita el envío predeterminado del formulario
-        var busqueda = $('#buscador').val();
-        buscarWorkshops(busqueda); // Llama a la función de búsqueda de talleres
-    });
+    // Evento click para el botón "Participar"
+    modalContent.on('click', '.boton_participar', function (e) {
+        e.preventDefault(); // Evita el comportamiento predeterminado del formulario
 
-    // $('.workshop_container').on('submit', 'form', function (e) {
-    //     e.preventDefault(); // Evitar el envío predeterminado del formulario
-    
-    //     // Obtener el formulario actual y el valor del campo oculto
-    //     var form = $(this);
-    //     var idEvento = form.find('input[name="id_escondido"]').val();
-    
-    //     // Realizar la petición AJAX
-    //     $.ajax({
-    //         url: '../procesamiento_datos/procesar_workshops2.php',
-    //         type: 'POST', // O el método que uses en tu backend
-    //         data: { id_evento: idEvento }, // Puedes enviar otros datos según tus necesidades
-    //         success: function (response) {
-    //             // Manejar la respuesta del servidor según sea necesario
-    //             console.log(response);
-    //         },
-    //         error: function (error) {
-    //             console.error('Error en la petición AJAX', error);
-    //         }
-    //     });
-    // });
+        // Captura el ID del evento
+        var idEvento = $('#modalContent').find('form input[name="id_escondido"]').val();
+
+        // Realiza la inscripción
+        enviarInscripcion(idEvento);
+
+        // Cierra el modal (o realiza las acciones necesarias)
+        modal.fadeOut();
+    });
 
 });
 
-// Función para realizar la búsqueda de talleres
-function buscarWorkshops(busqueda) {
-    $.ajax({
-        url: '../procesamiento_datos/procesar_workshops.php',
-        type: 'GET',
-        data: { buscador: busqueda },
-        success: function (response) {
-            $('.workshop_container').html(response);
-        },
-        error: function (error) {
-            console.error('Error en la petición AJAX', error);
-        }
-    });
-}
 
