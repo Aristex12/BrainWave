@@ -16,7 +16,6 @@ if (isset($datosJSON)) {
 
     session_start();
     $username_viejo = $_SESSION["usuario"];
-    session_write_close();
 
     // Obtener id_login directamente sin subconsulta
     $stmt = $conexion->prepare("SELECT id_login FROM login WHERE username = ?");
@@ -36,6 +35,8 @@ if (isset($datosJSON)) {
         $stmt2->bind_param("si", $username, $id_login);
 
         if ($stmt2->execute()) {
+            $_SESSION["usuario"] = $username;
+            session_write_close();
             echo json_encode(['success' => true, 'mensaje' => 'Información actualizada correctamente']);
             exit();
         } else {

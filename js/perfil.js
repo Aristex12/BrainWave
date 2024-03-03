@@ -101,4 +101,25 @@ document.addEventListener('DOMContentLoaded', function () {
             },
         });
     }
+
+    $(".cerrar_sesion").on("click", function () {
+        $.ajax({
+            type: "POST",
+            url: "../procesamiento_datos/procesar_cerrar_sesion.php",
+            dataType: "json",  // Asegúrate de indicar que esperas una respuesta JSON
+            success: function (response) {
+                if (response.success) {
+                    // Éxito, puedes hacer algo aquí si es necesario
+                    mostrarExito(response.mensaje);
+                } else {
+                    // Hubo un error
+                    mostrarError(response.mensaje);
+                }
+            },
+            error: function (xhr, status, error) {
+                console.error("Error al cerrar sesión:", error);
+            }
+        });
+    });
+
 });
