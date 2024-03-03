@@ -144,6 +144,27 @@
   font-family: var(--bold);
 }
 
+.error {
+  width: 100%;
+  height: max-content;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: red;
+  grid-column: span 2;
+  display: none;
+  margin: 30px;
+}
+
+.texto_error {
+  padding: 20px;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 15px;
+  color: black;
+  font-family: var(--bold);
+}
+
 /* Todos los estilos de la web */
 
 .titulo {
@@ -168,6 +189,7 @@
   justify-content: center;
   background-color: var(--negro);
   padding: 50px;
+  flex-wrap: wrap;
 }
 
 .inner_section{
@@ -185,7 +207,7 @@
 }
 
 .buscador{
-  width: 90%;
+  width: 100%;
   height: max-content;
   display: flex;
   align-items: center;
@@ -309,6 +331,27 @@ input:focus{
   background-color: var(--morado);
   cursor: pointer;
 }
+
+.error {
+  width: 100%;
+  height: max-content;
+  padding: 15px;
+  align-items: center;
+  justify-content: center;
+  background-color: red;
+  display: none;
+  margin-left: 0;
+  flex-direction: row;
+}
+
+.error_text {
+  width: 100%;
+  text-align: center;
+  color: black;
+  font-size: 20px;
+  font-family: var(--medium);
+}
+
 
 /* Todos los estilos del footer */
 

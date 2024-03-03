@@ -1,36 +1,4 @@
-$(document).ready(function () {
-    // Utiliza delegación de eventos para los elementos con clase 'podcast'
-    $('.podcast_container').on('click', '.podcast', function () {
-        var link = $(this).data('link');
-        var modal = $('#myModal');
-        var modalContent = $('#modalContent');
-        var closeBtn = $('#closeBtn');
-
-        // Mostrar iframe con el enlace del podcast
-        modalContent.html('<iframe width="100%" height="100%" src="' + link + '" frameborder="0" allowfullscreen></iframe>');
-
-        // Mostrar el modal
-        modal.css('display', 'flex');
-    });
-
-    // Utiliza delegación de eventos para el botón de cierre
-    $('#myModal').on('click', '#closeBtn', function () {
-        $('#myModal').css('display', 'none');
-        $('#modalContent').html(''); // Limpiar el contenido del iframe
-    });
-
-    // Utiliza delegación de eventos para cerrar el modal al hacer clic fuera del contenido
-    $(window).on('click', function (event) {
-        if (event.target == $('#myModal')[0]) {
-            $('#myModal').css('display', 'none');
-            $('#modalContent').html(''); // Limpiar el contenido del iframe
-        }
-    });
-
-    // Resto de tu código...
-});
-
-function buscarPodcasts() {
+function buscarLibros() {
     // Obtiene el valor del campo de búsqueda
     var busqueda = $('#buscador').val();
 
@@ -38,12 +6,12 @@ function buscarPodcasts() {
     if (/^[a-zA-Z0-9\s]*$/.test(busqueda)) {
         // Realiza la petición AJAX
         $.ajax({
-            url: '../procesamiento_datos/procesar_podcasts.php', // Reemplaza esto con la ruta correcta
+            url: '../procesamiento_datos/procesar_libros.php', // Reemplaza esto con la ruta correcta
             type: 'GET',
             data: { buscador: busqueda },
             success: function(response) {
                 // Actualiza el contenido de la sección de libros con la respuesta del servidor
-                $('.podcast_container').html(response);
+                $('.libros_container').html(response);
             },
             error: function(error) {
                 console.error('Error en la petición AJAX', error);

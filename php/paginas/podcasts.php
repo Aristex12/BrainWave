@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" crossorigin="anonymous">
     <link rel="stylesheet" href="../../css/podcasts.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="../../js/podcasts.js" defer></script>
     <script src="https://www.youtube.com/iframe_api"></script>
     <title>BrainWave | Podcasts</title>
@@ -76,10 +77,14 @@ require_once '../bases_de_datos/tablas.php';
         </div>
 
         <div class="section1">
+            <div class="error">
+                <p class="error_text"></p>
+                <i class="fa fa-exclamation-circle"></i>
+            </div>
             <div class="inner_section">
                 <div class="buscador">
-                    <form action="" method="GET">
-                        <input type="text" name="buscador" id="" placeholder="Buscar" value="<?php if (isset($_GET['buscador'])) echo $_GET['buscador']; ?>"><button type="submit">Enviar</button>
+                    <form>
+                        <input type="text" name="buscador" id="buscador" placeholder="Buscar" value="<?php if (isset($_GET['buscador'])) echo $_GET['buscador']; ?>" oninput="buscarPodcasts()">
                     </form>
                 </div>
                 <div class="podcast_container">
