@@ -58,6 +58,17 @@
   flex-direction: row;
 }
 
+.nav-fixed {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: max-content;
+  background-color: var(--negro); /* Mismo color que el fondo original */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.5s ease, box-shadow 0.3s ease;
+  z-index: 900;
+}
+
 .nav_inner {
   width: 90%;
   display: grid;
@@ -336,6 +347,12 @@ p {
   border-radius: 25px;
   color: white;
   padding: 25px;
+  transition: all 300ms ease-in-out;
+}
+
+.tarjeta_servicio:hover{
+  background-color: var(--gris);
+  cursor: pointer;
 }
 
 .titulo_section3 {

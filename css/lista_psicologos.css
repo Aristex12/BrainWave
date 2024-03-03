@@ -146,6 +146,37 @@
 
 /* Todos los estilos de la web */
 
+.volver{
+  position: absolute;
+  top: 50px;
+  left: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: max-content;
+  height: auto;
+  flex-direction: row;
+}
+
+.volver a{
+  width: max-content;
+  height: max-content;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  color: white;
+}
+
+.volver a p{
+  font-size: 20px;
+}
+
+.volver a > *{
+  margin-right: 15px;
+}
+
 .titulo {
   width: 100%;
   height: 300px;
@@ -168,6 +199,7 @@
   justify-content: center;
   background-color: var(--negro);
   padding: 50px;
+  position: relative;
 }
 
 .inner_section{

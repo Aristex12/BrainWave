@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../css/home.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="../../js/home.js" defer></script>
     <title>BrainWave | Home</title>
 </head>
@@ -128,7 +129,7 @@ session_start();
                         <p>FUTURO</p> <br>
                         <h3>Nuestra Visión</h3>
                         <p>En Brainwave, trabajamos para construir un mundo más comprensivo y solidario al cambiar la narrativa en torno al TDAH. Nos esforzamos por transformar este trastorno de un estigma a una fuerza única, creando conexiones más profundas, aumentando la conciencia social y brindando un apoyo efectivo para enfrentar el día a día.</p> <br>
-                        <button class="boton_tarjeta">Ver</button>
+                        <a href="nosotros.php"><button class="boton_tarjeta">Ver</button></a>
                     </div>
                 </div>
             </div>
@@ -141,22 +142,22 @@ session_start();
                 <h3>Todo lo que te ofrecemos</h3>
             </div>
             <div class="servicios">
-                <div class="tarjeta_servicio">
+                <div class="tarjeta_servicio" id="psicologo">
                     <img src="../../img/shape2.svg" alt="">
                     <h3>Psicólogos</h3>
                     <p>Destacamos por ofrecer productos/servicios de calidad inigualable. Desde el inicio hasta el final.</p>
                 </div>
-                <div class="tarjeta_servicio">
+                <div class="tarjeta_servicio" id="workshops">
                     <img src="../../img/shape3.svg" alt="">
                     <h3>Workshops</h3>
                     <p>Destacamos por ofrecer productos/servicios de calidad inigualable. Desde el inicio hasta el final.</p>
                 </div>
-                <div class="tarjeta_servicio">
+                <div class="tarjeta_servicio" id="articulos">
                     <img src="../../img/shape4.svg" alt="">
                     <h3>Artículos</h3>
                     <p>Destacamos por ofrecer productos/servicios de calidad inigualable. Desde el inicio hasta el final.</p>
                 </div>
-                <div class="tarjeta_servicio">
+                <div class="tarjeta_servicio" id="libros">
                     <img src="../../img/shape5.svg" alt="">
                     <h3>Libros</h3>
                     <p>Destacamos por ofrecer productos/servicios de calidad inigualable. Desde el inicio hasta el final.</p>
@@ -197,9 +198,9 @@ session_start();
                     </div>
                     <div class="card">
                         <i class="fas fa-circle fa-lg" style="color: #47DF9F;" id="circulo"></i>
-                        <h2>Precio</h2>
+                        <h2>Comunidad</h2>
                         <hr>
-                        <p>Priorizamos la calidad sin elevar los costos. Ofrecemos servicios de alta calidad a precios accesibles, garantizando un valor excepcional en cada experiencia.</p>
+                        <p>Destacamos por nuestra amplia comunidad en donde todos compartimos el mismo objetivo. Conoce a la gente de nuestra comunidad y disfrutad del contenido juntos.</p>
                     </div>
                     <div class="card">
                         <i class="fas fa-circle fa-lg" style="color: magenta;" id="circulo"></i>
