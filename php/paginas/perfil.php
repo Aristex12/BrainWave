@@ -305,9 +305,9 @@ session_start();
             <div class="inner_footer_container">
                 <div class="social_media">
                     <h2>Social</h2>
-                    <a href=""><i class="fab fa-instagram fa-2x"></i></a>
-                    <a href=""><i class="fab fa-facebook fa-2x"></i></a>
-                    <a href=""><i class="fab fa-linkedin fa-2x"></i></a>
+                    <a href="https://www.instagram.com/aristex12/?hl=es"><i class="fab fa-instagram fa-2x"></i></a>
+                    <a href="https://www.facebook.com/aris.kuhs/"><i class="fab fa-facebook fa-2x"></i></a>
+                    <a href="https://www.linkedin.com/in/arismaximiliankuhs"><i class="fab fa-linkedin fa-2x"></i></a>
                 </div>
                 <div class="contact">
                     <h2>Contacto</h2>
@@ -321,22 +321,22 @@ session_start();
                     <h2>Links</h2>
                     <div class="inner_link">
                         <div class="link_piece">
-                            <a href="">Servicios</a>
+                            <a href="servicios.php">Servicios</a>
                         </div>
                         <div class="link_piece">
-                            <a href="">Recursos</a>
+                            <a href="recursos.php">Recursos</a>
                         </div>
                         <div class="link_piece">
-                            <a href="">Nosotros</a>
+                            <a href="nosotros.php">Nosotros</a>
                         </div>
                         <div class="link_piece">
-                            <a href="">Contacto</a>
+                            <a href="contacto.php">Contacto</a>
                         </div>
                         <div class="link_piece">
-                            <a href="">Perfil</a>
+                            <a href="perfil.php">Perfil</a>
                         </div>
                         <div class="link_piece">
-                            <a href="">Workshops</a>
+                            <a href="workshops.php">Workshops</a>
                         </div>
                     </div>
                 </div>
@@ -346,9 +346,9 @@ session_start();
                         brainwave copyright - own elements
                     </div>
                     <div class="disclaimer">
-                        <a href="">Disclaimer</a>
-                        <a href="">Politica de privacidad</a>
-                        <a href="">Terminos de Uso</a>
+                        <a href="https://figueras.legal/condiciones-de-uso-de-la-web/">Disclaimer</a>
+                        <a href="https://figueras.legal/condiciones-de-uso-de-la-web/">Politica de privacidad</a>
+                        <a href="https://figueras.legal/condiciones-de-uso-de-la-web/">Terminos de Uso</a>
                     </div>
                 </div>
             </div>
