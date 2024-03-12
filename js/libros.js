@@ -34,20 +34,14 @@ $(document).ready(function () {
 function mostrarError(mensaje) {
     const errorDiv = document.querySelector('.error');
     const errorText = document.querySelector('.error_text');
-    const exitoDiv = document.querySelector('.succes');
     
     // Mostrar el mensaje de error y hacer visible el div
     errorText.textContent = mensaje;
     errorDiv.style.display = 'flex';
-    exitoDiv.style.display = 'none';
-
 }
 
 function esconderMensajes(){
     const errorDiv = document.querySelector('.error');
-    const exitoDiv = document.querySelector('.succes');
 
     errorDiv.style.display = "none";
-    exitoDiv.style.display = "none";
-
 }

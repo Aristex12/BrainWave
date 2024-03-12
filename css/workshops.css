@@ -276,6 +276,20 @@ input:focus {
   border-bottom: 2px solid var(--morado);
 }
 
+.lista2{
+  font-size: 20px;
+  margin-left: 20px;
+}
+
+.lista_actividades{
+  font-size: 20px;
+  margin-left: 20px;
+}
+
+.lista_actividades li{
+  margin-bottom: 10px;
+}
+
 .workshop_container {
   width: 90%;
   height: 90%;

@@ -107,7 +107,7 @@ $(document).ready(function () {
         modalContent.append('<p>' + contenidoCompleto + '</p>');
 
         // Mostrar detalles comunes a todos los eventos
-        var detallesComunes = '<ul class="lista">';
+        var detallesComunes = '<ul class="lista2">';
         detallesComunes += '<li><span class="fuerte">Fecha:</span> ' + $(this).data('fecha') + '</li>';
         detallesComunes += '<li><span class="fuerte">Hora:</span> ' + $(this).data('hora') + '</li>';
         detallesComunes += '<li><span class="fuerte">Lugar:</span> ' + $(this).data('lugar-nombre') + ', ' + $(this).data('lugar-direccion') + '</li>';
@@ -172,6 +172,12 @@ $(document).ready(function () {
 
         // Cierra el modal (o realiza las acciones necesarias)
         modal.fadeOut();
+    });
+
+    $(document).ready(function () {
+        $('form').submit(function (e) {
+            e.preventDefault(); // Evita el envío predeterminado del formulario
+        });
     });
 
 });

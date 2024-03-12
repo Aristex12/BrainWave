@@ -479,6 +479,7 @@ p{
 .contact p {
   width: fit-content;
   margin-bottom: 15px;
+  font-size: 16px;
 }
 
 .inner_contacto {
