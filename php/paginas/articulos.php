@@ -147,16 +147,16 @@ require_once '../bases_de_datos/tablas.php';
             <div class="inner_footer_container">
                 <div class="social_media">
                     <h2>Social</h2>
-                    <a href="https://www.instagram.com/aristex12/?hl=es"><i class="fab fa-instagram fa-2x"></i></a>
-                    <a href="https://www.facebook.com/aris.kuhs/"><i class="fab fa-facebook fa-2x"></i></a>
-                    <a href="https://www.linkedin.com/in/arismaximiliankuhs"><i class="fab fa-linkedin fa-2x"></i></a>
+                    <a href="https://www.instagram.com/aristex12/?hl=es" target="_blank"><i class="fab fa-instagram fa-2x"></i></a>
+                    <a href="https://www.facebook.com/aris.kuhs/" target="_blank"><i class="fab fa-facebook fa-2x"></i></a>
+                    <a href="https://www.linkedin.com/in/arismaximiliankuhs" target="_blank"><i class="fab fa-linkedin fa-2x"></i></a>
                 </div>
                 <div class="contact">
                     <h2>Contacto</h2>
                     <div class="inner_contacto">
                         <p><span class="fuerte">Telefono: </span><a href="tel://+34 632707689">+34 632 707 689</a></p>
                         <p><span class="fuerte">Email: </span><a href="mailto:aristex@hotmail.com">aristex@hotmail.com</a></p>
-                        <p><span class="fuerte">Direccion: </span><a href="https://maps.app.goo.gl/JZpVZw3dKvSbVxxa9"></a>C. Tajo, s/n, 28670 Villaviciosa de Odón, Madrid</p>
+                        <p><span class="fuerte">Direccion: </span><a href="https://maps.app.goo.gl/JZpVZw3dKvSbVxxa9" target="_blank">C. Tajo, s/n, 28670 Villaviciosa de Odón, Madrid</a></p>
                     </div>
                 </div>
                 <div class="links">
@@ -188,9 +188,9 @@ require_once '../bases_de_datos/tablas.php';
                         brainwave copyright - own elements
                     </div>
                     <div class="disclaimer">
-                        <a href="https://figueras.legal/condiciones-de-uso-de-la-web/">Disclaimer</a>
-                        <a href="https://figueras.legal/condiciones-de-uso-de-la-web/">Politica de privacidad</a>
-                        <a href="https://figueras.legal/condiciones-de-uso-de-la-web/">Terminos de Uso</a>
+                        <a href="https://figueras.legal/condiciones-de-uso-de-la-web/" target="_blank">Disclaimer</a>
+                        <a href="https://figueras.legal/condiciones-de-uso-de-la-web/" target="_blank">Politica de privacidad</a>
+                        <a href="https://figueras.legal/condiciones-de-uso-de-la-web/" target="_blank">Terminos de Uso</a>
                     </div>
                 </div>
             </div>
