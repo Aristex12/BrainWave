@@ -375,10 +375,6 @@ p {
   width: 100%;
   height: 900px;
   align-items: center;
-  /* background-image: url(../img/background4.svg);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover; */
   flex-wrap: wrap;
 }
 
@@ -386,7 +382,7 @@ p {
   width: 100%;
   height: 500px;
   background-image: url(../img/patrocinadores.svg);
-  background-position: center;
+  background-position: top;
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -397,10 +393,6 @@ p {
   display: flex;
   align-items: center;
   justify-content: center;
-  /* background-image: url(../img/background5.svg);
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat; */
 }
 
 .titulo_section4 {
