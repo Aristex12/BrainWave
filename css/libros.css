@@ -164,7 +164,7 @@
   background-color: red;
   grid-column: span 2;
   display: none;
-  margin: 30px;
+  margin-top: 50px;
 }
 
 .texto_error {

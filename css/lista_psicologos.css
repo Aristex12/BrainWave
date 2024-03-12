@@ -355,6 +355,7 @@ input:focus{
   display: none;
   margin-left: 0;
   flex-direction: row;
+  margin-top: 50px;
 }
 
 .error_text {
