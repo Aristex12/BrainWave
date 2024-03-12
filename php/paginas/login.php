@@ -76,6 +76,7 @@ require_once "../bases_de_datos/tablas.php";
             <form action="#" method="post" id="login_form">
                 <div class="error_general" id="error_general">
                     <p class="text_general"></p>
+                    <i class="fa fa-exclamation-circle icono"></i>
                 </div>
                 <input type="text" id="username" name="username" placeholder="Username"> <br>
 

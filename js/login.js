@@ -11,7 +11,7 @@ function login() {
 
   if (username == "" || password == "") {
     div_general.className = "clase_modificada";
-    general_error_message.textContent = "Todos los campos son obligatorios.";
+    general_error_message.textContent = "Todos los campos son obligatorios";
     flag = true;
     return flag;
   } else {
@@ -25,7 +25,7 @@ function login() {
     div_general.className = "clase_modificada";
     general_error_message.textContent =
       "Username o contraseña esta mal";
-    flag = true;
+    return flag = true;
   } else {
     div_general.className = "clase_original";
     general_error_message.textContent = "";
@@ -36,7 +36,7 @@ function login() {
     div_general.className = "clase_modificada";
     general_error_message.textContent =
       "Username o contraseña esta mal";
-    flag = true;
+    return flag = true;
   } else {
     div_general.className = "clase_original";
     general_error_message.textContent = "";

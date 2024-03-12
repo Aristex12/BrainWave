@@ -594,6 +594,7 @@ main {
 .inner_footer_container a {
   text-decoration: none;
   color: white;
+  cursor: default;
 }
 
 .social_media {
@@ -609,6 +610,12 @@ main {
 .social_media i {
   margin: 20px;
   height: fit-content;
+  transition: all 300ms ease-in-out;
+}
+
+.social_media i:hover{
+  color: #7E42FB;
+  cursor: pointer;
 }
 
 .inner_footer_container h2 {
@@ -616,6 +623,10 @@ main {
   text-align: center;
   font-size: 30px;
   margin-bottom: 20px;
+}
+
+.social_media h2{
+  margin-bottom: 0;
 }
 
 .links {
@@ -637,17 +648,25 @@ main {
 }
 
 .contact p {
-  width: 100%;
+  width: fit-content;
   margin-bottom: 15px;
 }
 
 .inner_contacto {
-  width: 80%;
+  width: 245px;
   display: flex;
   height: max-content;
   flex-wrap: wrap;
   align-items: center;
-  justify-content: center;
+}
+
+.inner_contacto a{
+  transition: all 300ms ease-in-out;
+}
+
+.inner_contacto a:hover{
+  cursor: pointer;
+  color: var(--morado);
 }
 
 .fuerte {
@@ -681,6 +700,12 @@ main {
 .disclaimer a {
   margin-left: 20px;
   font-family: var(--bold);
+  transition: all 300ms ease-in-out;
+}
+
+.disclaimer a:hover{
+  cursor: pointer;
+  color: var(--morado);
 }
 
 .inner_link {
@@ -690,6 +715,19 @@ main {
   grid-template-rows: repeat(3, 1fr);
   grid-gap: 20px;
   flex-basis: fit-content;
+}
+
+.links h2{
+  margin-bottom: 0;
+}
+
+.link_piece a{
+  transition: all 300ms ease-in-out;
+}
+
+.link_piece a:hover{
+  color: var(--morado);
+  cursor: pointer;
 }
 
 hr {

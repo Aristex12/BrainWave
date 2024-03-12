@@ -32,7 +32,7 @@ function registro() {
     password == ""
   ) {
     div_general.className = "clase_modificada";
-    general_error_message.textContent = "Todos los campos son obligatorios.";
+    general_error_message.textContent = "Todos los campos son obligatorios";
     return;
   } else {
     div_general.className = "clase_original";
@@ -44,7 +44,7 @@ function registro() {
   if (!usernameRegex.test(username)) {
     div_username.className = "clase_modificada";
     username_error_message.textContent =
-      "El nombre de usuario debe tener al menos 3 caracteres alfanuméricos.";
+      "El nombre de usuario debe tener al menos 3 caracteres alfanuméricos";
     flag = true;
   } else {
     div_username.className = "clase_original";
@@ -56,7 +56,7 @@ function registro() {
   if (!nameRegex.test(firstName)) {
     div_firstname.className = "clase_modificada";
     firstname_error_message.textContent =
-      "El nombre solo puede contener letras y debe tener al menos 2 letras.";
+      "El nombre solo puede contener letras y debe tener al menos 2 letras";
     flag = true;
   } else {
     div_firstname.className = "clase_original";
@@ -67,7 +67,7 @@ function registro() {
   if (!nameRegex.test(lastName)) {
     div_lastname.className = "clase_modificada";
     lastname_error_message.textContent =
-      "El apellido solo puede contener letras.";
+      "El apellido solo puede contener letras";
     flag = true;
   } else {
     div_lastname.className = "clase_original";
@@ -78,7 +78,7 @@ function registro() {
   var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   if (!emailRegex.test(email)) {
     div_email.className = "clase_modificada";
-    email_error_message.textContent = "El correo electrónico no es válido.";
+    email_error_message.textContent = "El correo electrónico no es válido";
     flag = true;
   } else {
     div_email.className = "clase_original";
@@ -97,8 +97,8 @@ function verificarFortaleza() {
 
   if (!passwordRegex.test(password)) {
     div_password.className = "clase_modificada";
-    password_error_message.textContent =
-      "La contraseña es debil! La contraseña debe tener al menos una letra en mayúscula, un número y ser de 7 caracteres como mínimo.";
+    password_error_message.innerHTML =
+      "La contraseña debe tener al menos: <br> <li>Una letra en mayúscula</li><li>Un número</li><li>Debe tener 7 caracteres</li>";
     flag = true;
   } else {
     div_password.className = "clase_modificada_correcto";

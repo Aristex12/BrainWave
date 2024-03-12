@@ -76,25 +76,30 @@ require_once "../bases_de_datos/tablas.php";
             <form action="#" method="post" id="register_form">
                 <div class="error_general" id="error_general">
                     <p class="text_general"></p>
+                    <i class="fa fa-exclamation-circle icono"></i>
                 </div>
                 <input type="text" id="username" name="username" placeholder="Username">
                 <div class="error_username" id="error_username">
                     <p class="text_username"></p>
+                    <i class="fa fa-exclamation-circle icono"></i>
                 </div> <br>
 
                 <input type="text" id="firstName" name="firstName" placeholder="Nombre">
                 <div class="error_firstname" id="error_firstname">
                     <p class="text_firstname"></p>
+                    <i class="fa fa-exclamation-circle icono"></i>
                 </div> <br>
 
                 <input type="text" id="lastName" name="lastName" placeholder="Apellidos">
                 <div class="error_lastname" id="error_lastname">
                     <p class="text_lastname"></p>
+                    <i class="fa fa-exclamation-circle icono"></i>
                 </div> <br>
 
                 <input type="email" id="email" name="email" placeholder="Email">
                 <div class="error_email" id="error_email">
                     <p class="text_email"></p>
+                    <i class="fa fa-exclamation-circle icono"></i>
                 </div> <br>
 
                 <input type="password" id="password" name="password" oninput="verificarFortaleza()" placeholder="Contraseña">
@@ -102,7 +107,7 @@ require_once "../bases_de_datos/tablas.php";
                     <i class="fas fa-eye-slash" id="eyeIcon"></i>
                 </span>
                 <div class="error_password" id="error_password">
-                    <p class="text_password"></p>
+                    <ul class="text_password"></ul>
                 </div>
 
                 <button type="submit" id="submit">Registrarse</button>
