@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="../../css/nosotros.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="../../js/nav.js" defer></script>
+    <script src="../../js/nosotros.js" defer></script>
     <title>BrainWave | Nosotros</title>
 </head>
 
@@ -128,7 +129,7 @@
             </div>
         </div>
 
-        <div class="section4">
+        <div class="section4" id="triggerSection4">
             <div class="inner_section4">
                 <div class="text_section4">
                     <i class="fas fa-circle fa-xs" style="margin-right: 10px;"></i>
@@ -137,19 +138,19 @@
                 </div>
                 <div class="datos">
                     <div class="dato">
-                        <h2>100K</h2>
+                        <h2 class="contador" data-valor="15000">0</h2>
                         <p>Usuarios</p>
                     </div>
                     <div class="dato">
-                        <h2>1K</h2>
+                        <h2 class="contador" data-valor="1000">0</h2>
                         <p>Psicólogos</p>
                     </div>
                     <div class="dato">
-                        <h2>55</h2>
+                        <h2 class="contador" data-valor="43">0</h2>
                         <p>Patrocinadores</p>
                     </div>
                     <div class="dato">
-                        <h2>12</h2>
+                        <h2 class="contador" data-valor="12">0</h2>
                         <p>Premios</p>
                     </div>
                 </div>
