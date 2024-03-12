@@ -25,15 +25,15 @@ function registro() {
   // Verifica que el nombre y apellido solo contengan letras y tengan al menos 2 caracteres
 
   if (
-    username == "" ||
-    firstName == "" ||
-    lastName == "" ||
-    email == "" ||
-    password == ""
+    username === "" ||
+    firstName === "" ||
+    lastName === "" ||
+    email === "" ||
+    password === ""
   ) {
     div_general.className = "clase_modificada";
     general_error_message.textContent = "Todos los campos son obligatorios";
-    return;
+    return true;
   } else {
     div_general.className = "clase_original";
     general_error_message.textContent = "";

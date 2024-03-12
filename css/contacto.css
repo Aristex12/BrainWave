@@ -317,6 +317,10 @@ button:hover {
   display: none;
 }
 
+.icono{
+  margin-left: 10px;
+}
+
 /*Estilos del footer */
 
 .container_footer {
