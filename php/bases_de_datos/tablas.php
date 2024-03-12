@@ -218,12 +218,12 @@ if (mysqli_num_rows($res) <= 0) {
         ('Laura García', 'laura.garcia@yahoo.com', '6677889900', 'Mensaje de prueba');";
 
     $insert_libros = "INSERT INTO libros (titulo, autor, link) VALUES
-        ('El Arte de la Guerra', 'Sun Tzu', 'https://www.amazon.es/Arte-guerra-Sun-Tzu/dp/198768973X/'),
-        ('Cien Años de Soledad', 'Gabriel García Márquez', 'https://www.amazon.es/Cien-a%C3%B1os-soledad-Gabriel-M%C3%A1rquez/dp/8420471838/'),
-        ('1984', 'George Orwell', 'https://www.amazon.es/1984-Edici%C3%B3n-Especial-Coleccionista-1984/dp/8423346814/'),
-        ('El Principito', 'Antoine de Saint-Exupéry', 'https://www.amazon.es/Principito-Cl%C3%A1sicos-juveniles-Antoine-Saint-Exup%C3%A9ry/dp/8426124243/'),
-        ('Don Quijote de la Mancha', 'Miguel de Cervantes', 'https://www.amazon.es/Quijote-Mancha-Miguel-Cervantes-Saavedra/dp/1548444514/'),
-        ('Pensar Rápido, Pensar Despacio', 'Daniel Kahneman', 'https://www.amazon.es/Pensar-r%C3%A1pido-despacio-Bolsillo-No-Ficci%C3%B3n/dp/8425219563/')";
+        ('El Arte de la Guerra', 'Sun Tzu', 'https://www.casadellibro.com/libro-el-arte-de-la-guerra/9788494709203/7925837'),
+        ('Cien Años de Soledad', 'Gabriel García Márquez', 'https://www.casadellibro.com/libro-cien-anos-de-soledad-edicion-aniversario/9788466373531/14452357'),
+        ('1984', 'George Orwell', 'https://www.casadellibro.com/libro-1984/9788499890944/2034881'),
+        ('El Principito', 'Antoine de Saint-Exupéry', 'https://www.casadellibro.com/libro-el-principito/9788478887194/795940'),
+        ('Don Quijote de la Mancha', 'Miguel de Cervantes', 'https://www.casadellibro.com/libro-don-quijote-de-la-mancha-clasicos-adaptados/9788431673963/978896'),
+        ('Pensar Rápido, Pensar Despacio', 'Daniel Kahneman', 'https://www.casadellibro.com/libro-pensar-rapido-pensar-despacio/9788483068618/1989599')";
 
     $insert_podcasts = "INSERT INTO podcasts (titulo, autor, link) VALUES
         ('The Joe Rogan Experience', 'Joe Rogan', 'https://www.youtube.com/embed/HuF7OPG61Ww?si=Go78xLHjVWCD7JJ5'),
