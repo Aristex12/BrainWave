@@ -89,19 +89,17 @@ function validarCita() {
         return false;
     }
 
-    const selectedDateOnly = new Date(selectedDate);
-    const currentDateOnly = new Date();
+    const selectedDateTime = new Date(`${selectedDate} ${selectedHour}`);
+    const currentDate = new Date();
 
-    // Establecer la hora, minutos, segundos y milisegundos de la fecha actual a cero
-    currentDateOnly.setHours(0, 0, 0, 0);
-
-    if (selectedDateOnly.getTime() < currentDateOnly.getTime()) {
-        mostrarError('La fecha seleccionada es en el pasado. Por favor, elige una fecha futura.');
+    if (selectedDateTime <= currentDate) {
+        mostrarError('La fecha y hora seleccionadas son anteriores o iguales a la fecha y hora actual. Por favor, elige una fecha y hora futura.');
         return false;
     }
 
     return true;
 }
+
 
 function enviarCita() {
     if (validarCita()) {

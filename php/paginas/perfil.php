@@ -104,7 +104,7 @@ session_start();
 
     <main>
         <div class="titulo">
-            <h1>Pedir Cita</h1>
+            <h1>Perfil</h1>
         </div>
         <div class="section1">
             <div class="titulo_section1">
@@ -226,8 +226,11 @@ session_start();
                             return date('d-m-Y', strtotime($fecha));
                         }
 
+                        $flag = false;
+
                         // Mostrar eventos de workshops
                         while ($rowWorkshop = mysqli_fetch_assoc($resultadoWorkshops)) {
+                            $flag = true;
                             $fechaEvento = $rowWorkshop['fecha_evento'];
                             $nombreEvento = $rowWorkshop['nombre_evento'];
                             $horaEvento = $rowWorkshop['hora_evento'];
@@ -257,6 +260,7 @@ session_start();
 
                         // Mostrar eventos de psicólogos
                         while ($rowPsicologo = mysqli_fetch_assoc($resultadoPsicologos)) {
+                            $flag = true;
                             $fechaPsicologo = $rowPsicologo['fecha'];
                             $nombrePsicologo = $rowPsicologo['nombre_psicologo'];
                             $horaPsicologo = $rowPsicologo['hora'];
@@ -283,11 +287,22 @@ session_start();
                                 echo '</div>';
                             }
                         }
+
+                        if (!$flag) {
+                            echo '<div class="evento">';
+                            echo "<div class='inner_evento'>";
+                            echo '<p class="texto">No tienes citas pendientes</p>';
+                            echo '</div>';
+                            echo "<div class='hora_container'>";
+                            echo '<p class="hora">Pide una cita!</p>';
+                            echo "</div>";
+                            echo '</div>';
+                        }
                     } else {
-                        echo "ID del usuario no encontrado";
+                        echo "No se ha encontrado el id_usuario";
                     }
                 } else {
-                    echo "Usuario no encontrado";
+                    echo "No se ha encontrado el id_usuario";
                 }
 
                 // Cerrar la conexión
