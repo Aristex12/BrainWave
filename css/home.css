@@ -791,6 +791,12 @@ hr {
 
 }
 
+@media screen and (max-width: 1200px){
+  .boton_registro{
+    padding: 10px 20px;
+  }
+}
+
 @media screen and (max-width: 900px){
 
   .inner_text_section1{
@@ -812,6 +818,11 @@ hr {
 
   .titulo h1{
     font-size: 6vw;
+  }
+
+  .boton_registro{
+    padding: 10px 15px;
+    font-size: 12px;
   }
 
 }
@@ -891,4 +902,32 @@ hr {
     padding: 100px 0px;
   }
 
+  .div_contacto{
+    display: none;
+  }
+
+  .lista li{
+    margin: 0px 5px;
+  }
+
+}
+
+@media screen and (max-width: 550px){
+  .legal{
+    font-size: 12px;
+  }
+}
+
+@media screen and (max-width: 500px){
+  .titulo p{
+    font-size: 1vh;
+  }
+
+  .titulo{
+    padding: 20px;
+  }
+
+  .titulo h1{
+    font-size: 11vw;
+  }
 }
