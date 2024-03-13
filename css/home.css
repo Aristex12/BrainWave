@@ -342,13 +342,17 @@ p {
   justify-content: center;
   align-items: center;
   width: 70%;
-  height: 60%;
+  height: max-content;
   flex-wrap: wrap;
   background-color: var(--tarjeta);
   border-radius: 25px;
   color: white;
   padding: 25px;
   transition: all 300ms ease-in-out;
+}
+
+.tarjeta_servicio > *{
+  margin-bottom: 20px;
 }
 
 .tarjeta_servicio:hover {
@@ -430,7 +434,7 @@ p {
 
 .card {
   width: 60%;
-  height: 70%;
+  height: max-content;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -440,6 +444,10 @@ p {
   color: white;
   padding: 40px;
   position: relative;
+}
+
+.card > *{
+  margin-bottom: 10px;
 }
 
 #circulo {
@@ -566,7 +574,7 @@ main {
 
 .container_footer {
   width: 100%;
-  height: 350px;
+  height: max-content;
   background-color: var(--negro);
   display: flex;
   align-items: center;
@@ -576,12 +584,12 @@ main {
 .inner_footer_container {
   width: 90%;
   height: 90%;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: 1fr 1fr;
+  display: flex;
   color: white;
   text-transform: uppercase;
-  place-items: center;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
 }
 
 .inner_footer_container a {
@@ -591,8 +599,8 @@ main {
 }
 
 .social_media {
-  width: 80%;
-  height: 100%;
+  width: fit-content;
+  height: 250px;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
@@ -627,13 +635,13 @@ main {
   justify-content: center;
   flex-wrap: wrap;
   padding: 20px;
-  width: 80%;
-  height: 100%;
+  width: fit-content;
+  height: 250px;
 }
 
 .contact {
-  width: 80%;
-  height: 100%;
+  width: fit-content;
+  height: 250px;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
@@ -669,11 +677,11 @@ main {
 
 .legal {
   width: 100%;
-  grid-column: span 3;
   display: flex;
   align-items: center;
   flex-direction: row;
   flex-wrap: wrap;
+  margin-bottom: 10px;
 }
 
 .copy {
@@ -726,5 +734,161 @@ main {
 
 hr {
   width: 100%;
-  grid-column: span 3;
+  margin-bottom: 10px;
+}
+
+/* Responsive de la web */
+
+@media screen and (max-width: 1415px){
+
+  .section_2 {
+    width: 100%;
+    height: max-content;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 100px 0px;
+  }
+
+  .servicios {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 1fr 1fr;
+    width: 90%;
+    height: 70%;
+    margin-top: 40px;
+    place-items: center;
+    grid-gap: 50px;
+  }
+
+  .section_4 {
+    width: 100%;
+    height: max-content;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 100px 0px;
+  }
+
+  .inner_section4 {
+    width: 95%;
+    height: 95%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .card{
+    width: fit-content;
+  }
+
+  .card_container{
+    grid-gap: 30px;
+  }
+
+  .tarjeta_servicio{
+    width: fit-content;
+  }
+
+}
+
+@media screen and (max-width: 900px){
+
+  .inner_text_section1{
+    height: fit-content;
+  }
+
+  .inner_text_section1 > *{
+    margin-bottom: 10px;
+  }
+
+  .nav_inner{
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .circulos_container{
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 1fr 1fr;
+  }
+
+  .titulo h1{
+    font-size: 6vw;
+  }
+
+}
+
+@media screen and (max-width: 815px){
+
+  .inner_text_section1{
+    height: fit-content;
+  }
+
+  .inner_text_section1 > *{
+    margin-bottom: 10px;
+  }
+
+  .nav_inner{
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .titulo h1{
+    font-size: 7vw;
+  }
+
+}
+
+@media screen and (max-width: 650px){
+
+  .copy{
+    width: 100%;
+    justify-content: center;
+  }
+
+  .disclaimer{
+    width: 100%;
+    justify-content: center;
+  }
+
+  .titulo h1{
+    font-size: 9vw;
+  }
+
+}
+
+@media screen and (max-width: 600px){
+
+  .servicios {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(4, 1fr);
+  }
+
+  .card_container{
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(4, 1fr);
+  }
+
+  .circulos_container{
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(3, 1fr);
+  }
+
+  .inner_section1{
+    height: fit-content;
+    display: flex;
+    justify-content: right;
+    align-items: center;
+  }
+
+  .image_section1{
+    display: none;
+  }
+
+  .text_section1{
+    width: 90%;
+  }
+
+  .section_1{
+    height: fit-content;
+    padding: 100px 0px;
+  }
+
 }
