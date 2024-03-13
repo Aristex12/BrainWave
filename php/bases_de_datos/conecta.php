@@ -4,7 +4,7 @@ function obtenerConexion()
 {
     $servername = "localhost";
     $username = "root";
-    $password = "root";
+    $password = "";
     $dbname = "BrainWave";
     $conexion = mysqli_connect($servername, $username, $password);
 

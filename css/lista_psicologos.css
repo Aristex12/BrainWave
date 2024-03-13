@@ -288,7 +288,7 @@ input:focus{
 }
 
 .psicologo{
-  width: 60%;
+  width: 80%;
   height: max-content;
   display: grid;
   grid-template-columns: 1fr;

@@ -23,10 +23,6 @@ $(document).ready(function () {
         // Mostrar el mensaje de éxito y hacer visible el div
         exitoDiv.style.display = 'flex';
         errorDiv.style.display = 'none';
-
-        setTimeout(function () {
-            location.reload();
-        }, 2000);
     }
 
     function esconderMensajes(){
