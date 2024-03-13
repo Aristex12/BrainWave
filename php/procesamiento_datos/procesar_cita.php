@@ -29,6 +29,21 @@ if (isset($datosJSON)) {
         // Usuario encontrado, obtener el ID
         $row = $resultGetUserId->fetch_assoc();
         $idPaciente = $row['id_paciente'];
+
+        // Verificar si el paciente ya tiene una cita programada con cualquiera de los psicólogos en el futuro
+        $sqlCitaProgramada = "SELECT * FROM relacion_psicologos_usuarios WHERE id_paciente = ? AND fecha >= CURDATE() AND hora >= CURTIME()";
+        $stmtCitaProgramada = $conexion->prepare($sqlCitaProgramada);
+        $stmtCitaProgramada->bind_param("i", $idPaciente);
+        $stmtCitaProgramada->execute();
+        $resultCitaProgramada = $stmtCitaProgramada->get_result();
+
+        if ($resultCitaProgramada->num_rows > 0) {
+            // El paciente ya tiene una cita programada en el futuro
+            echo json_encode(['error' => true, 'mensaje' => 'Ya tienes una cita programada']);
+            exit();
+        }
+
+        $stmtCitaProgramada->close();
     } else {
         // Usuario no encontrado
         echo json_encode(['error' => true, 'mensaje' => 'No se ha encontrado el usuario.']);
