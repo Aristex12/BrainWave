@@ -90,25 +90,30 @@ require_once "../bases_de_datos/tablas.php";
                     <form action="#" method="post" id="contacto_form">
                         <div class="error_general" id="error_general">
                             <p class="text_general"></p>
+                            <i class="fa fa-exclamation-circle icono"></i>
                         </div>
                         <input type="text" id="nombre" name="nombre" placeholder="Nombre y Apellidos">
                         <div class="error_nombre" id="error_nombre">
                             <p class="text_nombre"></p>
+                            <i class="fa fa-exclamation-circle icono"></i>
                         </div>
 
                         <input type="email" id="email" name="email" placeholder="Email">
                         <div class="error_email" id="error_email">
                             <p class="text_email"></p>
+                            <i class="fa fa-exclamation-circle icono"></i>
                         </div>
 
-                        <input type="number" id="telefono" name="telefono" placeholder="Teléfono">
+                        <input type="number" id="telefono" name="telefono" placeholder="Teléfono" maxlength="15">
                         <div class="error_telefono" id="error_telefono">
                             <p class="text_telefono"></p>
+                            <i class="fa fa-exclamation-circle icono"></i>
                         </div>
 
                         <textarea name="mensaje" id="mensaje" cols="30" rows="10" placeholder="Mensaje"></textarea>
                         <div class="error_mensaje" id="error_mensaje">
                             <p class="text_mensaje"></p>
+                            <i class="fa fa-exclamation-circle icono"></i>
                         </div>
 
                         <div class="pack_politicas">

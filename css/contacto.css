@@ -287,7 +287,7 @@ button:hover {
   background-color: #4d4d4d;
 }
 
-.error_username, .error_firstname, .error_lastname, .error_email, .error_password, .error_general{
+.error_nombre, .error_email, .error_telefono, .error_mensaje, .error_general{
   display: none;
 }
 

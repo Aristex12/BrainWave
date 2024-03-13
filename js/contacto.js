@@ -24,7 +24,7 @@ function validarContacto() {
     // Verificar que los campos no estén vacíos
     if (nombre == "" || email == "" || telefono == "" || mensaje == "") {
         div_general.className = "clase_modificada";
-        general_error_message.textContent = "Todos los campos son obligatorios.";
+        general_error_message.textContent = "Todos los campos son obligatorios";
         flag = true;
         return flag;
     } else {
@@ -37,7 +37,7 @@ function validarContacto() {
     if (!nameRegex.test(nombre)) {
         div_nombre.className = "clase_modificada";
         nombre_error_message.textContent =
-            "El nombre solo puede contener letras y debe tener al menos 2 letras.";
+            "El nombre solo puede contener letras y debe tener al menos 2 caracteres";
         flag = true;
     } else {
         div_nombre.className = "clase_original";
@@ -48,7 +48,7 @@ function validarContacto() {
     var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
         div_email.className = "clase_modificada";
-        email_error_message.textContent = "El correo electrónico no es válido.";
+        email_error_message.textContent = "El correo electrónico no es válido";
         flag = true;
     } else {
         div_email.className = "clase_original";
@@ -59,7 +59,7 @@ function validarContacto() {
     var telefonoRegex = /^\d{7,15}$/;
     if (!telefonoRegex.test(telefono)) {
         div_telefono.className = "clase_modificada";
-        telefono_error_message.textContent = "El número de teléfono no es válido.";
+        telefono_error_message.textContent = "El número de teléfono no es válido";
         flag = true;
     } else {
         div_telefono.className = "clase_original";
@@ -70,7 +70,7 @@ function validarContacto() {
     var mensajeRegex = /^[a-zA-Z0-9\s]+$/;
     if (!mensajeRegex.test(mensaje)) {
         div_mensaje.className = "clase_modificada";
-        mensaje_error_message.textContent = "El mensaje no puede contener caracteres especiales.";
+        mensaje_error_message.textContent = "El mensaje no puede contener caracteres especiales";
         flag = true;
     } else {
         div_mensaje.className = "clase_original";
@@ -81,7 +81,7 @@ function validarContacto() {
     var politicasCheckbox = document.getElementById("politicas");
     if (!politicasCheckbox.checked) {
         div_general.className = "clase_modificada";
-        general_error_message.textContent = "Debes aceptar las políticas de privacidad.";
+        general_error_message.textContent = "Debes aceptar las políticas de privacidad";
         flag = true;
     } else {
         div_general.className = "clase_original";
