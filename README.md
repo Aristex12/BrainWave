@@ -1,6 +1,6 @@
 # BrainWave
 
-[![Project Banner]([path_to_image](https://img.freepik.com/free-photo/liquid-purple-art-painting-abstract-colorful-background-with-color-splash-paints-modern-art_1258-97746.jpg))]([path_to_image](https://img.freepik.com/free-photo/liquid-purple-art-painting-abstract-colorful-background-with-color-splash-paints-modern-art_1258-97746.jpg))
+!([path_to_image](https://img.freepik.com/free-photo/liquid-purple-art-painting-abstract-colorful-background-with-color-splash-paints-modern-art_1258-97746.jpg))
 
 ## Description
 
