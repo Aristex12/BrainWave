@@ -1,36 +1,45 @@
-# Proyecto Integrador: Ayuda para TDAH
+# BrainWave
 
-![Banner del Proyecto](https://img.freepik.com/free-photo/liquid-purple-art-painting-abstract-colorful-background-with-color-splash-paints-modern-art_1258-97746.jpg)
+[![Project Banner]([path_to_image](https://img.freepik.com/free-photo/liquid-purple-art-painting-abstract-colorful-background-with-color-splash-paints-modern-art_1258-97746.jpg))]([path_to_image](https://img.freepik.com/free-photo/liquid-purple-art-painting-abstract-colorful-background-with-color-splash-paints-modern-art_1258-97746.jpg))
 
-## Descripción 🚀
+## Description
 
-Este proyecto integrador tiene como objetivo principal la creación de una plataforma web que brinde apoyo y recursos para el Trastorno por Déficit de Atención e Hiperactividad (TDAH). El proyecto se enfoca en desarrollar una base de datos robusta, estructurar el backend y crear un frontend atractivo para proporcionar información y herramientas útiles a quienes enfrentan el TDAH y a sus familias.
+BrainWave is a web platform designed to provide support and resources for individuals with Attention Deficit Hyperactivity Disorder (ADHD) and their families. The project focuses on developing a robust database, structuring the backend, and creating an attractive frontend to offer useful information and tools.
 
-## Participantes 👥
+## Technologies Used
 
-- **Aris Maximilian KUHS** 🚀
+- **Database:** MySQL
+- **Backend:** PHP
+- **Frontend:** Not specified (React, Vue, Angular, etc.)
 
-## Tecnologías Utilizadas 💻
+## Installation and Execution
 
-- Base de Datos: [MySQL](https://www.mysql.com/)
-- Backend: [Lenguaje de programación de tu elección (por ejemplo, PHP, Node.js, Python)](https://www.tiobe.com/tiobe-index/)
-- Frontend: [Framework de tu elección (por ejemplo, React, Vue, Angular)](https://www.npmtrends.com/angular-vs-react-vs-vue)
+1. Clone the repository:
+    ```bash
+    git clone https://github.com/Aristex12/BrainWave.git
+    ```
+2. Navigate to the project directory:
+    ```bash
+    cd BrainWave
+    ```
+3. Set up and run the backend and database.
+4. Set up and run the frontend.
+5. Explore the web platform for ADHD support.
 
-## Instalación y Ejecución 🛠️
+## Participants
 
-1. Clona el repositorio: `git clone https://github.com/tuusuario/tuproyecto.git`
-2. Accede al directorio del proyecto: `cd tuproyecto`
-3. Configura y ejecuta el backend y la base de datos.
-4. Configura y ejecuta el frontend.
-5. ¡Explora la plataforma web para la ayuda del TDAH!
+- Aris Maximilian KUHS
 
-## Contribuciones y Problemas 🤝
+## Contributions and Issues
 
-¡Contribuciones y reportes de problemas son bienvenidos! Si tienes ideas para mejorar el proyecto, por favor, abre un problema para discutirlo o envía un pull request.
+Contributions and issue reports are welcome! If you have ideas to improve the project, please open an issue to discuss it or submit a pull request.
 
-![Imagen de Error](pics.img/error.png)
+## License
 
-## Licencia 📄
+This project is licensed under the MIT License.
 
-Este proyecto está bajo la Licencia [MIT](LICENSE).
+## Contact
+
+For more information, you can contact the developers at [your-email@example.com](mailto:your-email@example.com).
+
 
