@@ -1,6 +1,6 @@
 # BrainWave
 
-!([path_to_image](https://img.freepik.com/free-photo/liquid-purple-art-painting-abstract-colorful-background-with-color-splash-paints-modern-art_1258-97746.jpg))
+![Project Banner](https://img.freepik.com/free-photo/liquid-purple-art-painting-abstract-colorful-background-with-color-splash-paints-modern-art_1258-97746.jpg)
 
 ## Description
 
@@ -10,7 +10,7 @@ BrainWave is a web platform designed to provide support and resources for indivi
 
 - **Database:** MySQL
 - **Backend:** PHP
-- **Frontend:** Not specified (React, Vue, Angular, etc.)
+- **Frontend:** HTML and CSS
 
 ## Installation and Execution
 
@@ -40,6 +40,6 @@ This project is licensed under the MIT License.
 
 ## Contact
 
-For more information, you can contact the developers at [your-email@example.com](mailto:your-email@example.com).
+For more information, you can contact the developers at [aristex@hotmail.com](mailto:aristex@hotmail.com).
 
 
